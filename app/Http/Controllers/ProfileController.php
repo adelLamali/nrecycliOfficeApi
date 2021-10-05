@@ -7,12 +7,21 @@ use App\Mail\Quotation;
 use Illuminate\Support\Facades\Mail;
 
 use App\Models\Transaction;
+use PDF;
 
 class ProfileController extends Controller
 {
     public function order(Request $request)
     {
         // return $request->order; 
+
+        // $pdf = App::make('dompdf.wrapper');
+        // Storage::disk('office')->delete('images/office/'. $office->image);
+
+        $pdf = PDF::loadView('pdf.devis');
+        $pdf->save(public_path('pdf/test.pdf'));
+        // return $pdf->stream();
+        return 'success';
 
         $user = auth()->user();
 
