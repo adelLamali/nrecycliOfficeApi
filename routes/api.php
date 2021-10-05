@@ -50,6 +50,17 @@ Route::post('office/order',[ProfileController::class, 'order'])->middleware('aut
 
 Route::post('office/signup',[SignupController::class, 'index']);
 
+Route::get('office/history',[ProfileController::class, 'history'])->middleware('auth:sanctum');
+
+// Route::get('officeHistory',function ()
+// {
+
+//     $user = auth()->user();
+
+//     return OfficeTransaction::where('office_id',$user->id)->latest()->paginate(3);
+
+// });
+
 // Route::get('offices','Office\OfficepackController@offices');
 
 // Route::post('officesTransaction','Office\OfficepackController@transaction');

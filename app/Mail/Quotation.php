@@ -11,16 +11,16 @@ class Quotation extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $request;
+    public $quotation;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($request)
+    public function __construct($quotation)
     {
-        $this->request = $request;
+        $this->quotation = $quotation;
     }
 
     /**

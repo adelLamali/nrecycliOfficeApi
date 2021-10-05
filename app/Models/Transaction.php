@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
+use DateTimeInterface;
 
 class Transaction extends Model
 {
@@ -25,5 +26,10 @@ class Transaction extends Model
     public function user()
     {
     	return $this->belongsTo(User::class);
+    }
+
+    protected function serializeDate(DateTimeInterface $date)
+    {
+        return $date->format("H:i - Y-m-d");
     }
 }
