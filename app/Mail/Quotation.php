@@ -31,6 +31,7 @@ class Quotation extends Mailable
     public function build()
     {
         return $this->from('lamali.adel2@gmail.com','Nrecycli')
+                    ->attach(storage_path().'/devis.pdf')
                     ->markdown('emails.quotation');
     }
 }
