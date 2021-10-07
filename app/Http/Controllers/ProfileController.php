@@ -38,14 +38,14 @@ class ProfileController extends Controller
             'phone_number'  => $user->phone_number,
         ]);
 
-        $items = [
+        $items = [ 
             (new InvoiceItem())->title(__('office.workshop'))->pricePerUnit(25000)->quantity($request->order['workshop']/10),
             (new InvoiceItem())->title(__('office.twostreams'))->pricePerUnit(23800)->quantity($request->order['twoFlowBins']),
             (new InvoiceItem())->title(__('office.threestreams'))->pricePerUnit(29700)->quantity($request->order['threeFlowBins']),
-            (new InvoiceItem())->title(__('office.threestreams'))->pricePerUnit(3000)->quantity($request->order['threeFlowBins']),
-            (new InvoiceItem())->title(__('office.threestreams'))->pricePerUnit(3000)->quantity($request->order['threeFlowBins']),
-            (new InvoiceItem())->title(__('office.threestreams'))->pricePerUnit(3000)->quantity($request->order['threeFlowBins']),
-            (new InvoiceItem())->title(__('office.threestreams'))->pricePerUnit(3000)->quantity($request->order['threeFlowBins']),
+            (new InvoiceItem())->title(__('office.threestreams'))->pricePerUnit(1850)->quantity($request->order['threeFlowBins']),
+            (new InvoiceItem())->title(__('office.threestreams'))->pricePerUnit(1850)->quantity($request->order['threeFlowBins']),
+            (new InvoiceItem())->title(__('office.threestreams'))->pricePerUnit(1850)->quantity($request->order['threeFlowBins']),
+            (new InvoiceItem())->title(__('office.threestreams'))->pricePerUnit(1850)->quantity($request->order['threeFlowBins']),
             (new InvoiceItem())->title(__('office.nrecyclibags'))->pricePerUnit(960)->quantity($request->order['bags']),
             (new InvoiceItem())->title(__('office.collectcontribution'))->pricePerUnit(56400)->quantity($request->order['collectContribution']),
             (new InvoiceItem())->title(__('office.nrecycliecotracker'))->pricePerUnit(0)->quantity($request->order['ecotracker']),
@@ -102,10 +102,10 @@ class ProfileController extends Controller
         $totalht =  $request->order['workshop'] / 10 * 25000 + 
                     $request->order['twoFlowBins'] * 23800 + 
                     $request->order['threeFlowBins'] * 29700 + 
-                    $request->order['cardboardBinPet'] * 3000 + 
-                    $request->order['cardboardBinRp'] * 3000 + 
-                    $request->order['cardboardBinAluminium'] * 3000 + 
-                    $request->order['cardboardBinPaper'] * 3000 + 
+                    $request->order['cardboardBinPet'] * 1850 + 
+                    $request->order['cardboardBinRp'] * 1850 + 
+                    $request->order['cardboardBinAluminium'] * 1850 + 
+                    $request->order['cardboardBinPaper'] * 1850 + 
                     $request->order['bags'] * 960 + 
                     $request->order['collectContribution'] * 56400 ;
         
