@@ -47,6 +47,7 @@ Route::group(['prefix' => 'auth/office', 'namespace' => 'Auth'], function () {
 });
 
 Route::post('office/order',[ProfileController::class, 'order'])->middleware('auth:sanctum');
+Route::get('office/order',[ProfileController::class, 'order']);
 
 Route::post('office/signup',[SignupController::class, 'index']);
 

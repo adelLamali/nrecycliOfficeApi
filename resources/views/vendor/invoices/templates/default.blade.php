@@ -6,7 +6,7 @@
 
         <link rel="stylesheet" href="{{ public_path('vendor/invoices/bootstrap.min.css') }}">
 
-        <style type="text/css" media="screen">
+        <!-- <style type="text/css" media="screen">
             * {
                 font-family: "DejaVu Sans";
             }
@@ -17,7 +17,7 @@
                 font-size: 10px;
                 margin: 36pt;
             }
-            body, h1, h2, h3, h4, h5, h6, table, th, tr, td, p, div {
+            body, h1, h2, h3, h4, h5, h6, th, tr, td, p, div {
                 line-height: 1.1;
             }
             .party-header {
@@ -28,7 +28,157 @@
                 font-size: 12px;
                 font-weight: 700;
             }
-        </style>
+            .table{
+                border:2px;
+                border-radius:10px;
+            }
+        </style> -->
+        <style type="text/css" media="screen">
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
+            margin: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-weight: 400;
+            line-height: 1.5;
+            color: #212529;
+            text-align: left;
+            background-color: #fff;
+            font-size: 10px;
+            margin: 36pt;
+        }
+
+        h4 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        strong {
+            font-weight: bolder;
+        }
+
+        img {
+            vertical-align: middle;
+            border-style: none;
+        }
+
+        table {
+            border-collapse: separate;
+            border-spacing:0;
+        }
+
+        th {
+            text-align: inherit;
+        }
+
+        h4, .h4 {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        h4, .h4 {
+            font-size: 1.5rem;
+        }
+
+        .table {
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .table-top {
+            width: 100%;
+            /* margin-bottom: 1rem; */
+            border: 1px solid #a7a7a7;
+            border-radius:16px 16px 0px 0px !important;
+            padding:16px !important;
+        }
+
+        .table-top th,
+        .table-top td {
+            padding: 0.75rem;
+            vertical-align: top;
+            border-top: 1px solid #dee2e6;
+        }
+
+        .table-bottom {
+            width: 100%;
+            margin-bottom: 1rem;
+            border: 1px solid #a7a7a7;
+            border-top:0px;
+            border-radius: 0px 0px 16px 16px !important;
+            padding:16px !important;
+        }
+
+        .table thead th {
+            vertical-align: bottom;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        .table tbody + tbody {
+            border-top: 2px solid #dee2e6;
+        }
+
+        .mt-5 {
+            margin-top: 3rem !important;
+        }
+
+        .pr-0,
+        .px-0 {
+            padding-right: 0 !important;
+        }
+
+        .pl-0,
+        .px-0 {
+            padding-left: 0 !important;
+        }
+
+        .text-right {
+            text-align: right !important;
+        }
+
+        .text-center {
+            text-align: center !important;
+        }
+
+        .text-primary {
+            color: #69bf37 !important;
+        }
+
+        .text-uppercase {
+            text-transform: uppercase !important;
+        }
+
+        * {
+            font-family: "DejaVu Sans";
+        }
+
+        body, h1, h2, h3, h4, h5, h6, table, th, tr, td, p, div {
+            line-height: 1.1;
+        }
+
+        .party-header {
+            font-size: 1.5rem;
+            font-weight: 400;
+        }
+
+        .total-amount {
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .border-0 {
+            border: none !important;
+        }
+    </style>
     </head>
 
     <body>
@@ -59,34 +209,34 @@
         
 
         {{-- Table --}}
-        <table class="table"  width="100%">
-            <thead width="100%">
-                <tr width="100%">
+        <table class="table-top">
+            <thead>
+                <tr>
                     <td scope="col" class="border-0 pl-0 text-left">{{ __('invoices::invoice.description') }}</td>
                     @if($invoice->hasItemUnits)
                         <td scope="col" class="text-left border-0">{{ __('invoices::invoice.units') }}</td>
                     @endif
-                    <td scope="col" class="text-left border-0">{{ __('invoices::invoice.quantity') }}</td>
-                    <td scope="col" class="text-left border-0">{{ __('invoices::invoice.price') }}</td>
+                    <td scope="col" class="text-center border-0">{{ __('invoices::invoice.quantity') }}</td>
+                    <td scope="col" class="text-center border-0">{{ __('invoices::invoice.price') }}</td>
                     @if($invoice->hasItemDiscount)
-                        <td scope="col" class="text-left border-0">{{ __('invoices::invoice.discount') }}</td>
+                        <td scope="col" class="text-right border-0">{{ __('invoices::invoice.discount') }}</td>
                     @endif
                     @if($invoice->hasItemTax)
-                        <td scope="col" class="text-left border-0">{{ __('invoices::invoice.tax') }}</td>
+                        <td scope="col" class="text-right border-0">{{ __('invoices::invoice.tax') }}</td>
                     @endif
                     <td scope="col" class="text-left border-0 pr-0">{{ __('invoices::invoice.sub_total') }}</td>
                 </tr>
             </thead>
-            <tbody width="100%">
+            <tbody>
                 {{-- Items --}}
                 @foreach($invoice->items as $item)
-                <tr width="100%">
-                    <td class="pl-0 text-right">{{ $item->title }}</td>
+                <tr>
+                    <td class="pl-0 text-left">{{ $item->title }}</td>
                     <!-- @if($invoice->hasItemUnits)
                         <td class=" text-right">{{ $item->units }}</td>
                     @endif -->
-                    <td class=" text-right">{{ $item->quantity }}</td>
-                    <td class=" text-right">
+                    <td class=" text-center">{{ $item->quantity }}</td>
+                    <td class=" text-center">
                         {{ $invoice->formatCurrency($item->price_per_unit) }}
                     </td>
                    
@@ -96,16 +246,22 @@
                         </td>
                     @endif -->
 
-                    <td class=" text-right pr-0">
+                    <td class="text-primary text-left pr-0">
                         {{ $invoice->formatCurrency($item->sub_total_price) }}
                     </td>
                 </tr>
                 @endforeach
+                
+            </tbody>
+        </table>
+
+        <table class="table-bottom">
+            <tbody>
                 {{-- Summary --}}
                 @if($invoice->hasItemOrInvoiceDiscount())
                     <tr>
                         <td colspan="{{ $invoice->table_columns - 2 }}" class="border-0"></td>
-                        <td class="text-right pl-0">{{ __('invoices::invoice.total_discount') }}</td>
+                        <td class="text-left pl-0">{{ __('invoices::invoice.total_discount') }}</td>
                         <td class="text-right pr-0">
                             {{ $invoice->formatCurrency($invoice->total_discount) }}
                         </td>
@@ -114,7 +270,7 @@
                 @if($invoice->taxable_amount)
                     <tr>
                         <td colspan="{{ $invoice->table_columns - 2 }}" class="border-0"></td>
-                        <td class="text-right pl-0">{{ __('invoices::invoice.taxable_amount') }}</td>
+                        <td class="text-left pl-0">{{ __('invoices::invoice.taxable_amount') }}</td>
                         <td class="text-right pr-0">
                             {{ $invoice->formatCurrency($invoice->taxable_amount) }}
                         </td>
@@ -123,7 +279,7 @@
                 @if($invoice->tax_rate)
                     <tr>
                         <td colspan="{{ $invoice->table_columns - 2 }}" class="border-0"></td>
-                        <td class="text-right pl-0">{{ __('invoices::invoice.tax_rate') }}</td>
+                        <td class="text-left pl-0">{{ __('invoices::invoice.tax_rate') }}</td>
                         <td class="text-right pr-0">
                             {{ $invoice->tax_rate }}%
                         </td>
@@ -132,7 +288,7 @@
                 @if($invoice->hasItemOrInvoiceTax())
                     <tr>
                         <td colspan="{{ $invoice->table_columns - 2 }}" class="border-0"></td>
-                        <td class="text-right pl-0">{{ __('invoices::invoice.total_taxes') }}</td>
+                        <td class="text-left pl-0">{{ __('invoices::invoice.total_taxes') }}</td>
                         <td class="text-right pr-0">
                             {{ $invoice->formatCurrency($invoice->total_taxes) }}
                         </td>
@@ -141,8 +297,8 @@
                 
                     <tr>
                         <td colspan="{{ $invoice->table_columns - 2 }}" class="border-0"></td>
-                        <td class="text-right pl-0">{{ __('invoices::invoice.total_amount') }}</td>
-                        <td class="text-right pr-0 total-amount">
+                        <td class="text-left pl-0 total-amount">{{ __('invoices::invoice.total_amount') }}</td>
+                        <td class="text-primary text-right pr-0 total-amount">
                             {{ $invoice->formatCurrency($invoice->total_amount) }}
                         </td>
                     </tr>
@@ -150,7 +306,7 @@
         </table>
 
         {{-- Seller - Buyer --}}
-        <table class="table" width="100%">
+        <table class="table">
             <!-- <thead>
                 <tr class="text-left">
                     <th class="border-0 pl-0 party-header" width="48.5%">
@@ -209,6 +365,12 @@
                             </p>
                         @endif
 
+                        @if($invoice->buyer->phone_number)
+                            <p class="buyer-phone">
+                                {{ __('invoices::invoice.phone') }}: {{ $invoice->buyer->phone_number }}
+                            </p>
+                        @endif
+
                         @if($invoice->buyer->address)
                             <p class="buyer-address">
                                 {{ __('invoices::invoice.address') }}: {{ $invoice->buyer->address }}
@@ -227,12 +389,6 @@
                             </p>
                         @endif -->
 
-                        @if($invoice->buyer->phone_number)
-                            <p class="buyer-phone">
-                                {{ __('invoices::invoice.phone') }}: {{ $invoice->buyer->phone_number }}
-                            </p>
-                        @endif
-
                         <!-- @foreach($invoice->buyer->custom_fields as $key => $value)
                             <p class="buyer-custom-field">
                                 {{ ucfirst($key) }}: {{ $value }}
@@ -243,7 +399,7 @@
             </tbody>
         </table>
 
-        @if($invoice->notes)
+        <!-- @if($invoice->notes)
             <p>
                 {{ trans('invoices::invoice.notes') }}: {!! $invoice->notes !!}
             </p>
@@ -254,7 +410,7 @@
         </p>
         <p>
             {{ trans('invoices::invoice.pay_until') }}: {{ $invoice->getPayUntilDate() }}
-        </p>
+        </p> -->
 
         <script type="text/php">
             if (isset($pdf) && $PAGE_COUNT > 1) {

@@ -1,7 +1,7 @@
 @component('mail::message')
 
 <strong>{{__('office.ordertitle')}}</strong>     
-
+ 
 @component('mail::table')
 |               | {{__('office.item')}}          | {{__('office.uniteprice')}}    | {{__('office.count')}}     | {{__('office.total')}}    |
 | ------------- |:------------- |:------------- | :-------- | :--------|

@@ -39,16 +39,16 @@ class ProfileController extends Controller
         ]);
 
         $items = [
-            (new InvoiceItem())->title(__('office.workshop'))->pricePerUnit(25.000)->quantity($request->order['workshop']/10),
-            (new InvoiceItem())->title('Service 2')->pricePerUnit(71.96)->quantity(2),
-            (new InvoiceItem())->title('Service 3')->pricePerUnit(4.56)->quantity(2),
-            (new InvoiceItem())->title('Service 4')->pricePerUnit(87.51)->quantity(2),
-            (new InvoiceItem())->title('Service 5')->pricePerUnit(71.09)->quantity(2),
-            (new InvoiceItem())->title('Service 6')->pricePerUnit(76.32)->quantity(2),
-            (new InvoiceItem())->title('Service 7')->pricePerUnit(58.18)->quantity(2),
-            (new InvoiceItem())->title('Service 8')->pricePerUnit(42.99)->quantity(2),
-            (new InvoiceItem())->title('Service 9')->pricePerUnit(33.24)->quantity(2),
-            (new InvoiceItem())->title('Service 11')->pricePerUnit(97.45)->quantity(2),
+            (new InvoiceItem())->title(__('office.workshop'))->pricePerUnit(25000)->quantity($request->order['workshop']/10),
+            (new InvoiceItem())->title(__('office.twostreams'))->pricePerUnit(23800)->quantity($request->order['twoFlowBins']),
+            (new InvoiceItem())->title(__('office.threestreams'))->pricePerUnit(29700)->quantity($request->order['threeFlowBins']),
+            (new InvoiceItem())->title(__('office.threestreams'))->pricePerUnit(3000)->quantity($request->order['threeFlowBins']),
+            (new InvoiceItem())->title(__('office.threestreams'))->pricePerUnit(3000)->quantity($request->order['threeFlowBins']),
+            (new InvoiceItem())->title(__('office.threestreams'))->pricePerUnit(3000)->quantity($request->order['threeFlowBins']),
+            (new InvoiceItem())->title(__('office.threestreams'))->pricePerUnit(3000)->quantity($request->order['threeFlowBins']),
+            (new InvoiceItem())->title(__('office.nrecyclibags'))->pricePerUnit(960)->quantity($request->order['bags']),
+            (new InvoiceItem())->title(__('office.collectcontribution'))->pricePerUnit(56400)->quantity($request->order['collectContribution']),
+            (new InvoiceItem())->title(__('office.nrecycliecotracker'))->pricePerUnit(0)->quantity($request->order['ecotracker']),
         ];
 
         // $notes = [
@@ -59,6 +59,7 @@ class ProfileController extends Controller
         // $notes = implode("<br>", $notes);
 
         $invoice = Invoice::make('SARL Nrecycli')
+            ->taxRate(19)
             ->series('BIG')
             // ability to include translated invoice status
             // in case it was paid
@@ -67,12 +68,12 @@ class ProfileController extends Controller
             ->serialNumberFormat('{SEQUENCE}/{SERIES}')
             // ->seller($client)
             ->buyer($customer)
-            ->date(now()->subWeeks(3))
-            ->dateFormat('m/d/Y')
-            ->payUntilDays(14)
-            ->currencySymbol('$')
-            ->currencyCode('USD')
-            ->currencyFormat('{SYMBOL}{VALUE}')
+            // ->date(now()->subWeeks(3))
+            // ->dateFormat('m/d/Y')
+            // ->payUntilDays(14)
+            ->currencySymbol('DZD')
+            ->currencyCode('DZD')
+            ->currencyFormat('{VALUE} {SYMBOL}')
             ->currencyThousandsSeparator('.')
             ->currencyDecimalPoint(',')
             // ->filename($client->name . ' ' . $customer->name)
@@ -89,7 +90,7 @@ class ProfileController extends Controller
         // return $link;
 
         // $invoice->download();
-        return $link;
+        return [ 'success' => $link ];
 
         $user = auth()->user();
 
