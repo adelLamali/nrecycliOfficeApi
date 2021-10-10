@@ -41,6 +41,13 @@ return [
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
+        
+        'office' => [
+            'driver' => 'local',
+            'root' => public_path('/'),  
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
 
         'pdf' => [
             'driver' => 'local',

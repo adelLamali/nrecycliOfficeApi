@@ -28,6 +28,10 @@
 		'nrecycliecotracker'=>"Nrecycli Eco-Tracker",
 		'collectcontribution'=>"Contrution for the Collection",
 		'twostreams'=>"Bacs de tri de bureaux à deux flux",
-		'threestreams'=>"Bacs de tri de bureaux à Troix flux",
+		'threestreams'=>"Bacs de tri de bureaux à Troix flux", 
+		'cardbordpet'=>"Nrecycli Fortified Cardboard Bin - P.E.T.",
+		'cardbordrp'=>"Nrecycli Fortified Cardboard Bin - P.E.H.D et P.P",
+		'cardbordpaper'=>"Nrecycli Fortified Cardboard Bin - Papier",
+		'cardbordaluminium'=>"Nrecycli Fortified Cardboard Bin - Aluminium",
 
 	];	

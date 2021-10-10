@@ -8,6 +8,8 @@ use App\Http\Controllers\Auth\SignoutController;
 use App\Http\Controllers\Auth\SigninController;
 use App\Http\Controllers\SignupController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SettingsController;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +24,14 @@ use App\Http\Controllers\ProfileController;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::middleware('auth:sanctum')->get('/users', function (Request $request) {
+    return User::with('profile')
+                ->with('recyclables')
+                ->with('transactions')
+                ->with('credentials')
+                ->get();
 });
 
 Route::middleware('auth:sanctum')->get('/profile', function (Request $request) {
@@ -47,11 +57,18 @@ Route::group(['prefix' => 'auth/office', 'namespace' => 'Auth'], function () {
 });
 
 Route::post('office/order',[ProfileController::class, 'order'])->middleware('auth:sanctum');
-Route::get('office/order',[ProfileController::class, 'order']);
+// Route::get('office/order',[ProfileController::class, 'order']);
 
 Route::post('office/signup',[SignupController::class, 'index']);
 
 Route::get('office/history',[ProfileController::class, 'history'])->middleware('auth:sanctum');
+
+Route::post('office/settings/edit/phone',[SettingsController::class ,'editphone']);
+Route::post('office/settings/edit/password',[SettingsController::class,'editpassword']);
+Route::post('office/settings/edit/name',[SettingsController::class,'editname']);
+Route::post('office/settings/edit/email',[SettingsController::class,'editemail']);
+Route::post('office/settings/edit/address',[SettingsController::class,'editaddress']);
+Route::post('office/settings/edit/image',[SettingsController::class,'editimage']);
 
 // Route::get('officeHistory',function ()
 // {
@@ -66,7 +83,7 @@ Route::get('office/history',[ProfileController::class, 'history'])->middleware('
 
 // Route::post('officesTransaction','Office\OfficepackController@transaction');
 
-// Route::post('addImage','Office\OfficepackController@addImage'); // add image
+// Route::post('addImage',[SettingsController::class,'editImage']); // add image
 
 // Route::get('officeHistory',function ()
 // {
@@ -85,12 +102,7 @@ Route::get('office/history',[ProfileController::class, 'history'])->middleware('
 
 // Route::post('forgotpassword/setpassword','Office\OfficepackController@setpassword');
 
-// Route::post('office/settings/edit/phone','Office\OfficepackController@editphone');
-// Route::post('office/settings/edit/password','Office\OfficepackController@editpassword');
-// Route::post('office/settings/edit/name','Office\OfficepackController@editname');
-// Route::post('office/settings/edit/email','Office\OfficepackController@editemail');
-// Route::post('office/settings/edit/address','Office\OfficepackController@editaddress');
-// Route::post('office/settings/edit/image','Office\OfficepackController@editimage');
+
 
 
 //office

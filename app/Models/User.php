@@ -11,6 +11,7 @@ use Laravel\Sanctum\HasApiTokens;
 use App\Models\Profile;
 use App\Models\Recyclables;
 use App\Models\Transaction;
+use App\Models\Credentials;
 
 class User extends Authenticatable
 {
@@ -59,6 +60,11 @@ class User extends Authenticatable
     public function transactions()
     {
         return $this->hasMany(Transaction::class);
+    }
+
+    public function credentials()
+    {
+        return $this->hasOne(Credentials::class);
     }
     
 }

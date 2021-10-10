@@ -42,10 +42,10 @@ class ProfileController extends Controller
             (new InvoiceItem())->title(__('office.workshop'))->pricePerUnit(25000)->quantity($request->order['workshop']/10),
             (new InvoiceItem())->title(__('office.twostreams'))->pricePerUnit(23800)->quantity($request->order['twoFlowBins']),
             (new InvoiceItem())->title(__('office.threestreams'))->pricePerUnit(29700)->quantity($request->order['threeFlowBins']),
-            (new InvoiceItem())->title(__('office.threestreams'))->pricePerUnit(1850)->quantity($request->order['threeFlowBins']),
-            (new InvoiceItem())->title(__('office.threestreams'))->pricePerUnit(1850)->quantity($request->order['threeFlowBins']),
-            (new InvoiceItem())->title(__('office.threestreams'))->pricePerUnit(1850)->quantity($request->order['threeFlowBins']),
-            (new InvoiceItem())->title(__('office.threestreams'))->pricePerUnit(1850)->quantity($request->order['threeFlowBins']),
+            (new InvoiceItem())->title(__('office.cardboardbinpet'))->pricePerUnit(1850)->quantity($request->order['cardboardBinPet']),
+            (new InvoiceItem())->title(__('office.cardboardbinrp'))->pricePerUnit(1850)->quantity($request->order['cardboardBinRp']),
+            (new InvoiceItem())->title(__('office.cardboardbinpaper'))->pricePerUnit(1850)->quantity($request->order['cardboardBinPaper']),
+            (new InvoiceItem())->title(__('office.cardboardbinaluminium'))->pricePerUnit(1850)->quantity($request->order['cardboardBinAluminium']),
             (new InvoiceItem())->title(__('office.nrecyclibags'))->pricePerUnit(960)->quantity($request->order['bags']),
             (new InvoiceItem())->title(__('office.collectcontribution'))->pricePerUnit(56400)->quantity($request->order['collectContribution']),
             (new InvoiceItem())->title(__('office.nrecycliecotracker'))->pricePerUnit(0)->quantity($request->order['ecotracker']),
@@ -82,19 +82,20 @@ class ProfileController extends Controller
             ->logo(public_path('images/icon.png'))
             // You can additionally save generated invoice to configured disk
             ->filename('devis')->save('storage');
+            // return $request->order; 
 
-        $link = $invoice->url();
+            $link = $invoice->url();
         // Then send email to party with link
 
         // And return invoice itself to browser or have a different view
         // return $link;
 
         // $invoice->download();
-        return [ 'success' => $link ];
+        // return [ 'success' => $link ];
 
-        $user = auth()->user();
+        // $user = auth()->user();
 
-        $profile = $user->profile;
+        // $profile = $user->profile;
 
         $profile->order = request('order');
         $profile->save();

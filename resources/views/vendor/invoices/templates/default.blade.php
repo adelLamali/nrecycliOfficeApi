@@ -219,7 +219,7 @@
                             <img src="{{ $invoice->getLogo() }}" alt="logo" height="128">
                         @endif
                     </td>
-                    <td class="text-left tabletop-header"><strong>Facture</strong></td>
+                    <td class="text-left tabletop-header"><strong>Devis</strong></td>
                     
                 </tr>
             </tbody>
@@ -269,30 +269,36 @@
                         @endif
                         
                         <p class="text-left"> Address: </p>
-                        <p class="text-left"> Registre: </p>
-                        <p class="text-left"> NIF: </p>
-                        <p class="text-left"> NIS: </p>
+                        <!-- <p class="text-left"> Registre: </p> -->
+                        <!-- <p class="text-left"> NIF: </p>
+                        <p class="text-left"> NIS: </p> -->
                         <p class="text-left"> Telephone: </p>
+                        <p class="text-left hidden"> Telephone: </p>
+                        <p class="text-left hidden"> Telephone: </p>
+                        <p class="text-left hidden"> Telephone: </p>
                         <p class="text-left hidden"> Telephone: </p>
                         <p class="text-left hidden"> Telephone: </p>
                         
                     </td>
 
                     <td class="border-0 pl-0" width="30%">
-                        <p class="text-primary text-left tabletop-header hidden"> Customer </p>
+                        <p class="text-primary text-left tabletop-header hidden"> Office name </p>
                         @if($invoice->buyer->address)
                             <p class="text-right">
                                 {{ $invoice->buyer->address }}
                             </p>
                         @endif
-                        <p class="text-right"> 5123 15 651 231 351</p>
+                        <!-- <p class="text-right"> 5123 15 651 231 351</p>
                         <p class="text-right"> 62 2 625 32 32 62 32 6 </p>
-                        <p class="text-right"> 23 233 2 321 21 0 21 0 </p>
+                        <p class="text-right"> 23 233 2 321 21 0 21 0 </p> -->
                         @if($invoice->buyer->phone_number)
                             <p class="text-right">
                                 {{ $invoice->buyer->phone_number }}
                             </p>
                         @endif
+                        <p class="text-right hidden"> 23 233 2 321 21 0 21 0 </p>
+                        <p class="text-right hidden"> 23 233 2 321 21 0 21 0 </p>
+                        <p class="text-right hidden"> 23 233 2 321 21 0 21 0 </p>
                         <p class="text-right hidden"> 23 233 2 321 21 0 21 0 </p>
                         <p class="text-right hidden"> 23 233 2 321 21 0 21 0 </p>
                     </td>

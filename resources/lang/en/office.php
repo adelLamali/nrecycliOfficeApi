@@ -26,7 +26,12 @@
 		'workshop'=>"Workshop: “The Art of Recycling”",
 		'nrecyclibags'=>"Nrecycli Bags",
 		'nrecycliecotracker'=>"Nrecycli Eco-Tracker",
-		'collectcontribution'=>"Contrution for the Collection",
+		'collectcontribution'=>"Contribution for the Collection",
 		'twostreams'=>"Two Stream Recycling Station",
     	'threestreams'=>"Three Stream Recycling Station",
+		'cardboardbinpet'=>" Nrecycli Fortified Cardboard Bin - P.E.T. ",
+		'cardboardbinrp'=>" Nrecycli Fortified Cardboard Bin - Rigid plastic ",
+		'cardboardbinpaper'=>" Nrecycli Fortified Cardboard Bin - Paper ",
+		'cardboardbinaluminium'=>" Nrecycli Fortified Cardboard Bin - Aluminium ",
+
 	];	
