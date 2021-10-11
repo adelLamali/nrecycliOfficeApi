@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\SigninController;
 use App\Http\Controllers\SignupController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\TransactionController;
 use App\Models\User;
 
 /*
@@ -24,6 +25,10 @@ use App\Models\User;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::middleware('auth:sanctum')->get('/userwith', function (Request $request) {
+    return ['data' => auth()->user()->credentials];
 });
 
 Route::middleware('auth:sanctum')->get('/users', function (Request $request) {
@@ -81,7 +86,7 @@ Route::post('office/settings/edit/image',[SettingsController::class,'editimage']
 
 // Route::get('offices','Office\OfficepackController@offices');
 
-// Route::post('officesTransaction','Office\OfficepackController@transaction');
+Route::post('office/transaction',[TransactionController::class,'transaction']);
 
 // Route::post('addImage',[SettingsController::class,'editImage']); // add image
 
