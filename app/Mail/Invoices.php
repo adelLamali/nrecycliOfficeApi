@@ -7,20 +7,19 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class Quotation extends Mailable
+class Invoices extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $quotation;
-
+    public $invoice;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($quotation)
+    public function __construct($invoice)
     {
-        $this->quotation = $quotation;
+        $this->invoice = $invoice;
     }
 
     /**
@@ -32,6 +31,6 @@ class Quotation extends Mailable
     {
         return $this->from('office@nrecycli.com','Nrecycli Office Pack')
                     ->attach(storage_path().'/devis.pdf')
-                    ->markdown('emails.quotation');
+                    ->markdown('emails.invoice');
     }
 }

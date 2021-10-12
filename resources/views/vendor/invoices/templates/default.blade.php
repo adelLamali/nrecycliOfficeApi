@@ -195,6 +195,7 @@
         .border-0 {
             border: none !important;
         }
+
         .border-l{
             border : 2px solid #e7e7e7;
             border-radius : 16px;
@@ -219,7 +220,27 @@
                             <img src="{{ $invoice->getLogo() }}" alt="logo" height="128">
                         @endif
                     </td>
-                    <td class="text-left tabletop-header"><strong>Devis</strong></td>
+                    <td class="text-left tabletop-header">
+                        @if($invoice->notes)
+                            <strong class="text-primary">
+                                {!! $invoice->notes !!}
+                            </strong>
+                        @endif
+                    </td>
+                    <td class="text-right">
+                        @if($invoice->buyer->date_now)
+                            <p class="text-right">
+                                Date: {{ $invoice->buyer->date_now }}
+                            </p>
+                        @endif
+                    </td>
+                    <td class="text-right">
+                        @if($invoice->buyer->number)
+                            <p>
+                                N: {!! $invoice->buyer->number !!}
+                            </p>
+                        @endif
+                    </td>
                     
                 </tr>
             </tbody>
@@ -273,10 +294,34 @@
                         <!-- <p class="text-left"> NIF: </p>
                         <p class="text-left"> NIS: </p> -->
                         <p class="text-left"> Telephone: </p>
-                        <p class="text-left hidden"> Telephone: </p>
-                        <p class="text-left hidden"> Telephone: </p>
-                        <p class="text-left hidden"> Telephone: </p>
-                        <p class="text-left hidden"> Telephone: </p>
+                        @if($invoice->buyer->registre)
+                            <p class="text-left">
+                                Registre:
+                            </p>
+                        @else
+                        <p class="text-left hidden"> 23 233 2 321 21 0 21 0 </p>
+                        @endif
+                        @if($invoice->buyer->nif)
+                            <p class="text-left">
+                                NIF:
+                            </p>
+                        @else
+                        <p class="text-left hidden"> 23 233 2 321 21 0 21 0 </p>
+                        @endif
+                        @if($invoice->buyer->nis)
+                            <p class="text-left">
+                                NIS:
+                            </p>
+                        @else
+                        <p class="text-left hidden"> 23 233 2 321 21 0 21 0 </p>
+                        @endif
+                        @if($invoice->buyer->rip)
+                            <p class="text-left">
+                                RIP:
+                            </p>
+                        @else
+                        <p class="text-left hidden"> 23 233 2 321 21 0 21 0 </p>
+                        @endif
                         <p class="text-left hidden"> Telephone: </p>
                         
                     </td>
@@ -296,10 +341,35 @@
                                 {{ $invoice->buyer->phone_number }}
                             </p>
                         @endif
+                        @if($invoice->buyer->registre)
+                            <p class="text-right">
+                                {{ $invoice->buyer->registre }}
+                            </p>
+                        @else
                         <p class="text-right hidden"> 23 233 2 321 21 0 21 0 </p>
+                        @endif
+
+                        @if($invoice->buyer->nif)
+                            <p class="text-right">
+                                {{ $invoice->buyer->nif }}
+                            </p>
+                        @else
                         <p class="text-right hidden"> 23 233 2 321 21 0 21 0 </p>
+                        @endif
+                        @if($invoice->buyer->nis)
+                            <p class="text-right">
+                                {{ $invoice->buyer->nis }}
+                            </p>
+                        @else
                         <p class="text-right hidden"> 23 233 2 321 21 0 21 0 </p>
+                        @endif
+                        @if($invoice->buyer->rip)
+                            <p class="text-right">
+                                {{ $invoice->buyer->rip }}
+                            </p>
+                        @else
                         <p class="text-right hidden"> 23 233 2 321 21 0 21 0 </p>
+                        @endif
                         <p class="text-right hidden"> 23 233 2 321 21 0 21 0 </p>
                     </td>
 

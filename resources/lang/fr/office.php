@@ -34,4 +34,17 @@
 		'cardbordpaper'=>"Nrecycli Fortified Cardboard Bin - Papier",
 		'cardbordaluminium'=>"Nrecycli Fortified Cardboard Bin - Aluminium",
 
+		'welcome' => "Bienvenue",
+		'first_msg' => "Nous saluons votre initiative de rejoindre la communauté de bureaux écoresponsables Nrecycli !",
+		'second_msg' => "Ensembles, nous sommes le changement. ",
+		'third_msg' => "Suite à votre demande de devis,",
+		'fourth_msg' => "concernant notre offre ",
+		'fifth_msg' => ", veuillez trouver ci-joint notre offre commerciale.",
+		'sixth_msg' => "Cette proposition tient compte des éléments de votre commande:",
+		'seventh_msg' => "Vous avez changé d'avis ?",
+		'eigth_msg' => "Personnalisez à nouveau votre commande",
+		'ninth_msg' => "Ce devis est valable jusqu’au (délais d’une semaine à compter de l’envois du devis).",
+		'tenth_msg' => "Pour finaliser votre commande veuillez retourner ce devis avec la mention « BON POUR ACCORD » suivie de votre signature et la date à l’adresse",
+		'eleventh_msg' => "Pour tout complément d’information notre équipe reste à votre disposition.",
+
 	];	

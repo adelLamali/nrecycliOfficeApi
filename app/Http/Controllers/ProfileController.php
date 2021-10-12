@@ -36,6 +36,8 @@ class ProfileController extends Controller
             'office_name'   => $profile->office_name,
             'address'       => $profile->address,
             'phone_number'  => $user->phone_number,
+            'date_now' => date("Y-m-d"),
+            'number' => $profile->id,
         ]);
 
         $items = [ 
@@ -57,6 +59,10 @@ class ProfileController extends Controller
         //     'in regards of delivery or something else',
         // ];
         // $notes = implode("<br>", $notes);
+        $notes = [
+            'Devis de Nrecycli Office Pack',
+        ];
+        $notes = implode("<br>", $notes);
 
         $invoice = Invoice::make('SARL Nrecycli')
             ->taxRate(19)
@@ -78,13 +84,13 @@ class ProfileController extends Controller
             ->currencyDecimalPoint(',')
             // ->filename($client->name . ' ' . $customer->name)
             ->addItems($items)
-            // ->notes($notes)
+            ->notes($notes)
             ->logo(public_path('images/icon.png'))
             // You can additionally save generated invoice to configured disk
             ->filename('devis')->save('storage');
             // return $request->order; 
 
-            $link = $invoice->url();
+            // $link = $invoice->url();
         // Then send email to party with link
 
         // And return invoice itself to browser or have a different view

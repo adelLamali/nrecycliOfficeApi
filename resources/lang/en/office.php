@@ -34,6 +34,16 @@
 		'cardboardbinpaper'=>" Nrecycli Fortified Cardboard Bin - Paper ",
 		'cardboardbinaluminium'=>" Nrecycli Fortified Cardboard Bin - Aluminium ",
 
-		''
-
+		'welcome' => "We wlecome you",
+		'first_msg' => "for your initiative to join the Nrecycli eco-responsible office community!",
+		'second_msg' => "Together we are the change. ",
+		'third_msg' => "Following your quote request,",
+		'fourth_msg' => "regarding our ",
+		'fifth_msg' => "offer, please find attached our commercial offer.",
+		'sixth_msg' => "This proposal takes into account the elements of your order:",
+		'seventh_msg' => "Vous avez changé d'avis ?",
+		'eigth_msg' => "Personnalisez à nouveau votre commande",
+		'ninth_msg' => "This quote is valid until (one week delay from the sending day).",
+		'tenth_msg' => "To finalize your order, please return this quote with the words « GOOD FOR AGREEMENT » followed by your signature and the date to ",
+		'eleventh_msg' => "For any further information or modification of your order, our team remains at your disposal.",
 	];	

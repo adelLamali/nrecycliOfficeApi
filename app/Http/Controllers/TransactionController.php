@@ -7,6 +7,14 @@ use App\Models\User;
 use App\Models\Recyclables;
 use App\Models\Transaction;
 use App\Models\Credentials;
+use App\Mail\Invoices;
+
+use LaravelDaily\Invoices\Invoice;
+use LaravelDaily\Invoices\Classes\Party;
+use LaravelDaily\Invoices\Classes\InvoiceItem;
+use Illuminate\Support\Facades\Mail;
+// use Carbon\Carbon;
+use Illuminate\Support\Carbon;
 
 
 class TransactionController extends Controller
@@ -97,6 +105,113 @@ class TransactionController extends Controller
         $profile->confirmed = true;
         $profile->delivered_at = NOW();
         $profile->save();
+
+    }
+
+    public function facture(Request $request)
+    {
+
+        $user = User::where('id',$request->id)->get()->first();
+
+        $profile = $user->profile;
+
+        $credentials = $user->credentials;
+
+        $customer = new Party([
+            'office_name'   => $profile->office_name,
+            'address'       => $profile->address,
+            'phone_number'  => $user->phone_number,
+            'registre' => $credentials->registre,
+            'nif' => $credentials->nif,
+            'nis' => $credentials->nis,
+            'rip' => $credentials->rip,
+            'date_now' => date("Y-m-d"),
+            'number' => $profile->id,
+        ]);
+
+        $items = [ 
+            (new InvoiceItem())->title(__('office.workshop'))->pricePerUnit(25000)->quantity($profile->order['workshop']/10),
+            (new InvoiceItem())->title(__('office.twostreams'))->pricePerUnit(23800)->quantity($profile->order['twoFlowBins']),
+            (new InvoiceItem())->title(__('office.threestreams'))->pricePerUnit(29700)->quantity($profile->order['threeFlowBins']),
+            (new InvoiceItem())->title(__('office.cardboardbinpet'))->pricePerUnit(1850)->quantity($profile->order['cardboardBinPet']),
+            (new InvoiceItem())->title(__('office.cardboardbinrp'))->pricePerUnit(1850)->quantity($profile->order['cardboardBinRp']),
+            (new InvoiceItem())->title(__('office.cardboardbinpaper'))->pricePerUnit(1850)->quantity($profile->order['cardboardBinPaper']),
+            (new InvoiceItem())->title(__('office.cardboardbinaluminium'))->pricePerUnit(1850)->quantity($profile->order['cardboardBinAluminium']),
+            (new InvoiceItem())->title(__('office.nrecyclibags'))->pricePerUnit(960)->quantity($profile->order['bags']),
+            (new InvoiceItem())->title(__('office.collectcontribution'))->pricePerUnit(56400)->quantity($profile->order['collectContribution']),
+            (new InvoiceItem())->title(__('office.nrecycliecotracker'))->pricePerUnit(0)->quantity($profile->order['ecotracker']),
+        ];
+
+        $notes = [
+            'Facture de Nrecycli Office Pack',
+        ];
+        $notes = implode("<br>", $notes);
+
+        $invoice = Invoice::make('SARL Nrecycli')
+            ->taxRate(19)
+            ->series('BIG')
+            // ability to include translated invoice status
+            // in case it was paid
+            // ->status(__('invoices::invoice.paid'))
+            ->sequence(667)
+            ->serialNumberFormat('{SEQUENCE}/{SERIES}')
+            // ->seller($client)
+            ->buyer($customer)
+            // ->date(now()->subWeeks(3))
+            ->dateFormat('m - d - Y')
+            // ->payUntilDays(14)
+            ->currencySymbol('DZD')
+            ->currencyCode('DZD')
+            ->currencyFormat('{VALUE} {SYMBOL}')
+            ->currencyThousandsSeparator('.')
+            ->currencyDecimalPoint(',')
+            // ->filename($client->name . ' ' . $customer->name)
+            ->addItems($items)
+            ->notes($notes)
+            ->logo(public_path('images/icon.png'))
+            // You can additionally save generated invoice to configured disk
+            ->filename('devis')->save('storage');
+            // return $request->order; 
+
+            // return $request->id;
+
+        // $profile->order = request('order');
+        // $profile->save();
+
+        $totalht =  $profile->order['workshop'] / 10 * 25000 + 
+                    $profile->order['twoFlowBins'] * 23800 + 
+                    $profile->order['threeFlowBins'] * 29700 + 
+                    $profile->order['cardboardBinPet'] * 1850 + 
+                    $profile->order['cardboardBinRp'] * 1850 + 
+                    $profile->order['cardboardBinAluminium'] * 1850 + 
+                    $profile->order['cardboardBinPaper'] * 1850 + 
+                    $profile->order['bags'] * 960 + 
+                    $profile->order['collectContribution'] * 56400 ;
+        
+        $tva =  ( $totalht * 19 ) / 100;
+
+        $total = $totalht + $tva;
+
+        // $quotation = [
+        //     'totalht' => $totalht,
+        //     'tva' => $tva,
+        //     'total' => $total,
+        //     'office_name' => $profile->office_name,
+        //     'address' => $profile->address,
+        //     'phone_number' => $user->phone_number,
+        //     'order' => $request->order,
+        // ];
+
+        $invoice=[
+            'total' => $total,
+            'to_be_delivered_at' => $user->credentials->to_be_delivered_at->format('Y-m-d'),
+            'number' => $profile->id,
+        ];
+
+        Mail::to($user->email)
+            ->send(new Invoices( $invoice ));
+
+        return [ 'success' => $profile ];
 
     }
 }

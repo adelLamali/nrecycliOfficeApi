@@ -1,8 +1,17 @@
 @component('mail::message')
 
+<div>
+  <p style="text-align:center;">
+    {{__('office.welcome')}} <strong style="color:#69bf37">{{ $quotation['office_name'] }}</strong> {{__('office.first_msg')}}<br>
+    {{__('office.second_msg')}}<br>
+    {{__('office.third_msg')}}{{__('office.fourth_msg')}} <strong style="color:#69bf37">« NRECYCLI OFFICE »</strong> {{__('office.fifth_msg')}}<br>
+    {{__('office.sixth_msg')}}
+  </p>
+</div>
 
-
-<strong style="text-align:center;">{{__('office.ordertitle')}}</strong>     
+<p style="text-align:center;">
+  <strong>{{__('office.ordertitle')}}</strong>
+</p>   
  
 @component('mail::table')
 | {{__('office.item')}}          | {{__('office.uniteprice')}}    | {{__('office.count')}}     | {{__('office.total')}}    |
@@ -30,10 +39,11 @@
 
 @component('mail::subcopy')
   <div >
-    <p style="text-align:center;">
-      {{ $quotation['office_name'] }}<br>
-      {{ $quotation['phone_number'] }}<br>
-      {{ $quotation['address'] }}
+    <p style="text-align:left;">
+      {{__('office.seventh_msg')}}<strong style="color:#41E2F8">{{__('office.eigth_msg')}}</strong><br>
+      {{__('office.ninth_msg')}}<br>
+      {{__('office.tenth_msg')}}<strong style="color:#41E2F8">office.nrecycli.com</strong><br>
+      {{__('office.eleventh_msg')}}
     </p>
   </div>
 @endcomponent
