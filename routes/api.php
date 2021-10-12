@@ -87,6 +87,8 @@ Route::post('office/settings/edit/image',[SettingsController::class,'editimage']
 // Route::get('offices','Office\OfficepackController@offices');
 
 Route::post('office/transaction',[TransactionController::class,'transaction']);
+Route::post('office/credentials',[TransactionController::class,'credentials']);
+Route::post('office/activate',[TransactionController::class,'activate']);
 
 // Route::post('addImage',[SettingsController::class,'editImage']); // add image
 

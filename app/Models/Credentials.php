@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
+use DateTimeInterface;
 
 class Credentials extends Model
 {
@@ -17,11 +18,21 @@ class Credentials extends Model
         'nis',
         'rip',
         'invoice_number',
-        'to_be_delevered_at',
+        'to_be_delivered_at',
+    ];
+
+    protected $casts = [
+        'to_be_delivered_at' => 'datetime',
     ];
 
     public function user()
     {
-    	return $this->belongsTo(User::class);
+    	return $this->belongsTo(User::class); 
     }
+
+    protected function serializeDate(DateTimeInterface $date)
+    {
+        return $date->format("Y-m-d");
+    }
+
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Recyclables;
 use App\Models\Transaction;
+use App\Models\Credentials;
 
 
 class TransactionController extends Controller
@@ -56,38 +57,46 @@ class TransactionController extends Controller
 
         };
 
-        // return $user->recyclables;
-        
-        // // $user_recyclables = Recyclables::firstOrCreate(['user_id'=> $request->office_id]);
-        
-        // $user_recyclables->pet = $user_recyclables->pet + $request->pet;
+        return ['success' => 'Transaction has been made Successfully!'];
 
-        // return [
-        //     'joha' => User::where('id',$request->office_id)->with('recyclables')
-        // ];
+    }
 
-        // $user->paper = $user->paper + $request->paper;
+    public function credentials(Request $request)
+    {
+        // return $request;
+        $data = $this->validate($request,[
+            'registre' => 'required',
+            'nif' => 'required',
+            'nis' => 'required',
+            'rip' => 'required',
+            'to_be_delivered_at' => 'required',
+        ]);
 
-        // $user->alluminium = $user->alluminium + $request->aluminium;
+        // $user = User::where('id',$request->office_id)->get()->first();
 
-        // $user->save();
-
-        // OfficeTransaction::create([
-        //     'office_id' => $request->office_id,
-        //     'office_company_name' => $request->office_company_name,
-        //     'office_phone_number' => $request->office_phone_number,
-        //     'office_email' => $request->office_email,
-        //     'plastic' => $request->plastic,
-        //     'paper' => $request->paper,
-        //     'aluminium' => $request->aluminium,
-        // ]);
-
-        // $history = OfficeTransaction::all();
-        // $offices = Office::all();
-
+        $credentials = Credentials::create([
+            'user_id' => $request->office_id,
+            'registre' => $request->registre ,
+            'nif' => $request->nif ,
+            'nis' => $request->nis ,
+            'rip' => $request->rip ,
+            'to_be_delivered_at' => $request->to_be_delivered_at ,
+        ]);
 
         return ['success' => 'Transaction has been made Successfully!'];
-        // return ['history' => $history,'offices' => $offices,'success' => 'Transaction has been made Successfully!'];
 
-        }
+    }
+
+    public function activate(Request $request)
+    {
+        $user = User::where('id',$request->id)->get()->first();
+
+        $profile = $user->profile;
+        
+        $profile->activated = true;
+        $profile->confirmed = true;
+        $profile->delivered_at = NOW();
+        $profile->save();
+
+    }
 }

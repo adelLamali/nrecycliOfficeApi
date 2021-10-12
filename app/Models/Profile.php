@@ -20,12 +20,14 @@ class Profile extends Model
         'pickup_date',
         'image',
         'contract',
-        'delivered_at'
+        'delivered_at',
     ];
 
     protected $casts = [
         'order' => 'array',
         'pickup_date' => 'array',
+        'delivered_at' => 'datetime',
+
     ];
 
     public function user()
