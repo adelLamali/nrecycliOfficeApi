@@ -40,11 +40,15 @@ Route::middleware('auth:sanctum')->get('/users', function (Request $request) {
 });
 
 Route::middleware('auth:sanctum')->get('/profile', function (Request $request) {
-    return $request->user()->profile;
+    return auth()->user()->profile;
 });
 
 Route::middleware('auth:sanctum')->get('/recyclables', function (Request $request) {
     return $request->user()->recyclables;
+});
+
+Route::middleware('auth:sanctum')->get('/credentials', function (Request $request) {
+    return $request->user()->credentials;
 });
 
 Route::get('/author', function (Request $request) {
@@ -106,7 +110,7 @@ Route::post('office/facture',[TransactionController::class,'facture']);
 
 // Route::post('resetpasswordwithtoken','Office\OfficepackController@resetpasswordwithtoken');
 
-// Route::post('forgotpassword/setemail','Office\OfficepackController@setemail');
+Route::post('forgotpassword/setemail','Office\OfficepackController@setemail');
 
 // Route::post('forgotpassword/setpassword','Office\OfficepackController@setpassword');
 

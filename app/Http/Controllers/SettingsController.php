@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image as Image;
 
+use App\models\User;
+
 class SettingsController extends Controller
 {
     public function editphone(Request $request)
@@ -102,8 +104,6 @@ class SettingsController extends Controller
 
     public function editimage(Request $request)
     {
-        // return ['test' => $request->image];
-    	// return $request->file('image')->store('images','public');
 
         $validate = $request->validate([
 
@@ -127,28 +127,27 @@ class SettingsController extends Controller
         Image::make($photo)->encode('webp')->fit(500,500)->save(public_path('images/office/' . $file_name));
 
         return ['success' => __('office.edit')];
-        
-        // $photo = $request->file('image');
-
-        
-        // $resize = Image::make($photo)->resize(500, 500);
-
-        // Storage::disk('office')->delete('images/office/office.webp');
-
-        // $new =  $photo->getClientOriginalExtension();
-
-        // $file_name = 'office.' . 'webp';
-
-        // $path = 'images/office';
-
-        // $resize->storeAs('images/office', $file_name , ['disk' => 'office']);
-        // $webp = (string) Image::make($photo)->encode('webp');
-        
-        // Image::make($photo)->encode('webp')->crop(500,500)->save(public_path('images/office/' . $file_name));
-
-        // $photo->move($path,$file_name);
-        
+                
     }
+
+    public function setemail(Request $request)
+        {
+            $validated = $request->validate([
+                'email' => 'required|exists:users',
+            ]);
+
+            $office = User::where('email',$request->email)->get()->first();
+
+            $token = Str::random(30);
+            $office->token = $token;
+
+            $office->save();
+
+            Mail::to($office->email)
+                ->send(new OfficeForgotPassword($office));
+
+            return ['success' => __('office.forgot_password_email')];
+        }
 
 
 }

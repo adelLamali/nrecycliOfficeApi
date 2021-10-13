@@ -155,4 +155,7 @@ return [
 
     'attributes' => [],
 
+    'password_signin' => 'Wrong Password.Try Again!',
+
+
 ];

@@ -65,6 +65,7 @@ class ProfileController extends Controller
         $notes = implode("<br>", $notes);
 
         $invoice = Invoice::make('SARL Nrecycli')
+            ->totalDiscount(1000)
             ->taxRate(19)
             ->series('BIG')
             // ability to include translated invoice status

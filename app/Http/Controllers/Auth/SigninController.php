@@ -27,8 +27,7 @@ class SigninController extends Controller
             return response()->json([
                 'errors' => [
                     'password' => [
-                        // __('validation.password_signin')
-                        'error'
+                        __('validation.password_signin')
                         ]
                     ]
                 ],422);
