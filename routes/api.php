@@ -10,6 +10,7 @@ use App\Http\Controllers\SignupController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\ServiceScheduleController;
 use App\Models\User;
 
 /*
@@ -51,6 +52,10 @@ Route::middleware('auth:sanctum')->get('/credentials', function (Request $reques
     return $request->user()->credentials;
 });
 
+Route::middleware('auth:sanctum')->get('/schedule', function (Request $request) {
+    return $request->user()->schedule;
+});
+
 Route::get('/author', function (Request $request) {
     return 'Adel Lamali';
 });
@@ -79,38 +84,21 @@ Route::post('office/settings/edit/email',[SettingsController::class,'editemail']
 Route::post('office/settings/edit/address',[SettingsController::class,'editaddress']);
 Route::post('office/settings/edit/image',[SettingsController::class,'editimage']);
 
-// Route::get('officeHistory',function ()
-// {
-
-//     $user = auth()->user();
-
-//     return OfficeTransaction::where('office_id',$user->id)->latest()->paginate(3);
-
-// });
-
-// Route::get('offices','Office\OfficepackController@offices');
-
 Route::post('office/transaction',[TransactionController::class,'transaction']);
 Route::post('office/credentials',[TransactionController::class,'credentials']);
 Route::post('office/activate',[TransactionController::class,'activate']);
 Route::post('office/facture',[TransactionController::class,'facture']);
 
-// Route::post('addImage',[SettingsController::class,'editImage']); // add image
+Route::post('forgotpassword/setemail',[SettingsController::class,'setemail']);
 
-// Route::get('officeHistory',function ()
-// {
-//     $currentUser = Auth::guard('office')->user();
-
-//     return OfficeTransaction::where('office_id',$currentUser->id)->latest()->paginate(3);
+Route::get('office/getCalledNow',[ServiceScheduleController::class,'getCalledNow']);
+Route::post('office/scheduleCall',[ServiceScheduleController::class,'scheduleCall']);
 
 
-// });
 
-// Route::post('activateOffice','Office\OfficepackController@activateandpasswordreset');
 
 // Route::post('resetpasswordwithtoken','Office\OfficepackController@resetpasswordwithtoken');
 
-Route::post('forgotpassword/setemail','Office\OfficepackController@setemail');
 
 // Route::post('forgotpassword/setpassword','Office\OfficepackController@setpassword');
 

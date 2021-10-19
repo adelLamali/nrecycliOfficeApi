@@ -12,6 +12,7 @@ use App\Models\Profile;
 use App\Models\Recyclables;
 use App\Models\Transaction;
 use App\Models\Credentials;
+use App\Models\ServiceSchedule;
 
 class User extends Authenticatable
 {
@@ -65,6 +66,11 @@ class User extends Authenticatable
     public function credentials()
     {
         return $this->hasOne(Credentials::class);
+    }
+
+    public function schedule() 
+    {
+        return $this->hasOne(ServiceSchedule::class);
     }
     
 }

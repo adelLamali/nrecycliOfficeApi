@@ -18,38 +18,29 @@ class ProfileController extends Controller
 {
     public function order(Request $request)
     {
-        // return $request->order; 
-
-        // $pdf = App::make('dompdf.wrapper');
-        // Storage::disk('office')->delete('images/office/'. $office->image);
-
-        // $pdf = PDF::loadView('pdf.devis');
-        // $pdf->save(public_path('pdf/test.pdf'));
-        // return $pdf->stream();
 
         $user = auth()->user();
 
         $profile = $user->profile;
 
-
         $customer = new Party([
             'office_name'   => $profile->office_name,
             'address'       => $profile->address,
             'phone_number'  => $user->phone_number,
-            'date_now' => date("Y-m-d"),
+            'date_now' => date("Y-m-d"), 
             'number' => $profile->id,
         ]);
 
         $items = [ 
-            (new InvoiceItem())->title(__('office.workshop'))->pricePerUnit(25000)->quantity($request->order['workshop']/10),
-            (new InvoiceItem())->title(__('office.twostreams'))->pricePerUnit(23800)->quantity($request->order['twoFlowBins']),
-            (new InvoiceItem())->title(__('office.threestreams'))->pricePerUnit(29700)->quantity($request->order['threeFlowBins']),
-            (new InvoiceItem())->title(__('office.cardboardbinpet'))->pricePerUnit(1850)->quantity($request->order['cardboardBinPet']),
-            (new InvoiceItem())->title(__('office.cardboardbinrp'))->pricePerUnit(1850)->quantity($request->order['cardboardBinRp']),
-            (new InvoiceItem())->title(__('office.cardboardbinpaper'))->pricePerUnit(1850)->quantity($request->order['cardboardBinPaper']),
-            (new InvoiceItem())->title(__('office.cardboardbinaluminium'))->pricePerUnit(1850)->quantity($request->order['cardboardBinAluminium']),
-            (new InvoiceItem())->title(__('office.nrecyclibags'))->pricePerUnit(960)->quantity($request->order['bags']),
-            (new InvoiceItem())->title(__('office.collectcontribution'))->pricePerUnit(56400)->quantity($request->order['collectContribution']),
+            // (new InvoiceItem())->title(__('office.workshop'))->pricePerUnit(25000)->quantity($request->order['workshop']/10),
+            // (new InvoiceItem())->title(__('office.twostreams'))->pricePerUnit(23800)->quantity($request->order['twoFlowBins']),
+            // (new InvoiceItem())->title(__('office.threestreams'))->pricePerUnit(29700)->quantity($request->order['threeFlowBins']),
+            // (new InvoiceItem())->title(__('office.cardboardbinpet'))->pricePerUnit(1850)->quantity($request->order['cardboardBinPet']),
+            // (new InvoiceItem())->title(__('office.cardboardbinrp'))->pricePerUnit(1850)->quantity($request->order['cardboardBinRp']),
+            // (new InvoiceItem())->title(__('office.cardboardbinpaper'))->pricePerUnit(1850)->quantity($request->order['cardboardBinPaper']),
+            // (new InvoiceItem())->title(__('office.cardboardbinaluminium'))->pricePerUnit(1850)->quantity($request->order['cardboardBinAluminium']),
+            // (new InvoiceItem())->title(__('office.nrecyclibags'))->pricePerUnit(960)->quantity($request->order['bags']),
+            // (new InvoiceItem())->title(__('office.collectcontribution'))->pricePerUnit(56400)->quantity($request->order['collectContribution']),
             (new InvoiceItem())->title(__('office.nrecycliecotracker'))->pricePerUnit(0)->quantity($request->order['ecotracker']),
         ];
 
@@ -98,7 +89,9 @@ class ProfileController extends Controller
         // return $link;
 
         // $invoice->download();
-        // return [ 'success' => $link ];
+        // $pdf = PDF::loadView('vendor.invoices.templates.default',$invoice);
+        // $pdf->download('invoice.pdf');
+        return [ 'success' => 'success' ];
 
         // $user = auth()->user();
 

@@ -13,17 +13,15 @@ class SigninController extends Controller
     public function index(Request $request)
     {
 
-        // return '$request';
-
         $this->validate($request, [
             'email' => 'required|email',
             'password' => 'required',
         ]);
 
-       
+       $remember = request('remember');
 
         // if (!$auth = Auth::attempt(['email' => request('email')], request('remember'))) {
-        if (!$auth = Auth::attempt(['email' => request('email'), 'password' => request('password')], request('remember'))) {
+        if (!$auth = Auth::attempt(['email' => request('email'), 'password' => request('password')], $remember )) {
             return response()->json([
                 'errors' => [
                     'password' => [

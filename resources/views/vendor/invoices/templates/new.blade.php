@@ -48,7 +48,7 @@
             text-align: left;
             background-color: #fff;
             font-size: 10px;
-            /* margin: 36pt; */
+            margin: 36pt;
         }
 
         h4 {
@@ -115,8 +115,6 @@
             border: 1px solid #a7a7a7;
             border-top:0px;
             border-radius: 0px 0px 16px 16px !important;
-            /* border-bottom-right-radius: 12610px 451px !important;
-            border-bottom-left-radius: 12610px 451px !important; */
             padding:16px !important;
         }
 
@@ -143,11 +141,6 @@
 
         .mb-15 {
             margin-bottom: 9rem !important;
-        }
-
-        .mx {
-            margin-left: 6rem !important;
-            margin-right: 6rem !important;
         }
 
         .pr-0,
@@ -213,33 +206,6 @@
         .hidden{
             visibility:hidden !important;
         }
-        .margin {
-            margin:36pt;
-        }
-        .header {
-
-            /* width:100%;
-            height:260px; */
-            background-color:#69bf37;
-            
-
-        }     
-        .header2 {
-            width : 100%;
-            height : 20px;
-            background : red;
-            border : 1px red;
-            border-bottom-right-radius:  250px 50px;
-            border-bottom-left-radius: 250px 50px; 
-            /* border-bottom-right-radius: 12610px 451px;
-            border-bottom-left-radius: 12610px 451px; */
-            /* border-radius : 0px 0px 16px 16px; */
-        }  
-        /* .align-center{
-            display: flex;
-            flex-wrap: wrap;
-            align-content: center;
-        } */
     </style>
     </head>
 
@@ -249,54 +215,19 @@
             <tbody>
                 <tr>
 
-                    <td width="10%"></td>
-
-                    <td class="" width="20%">
-                        <p class="text-primary text-left tabletop-header"> SARL NRECYCLI </p>
-                        <p class="text-left"> Address: </p>
-                        <p class="text-left"> Registre: </p>
-                        <p class="text-left"> NIF: </p>
-                        <p class="text-left"> NIS: </p>
-                        <p class="text-left"> RIP: </p>
-                        <p class="text-left"> Telephone: </p>
-                        <p class="text-left"> Site </p>
-                    </td>
-
-                    <td class="" width="25%">
-                        <p class="text-primary text-left tabletop-header hidden"> SARL NRECYCLI </p>
-                        <p class="text-right"> 116 boulevard krim belkacem Alger </p>
-                        <p class="text-right"> 5123 15 651 231 351</p>
-                        <p class="text-right"> 62 2 625 32 32 62 32 6 </p>
-                        <p class="text-right"> 23 233 2 321 21 0 21 0 </p>
-                        <p class="text-right"> BEA - 2312353412321 </p>
-                        <p class="text-right"> +213 770 739 740 </p>
-                        <p class="text-right"> office.nrecycli.com </p>
-                    </td>
-
-                    <td width="25%"></td>
-
-                    <td class="" width="20%">
-                        @if($invoice->buyer->date_now)
-                            <p class="text-center">
-                                Date: {{ $invoice->buyer->date_now }}
-                            </p>
-                        @endif
+                    <td class="border-0 pl-0">
                         @if($invoice->logo)
                             <img src="{{ $invoice->getLogo() }}" alt="logo" height="128">
                         @endif
                     </td>
-
-                    <!-- <td class="border-0 pl-0">
-                       
-                        <img 
-                            src="{{ $invoice->logo('https://via.placeholder.com/150')->getLogo() }}"
-                            alt="dd"
-                            height="128" 
-                        />
-                        
-                    </td> -->
-                    
-                    <!-- <td class="text-right">
+                    <td class="text-left tabletop-header">
+                        @if($invoice->notes)
+                            <strong class="text-primary">
+                                {!! $invoice->notes !!}
+                            </strong>
+                        @endif
+                    </td>
+                    <td class="text-right">
                         @if($invoice->buyer->date_now)
                             <p class="text-right">
                                 Date: {{ $invoice->buyer->date_now }}
@@ -309,13 +240,13 @@
                                 N: {!! $invoice->buyer->number !!}
                             </p>
                         @endif
-                    </td> -->
+                    </td>
                     
                 </tr>
             </tbody>
         </table>
-
-        <table class="mx" width="100%">
+        
+        <table class=" mb-5" width="100%">
             <tbody>
                 <tr>
                     <!-- <td class="border-0 pl-0" width="50%">
@@ -324,12 +255,33 @@
                     @endif
                     </td> -->
 
-
-                    <td class="" width="50%">
-                        
+                    <td class="border-0 pl-0" width="19%">
+                        <p class="text-primary text-left tabletop-header"> SARL NRECYCLI </p>
+                        <p class="text-left"> Address: </p>
+                        <p class="text-left"> Registre: </p>
+                        <p class="text-left"> NIF: </p>
+                        <p class="text-left"> NIS: </p>
+                        <p class="text-left"> RIP: </p>
+                        <p class="text-left"> Telephone: </p>
+                        <p class="text-left"> Site </p>
                     </td>
 
-                    <td class="border-0 pl-0" width="20%">
+                    <td class="border-0 pl-0" width="30%">
+                        <p class="text-primary text-left tabletop-header hidden"> SARL NRECYCLI </p>
+                        <p class="text-right"> 116 boulevard krim belkacem Alger </p>
+                        <p class="text-right"> 5123 15 651 231 351</p>
+                        <p class="text-right"> 62 2 625 32 32 62 32 6 </p>
+                        <p class="text-right"> 23 233 2 321 21 0 21 0 </p>
+                        <p class="text-right"> BEA - 2312353412321 </p>
+                        <p class="text-right"> +213 770 739 740 </p>
+                        <p class="text-right"> office.nrecycli.com </p>
+                    </td>
+
+                    <td width="2%">
+
+                    </td>
+
+                    <td class="border-0 pl-0" width="19%">
 
                         @if($invoice->buyer->office_name)
                             <p class="text-primary text-left tabletop-header">
