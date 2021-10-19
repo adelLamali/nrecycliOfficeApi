@@ -22,17 +22,33 @@
 		'da' => 'DA',
 		'placeorder' => 'Vérifiez votre email pour voir le devis et',
 		'yourpasswordisthesame' => 'Votre mot de pass est le meme',
-
+ 
 		'workshop'=>"Atelier: “L'Art du Recyclage”",
 		'nrecyclibags'=>"Sacs Nrecycli",
-		'nrecycliecotracker'=>"Nrecycli Eco-Tracker",
-		'collectcontribution'=>"Contrution for the Collection",
+		'nrecycliecotracker'=>"Nrecycli eco-tracker",
+		'collectcontribution'=>"Contribution à la collecte",
 		'twostreams'=>"Bacs de tri de bureaux à deux flux",
 		'threestreams'=>"Bacs de tri de bureaux à Troix flux", 
-		'cardbordpet'=>"Nrecycli Fortified Cardboard Bin - P.E.T.",
-		'cardbordrp'=>"Nrecycli Fortified Cardboard Bin - P.E.H.D et P.P",
-		'cardbordpaper'=>"Nrecycli Fortified Cardboard Bin - Papier",
-		'cardbordaluminium'=>"Nrecycli Fortified Cardboard Bin - Aluminium",
+
+		'indoorlooperpet'=>" Looper intérieur - P.E.T. ",
+
+		'indoorlooperrp'=>" Looper intérieur - P.E.H.D et P.P ",
+
+		'indoorlooperpaper'=>" Looper intérieur - Papier ",
+
+		'indoorlooperaluminium'=>" Looper intérieur - Aluminium ",
+
+		'outdoorlooperpet'=>" Looper extérieur - P.E.T. ",
+
+		'outdoorlooperrp'=>" Looper extérieur - P.E.H.D et P.P ",
+
+		'outdoorlooperpaper'=>" Looper extérieur - Papier ",
+
+		'outdoorlooperaluminium'=>" Looper extérieur - Aluminium ",
+
+		'outdoorstationpet'=>"Station extérieur - P.E.T.",
+
+		'outdoorstationpaper'=>"Station extérieur - Paper",
 
 		'welcome' => "Bienvenue",
 		'first_msg' => "Nous saluons votre initiative de rejoindre la communauté de bureaux écoresponsables Nrecycli !",
@@ -44,7 +60,7 @@
 		'seventh_msg' => "Vous avez changé d'avis ?",
 		'eigth_msg' => "Personnalisez à nouveau votre commande",
 		'ninth_msg' => "Ce devis est valable jusqu’au (délais d’une semaine à compter de l’envois du devis).",
-		'tenth_msg' => "Pour finaliser votre commande veuillez retourner ce devis avec la mention « BON POUR ACCORD » suivie de votre signature et la date à l’adresse",
+		'tenth_msg' => "Pour finaliser votre commande veuillez retourner ce devis avec la mention « BON DE COMMANDE » suivie de votre signature et la date à l’adresse",
 		'eleventh_msg' => "Pour tout complément d’information notre équipe reste à votre disposition.",
 
 	];	

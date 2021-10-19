@@ -29,10 +29,28 @@
 		'collectcontribution'=>"Contribution for the Collection",
 		'twostreams'=>"Two Stream Recycling Station",
     	'threestreams'=>"Three Stream Recycling Station",
-		'cardboardbinpet'=>" Nrecycli Fortified Cardboard Bin - P.E.T. ",
-		'cardboardbinrp'=>" Nrecycli Fortified Cardboard Bin - Rigid plastic ",
-		'cardboardbinpaper'=>" Nrecycli Fortified Cardboard Bin - Paper ",
-		'cardboardbinaluminium'=>" Nrecycli Fortified Cardboard Bin - Aluminium ",
+
+
+		'indoorlooperpet'=>"Indoor looper - P.E.T. ",
+
+		'indoorlooperrp'=>"Indoor looper - P.E.H.D et P.P ",
+
+		'indoorlooperpaper'=>"Indoor looper - Papier ",
+
+		'indoorlooperaluminium'=>"Indoor looper - Aluminium ",
+
+		'outdoorlooperpet'=>"Outdoor looper - P.E.T. ",
+
+		'outdoorlooperrp'=>"Outdoor looper - P.E.H.D et P.P ",
+
+		'outdoorlooperpaper'=>"Outdoor looper - Papier ",
+
+		'outdoorlooperaluminium'=>"Outdoor looper - Aluminium ",
+
+		'outdoorstationpet'=>"Outdoor station - P.E.T.",
+
+		'outdoorstationpaper'=>"Outdoor station - Paper",
+
 
 		'welcome' => "We wlecome you",
 		'first_msg' => "for your initiative to join the Nrecycli eco-responsible office community!",
@@ -44,6 +62,6 @@
 		'seventh_msg' => "Vous avez changé d'avis ?",
 		'eigth_msg' => "Personnalisez à nouveau votre commande",
 		'ninth_msg' => "This quote is valid until (one week delay from the sending day).",
-		'tenth_msg' => "To finalize your order, please return this quote with the words « GOOD FOR AGREEMENT » followed by your signature and the date to ",
+		'tenth_msg' => "To finalize your order, please return this quote with the words « BON DE COMMANDE » followed by your signature and the date to ",
 		'eleventh_msg' => "For any further information or modification of your order, our team remains at your disposal.",
 	];	

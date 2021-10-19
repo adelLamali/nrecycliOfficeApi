@@ -18,7 +18,7 @@ class ProfileController extends Controller
 {
     public function order(Request $request)
     {
-
+        // return $request;
         $user = auth()->user();
 
         $profile = $user->profile;
@@ -32,16 +32,22 @@ class ProfileController extends Controller
         ]);
 
         $items = [ 
-            // (new InvoiceItem())->title(__('office.workshop'))->pricePerUnit(25000)->quantity($request->order['workshop']/10),
-            // (new InvoiceItem())->title(__('office.twostreams'))->pricePerUnit(23800)->quantity($request->order['twoFlowBins']),
-            // (new InvoiceItem())->title(__('office.threestreams'))->pricePerUnit(29700)->quantity($request->order['threeFlowBins']),
-            // (new InvoiceItem())->title(__('office.cardboardbinpet'))->pricePerUnit(1850)->quantity($request->order['cardboardBinPet']),
-            // (new InvoiceItem())->title(__('office.cardboardbinrp'))->pricePerUnit(1850)->quantity($request->order['cardboardBinRp']),
-            // (new InvoiceItem())->title(__('office.cardboardbinpaper'))->pricePerUnit(1850)->quantity($request->order['cardboardBinPaper']),
-            // (new InvoiceItem())->title(__('office.cardboardbinaluminium'))->pricePerUnit(1850)->quantity($request->order['cardboardBinAluminium']),
-            // (new InvoiceItem())->title(__('office.nrecyclibags'))->pricePerUnit(960)->quantity($request->order['bags']),
-            // (new InvoiceItem())->title(__('office.collectcontribution'))->pricePerUnit(56400)->quantity($request->order['collectContribution']),
-            (new InvoiceItem())->title(__('office.nrecycliecotracker'))->pricePerUnit(0)->quantity($request->order['ecotracker']),
+            (new InvoiceItem())->title("Atelier: “L'Art du Recyclage”")->pricePerUnit($request->workshop_price)->quantity($request->order['workshop']?1:0),
+            (new InvoiceItem())->title("Nrecycli looper interieur - P.E.T")->pricePerUnit(1850)->quantity($request->order['indoorLooperPet']),
+            (new InvoiceItem())->title("Nrecycli looper interieur - P.E.H.D et P.P")->pricePerUnit(1850)->quantity($request->order['indoorLooperRp']),
+            (new InvoiceItem())->title("Nrecycli looper interieur - Papier")->pricePerUnit(1850)->quantity($request->order['indoorLooperPaper']),
+            (new InvoiceItem())->title("Nrecycli looper interieur - Aluminium")->pricePerUnit(1850)->quantity($request->order['indoorLooperAluminium']),
+            (new InvoiceItem())->title("Nrecycli station a deux flux")->pricePerUnit(23800)->quantity($request->order['twoFlowBins']),
+            (new InvoiceItem())->title("Nrecycli station a trois flux")->pricePerUnit(29700)->quantity($request->order['threeFlowBins']),
+            (new InvoiceItem())->title("Nrecycli looper extérieur - P.E.T")->pricePerUnit(3650)->quantity($request->order['outdoorLooperPet']),
+            (new InvoiceItem())->title("Nrecycli looper extérieur - P.E.H.D et P.P")->pricePerUnit(3650)->quantity($request->order['outdoorLooperRp']),
+            (new InvoiceItem())->title("Nrecycli looper extérieur - Papier")->pricePerUnit(3650)->quantity($request->order['outdoorLooperPaper']),
+            (new InvoiceItem())->title("Nrecycli looper extérieur - Aluminium")->pricePerUnit(3650)->quantity($request->order['outdoorLooperAluminium']),
+            (new InvoiceItem())->title("Nrecycli station extérieur - P.E.T")->pricePerUnit(25000)->quantity($request->order['outdoorLooperPetBig']),
+            (new InvoiceItem())->title("Nrecycli station extérieur - P.E.H.D et P.P")->pricePerUnit(25000)->quantity($request->order['outdoorLooperPaperBig']),
+            (new InvoiceItem())->title("Sacs Nrecycli")->pricePerUnit(960)->quantity($request->order['bags']),
+            (new InvoiceItem())->title("Contribution à la collecte")->pricePerUnit($request->collect_contribution_price)->quantity(1),
+            (new InvoiceItem())->title("Nrecycli eco-tracker")->pricePerUnit(0)->quantity($request->order['ecotracker']),
         ];
 
         // $notes = [
@@ -55,8 +61,9 @@ class ProfileController extends Controller
         ];
         $notes = implode("<br>", $notes);
 
-        $invoice = Invoice::make('SARL Nrecycli')
-            ->totalDiscount(1000)
+        $invoice = Invoice::make('SARL Enrecycli')
+            ->template('devis')
+            // ->totalDiscount(1000)
             ->taxRate(19)
             ->series('BIG')
             // ability to include translated invoice status
@@ -91,7 +98,7 @@ class ProfileController extends Controller
         // $invoice->download();
         // $pdf = PDF::loadView('vendor.invoices.templates.default',$invoice);
         // $pdf->download('invoice.pdf');
-        return [ 'success' => 'success' ];
+        // return [ 'success' => 'success' ];
 
         // $user = auth()->user();
 
@@ -100,15 +107,21 @@ class ProfileController extends Controller
         $profile->order = request('order');
         $profile->save();
 
-        $totalht =  $request->order['workshop'] / 10 * 25000 + 
+        $totalht =  $request->workshop_price + 
                     $request->order['twoFlowBins'] * 23800 + 
                     $request->order['threeFlowBins'] * 29700 + 
-                    $request->order['cardboardBinPet'] * 1850 + 
-                    $request->order['cardboardBinRp'] * 1850 + 
-                    $request->order['cardboardBinAluminium'] * 1850 + 
-                    $request->order['cardboardBinPaper'] * 1850 + 
+                    $request->order['indoorLooperPet'] * 1850 + 
+                    $request->order['indoorLooperRp'] * 1850 + 
+                    $request->order['indoorLooperPaper'] * 1850 + 
+                    $request->order['indoorLooperAluminium'] * 1850 +
+                    $request->order['outdoorLooperPet'] * 3650 + 
+                    $request->order['outdoorLooperRp'] * 3650 + 
+                    $request->order['outdoorLooperPaper'] * 3650 + 
+                    $request->order['outdoorLooperAluminium'] * 3650 + 
+                    $request->order['outdoorLooperPetBig'] * 25000 + 
+                    $request->order['outdoorLooperPaperBig'] * 25000 + 
                     $request->order['bags'] * 960 + 
-                    $request->order['collectContribution'] * 56400 ;
+                    $request->collect_contribution_price;
         
         $tva =  ( $totalht * 19 ) / 100;
 
@@ -122,6 +135,8 @@ class ProfileController extends Controller
             'address' => $profile->address,
             'phone_number' => $user->phone_number,
             'order' => $request->order,
+            'collect_contribution_price' => $request->collect_contribution_price,
+            'workshop_price' => $request->workshop_price,
         ];
 
         Mail::to($user->email)
