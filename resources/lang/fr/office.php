@@ -63,4 +63,10 @@
 		'tenth_msg' => "Pour finaliser votre commande veuillez retourner ce devis avec la mention « BON DE COMMANDE » suivie de votre signature et la date à l’adresse",
 		'eleventh_msg' => "Pour tout complément d’information notre équipe reste à votre disposition.",
 
+		'facture_msg_one' => "Suite de l'installation du “ Nrecycli Office Pack ” éffectué le",
+		'facture_msg_two' => "et correspendant au devis numéro ",
+		'facture_msg_three' => "nous vous adressons ci-joint une facture d'un montant de ",
+		'facture_msg_four' => "Il est possible de régler ce montant par chèque ou virement bancaire.",
+		'facture_msg_five' => "En vous remerciant par avance,",
+		'facture_msg_six' => "cordialement."
 	];	

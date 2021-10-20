@@ -64,4 +64,13 @@
 		'ninth_msg' => "This quote is valid until (one week delay from the sending day).",
 		'tenth_msg' => "To finalize your order, please return this quote with the words « BON DE COMMANDE » followed by your signature and the date to ",
 		'eleventh_msg' => "For any further information or modification of your order, our team remains at your disposal.",
+
+		'facture_msg_one' => "Suite de l'installation du “ Nrecycli Office Pack ” éffectué le",
+		'facture_msg_two' => "et correspendant au devis numéro ",
+		'facture_msg_three' => "nous vous adressons ci-joint une facture d'un montant de ",
+		'facture_msg_four' => "Il est possible de régler ce montant par chèque ou virement bancaire.",
+		'facture_msg_five' => "En vous remerciant par avance,",
+		'facture_msg_six' => "cordialement."
+	
+	
 	];	
