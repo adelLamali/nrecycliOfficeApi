@@ -11,7 +11,7 @@
 		'login' => "S'Identifier",
 		'reset_password' => 'Réinitialiser le Mot de Passe',
 		'reset_password_message' => "Avez-vous oublié votre mot de passe?? Essayez d'entrer votre date de naissance, le nom de votre animal de compagnie peut-être, ou quelque chose comme ça... et bien si cela ne fonctionne pas, cliquez ci-dessous pour changer le mot de passe !",
-		'ordertitle' =>'Devis de Nrecycli Office Pack',
+		'ordertitle' =>'Devis',
 		'item' => 'Article',
 		'uniteprice' => 'Prix Unitaire',
 		'count' => 'Nombre',

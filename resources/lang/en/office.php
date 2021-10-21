@@ -11,7 +11,7 @@
 		'login' => 'Login',  
 		'reset_password' => 'Reset Password',
 		'reset_password_message' => 'Did you forget your password?? Try to enter your birthday, your pet’s name maybe or something like that... well if that doesn’t work click below to change the password!',
-		'ordertitle' =>'Votre devis Nrecycli Office Pack',
+		'ordertitle' =>'Quotation',
 		'item' => 'Item',
 		'uniteprice' => 'Unit Price',
 		'count' => 'Count',
@@ -24,7 +24,7 @@
 		'yourpasswordisthesame' => 'Your password is not the same',
 
 		'workshop'=>"Workshop: “The Art of Recycling”",
-		'nrecyclibags'=>"Nrecycli Bags",
+		'nrecyclibags'=>"Nrecycli bags",
 		'nrecycliecotracker'=>"Nrecycli Eco-Tracker",
 		'collectcontribution'=>"Contribution for the Collection",
 		'twostreams'=>"Two Stream Recycling Station",
@@ -52,7 +52,7 @@
 		'outdoorstationpaper'=>"Outdoor station - Paper",
 
 
-		'welcome' => "We wlecome you",
+		'welcome' => "We wlecome you", 
 		'first_msg' => "for your initiative to join the Nrecycli eco-responsible office community!",
 		'second_msg' => "Together we are the change. ",
 		'third_msg' => "Following your quote request,",

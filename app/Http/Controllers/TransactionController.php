@@ -150,7 +150,7 @@ class TransactionController extends Controller
                 $collect_contribution_price = 20000;
                 break;
             case 2:
-                $collect_contribution_price = 26000;
+                $collect_contribution_price = 30000;
                 break;
             case 4:
                 $collect_contribution_price = 35000;

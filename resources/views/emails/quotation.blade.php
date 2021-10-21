@@ -2,8 +2,6 @@
 
 <div>
   <p style="text-align:center;">
-    {{__('office.welcome')}} <strong style="color:#69bf37">{{ $quotation['office_name'] }}</strong> {{__('office.first_msg')}}<br>
-    {{__('office.second_msg')}}<br>
     {{__('office.third_msg')}}{{__('office.fourth_msg')}} <strong style="color:#69bf37">« NRECYCLI OFFICE »</strong> {{__('office.fifth_msg')}}<br>
     {{__('office.sixth_msg')}}
   </p>
