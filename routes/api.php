@@ -94,13 +94,13 @@ Route::post('forgotpassword/setemail',[SettingsController::class,'setemail']);
 Route::get('office/getCalledNow',[ServiceScheduleController::class,'getCalledNow']);
 Route::post('office/scheduleCall',[ServiceScheduleController::class,'scheduleCall']);
 
+// Route::post('forgotpassword/setpassword',[ProfileController::class, 'setemail'])->middleware('auth:sanctum');
 
 
 
 // Route::post('resetpasswordwithtoken','Office\OfficepackController@resetpasswordwithtoken');
 
 
-// Route::post('forgotpassword/setpassword','Office\OfficepackController@setpassword');
 
 
 

@@ -237,10 +237,7 @@
         }
         .header {
 
-            /* width:100%;
-            height:260px; */
-            background-color:#69bf37;
-            
+            background-image : url("{{ $invoice->logo('https://office.nrecycli.com/pics/office.jpg')->getLogo() }}");
 
         }     
         .header2 {
@@ -250,21 +247,13 @@
             border : 1px red;
             border-bottom-right-radius:  250px 50px;
             border-bottom-left-radius: 250px 50px; 
-            /* border-bottom-right-radius: 12610px 451px;
-            border-bottom-left-radius: 12610px 451px; */
-            /* border-radius : 0px 0px 16px 16px; */
         }  
-        /* .align-center{
-            display: flex;
-            flex-wrap: wrap;
-            align-content: center;
-        } */
     </style>
     </head>
 
     <body>
 
-        <table class="" width="100%">
+        <table class="header" width="100%">
             <tbody>
                 <tr>
 
@@ -276,7 +265,7 @@
                         <p class="text-left"> Registre: </p>
                         <p class="text-left"> NIF: </p>
                         <p class="text-left"> NIS: </p>
-                        <p class="text-left"> RIP: </p>
+                        <p class="text-left"> RIB: </p>
                         <p class="text-left"> Telephone: </p>
                         <p class="text-left"> Site </p>
                     </td>
@@ -403,7 +392,7 @@
                         @endif
                         @if($invoice->buyer->rip)
                             <p class="text-left">
-                                RIP:
+                                RIB:
                             </p>
                         @else
                         <p class="text-left hidden"> 23 233 2 321 21 0 21 0 </p>
@@ -467,7 +456,7 @@
             <thead>
                 <tr>
                     <td>
-                        <p class="text-center tabletop-header ">Votre facture “ Nrecycli Office Pack ”</p>
+                        <p class="text-center tabletop-header ">Facture “ Nrecycli Office Pack ”</p>
                     </td>
                 </tr>
             </thead>

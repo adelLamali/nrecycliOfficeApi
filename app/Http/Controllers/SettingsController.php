@@ -10,6 +10,11 @@ use Intervention\Image\Facades\Image as Image;
 
 use App\models\User;
 
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\OfficeForgotPassword;
+
+
 class SettingsController extends Controller
 {
     public function editphone(Request $request)
@@ -136,15 +141,15 @@ class SettingsController extends Controller
                 'email' => 'required|exists:users',
             ]);
 
-            $office = User::where('email',$request->email)->get()->first();
+            $user = User::where('email',$request->email)->get()->first();
 
             $token = Str::random(30);
-            $office->token = $token;
+            $user->token = $token;
 
-            $office->save();
+            $user->save();
 
-            Mail::to($office->email)
-                ->send(new OfficeForgotPassword($office));
+            Mail::to($user->email)
+                ->send(new OfficeForgotPassword($user));
 
             return ['success' => __('office.forgot_password_email')];
         }

@@ -7,20 +7,20 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class Quotation extends Mailable
+class OfficeForgotPassword extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $quotation;
+    public $user;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($quotation)
+    public function __construct($user)
     {
-        $this->quotation = $quotation;
+        $this->user = $user;
     }
 
     /**
@@ -31,8 +31,7 @@ class Quotation extends Mailable
     public function build()
     {
         return $this->from('office@nrecycli.com','Nrecycli Office Pack')
-                    ->subject('Devis - Nrecycli Office Pack')
-                    ->attach(storage_path().'/devis.pdf')
-                    ->markdown('emails.quotation');
+                    ->subject('Forgot password - Nrecycli Office Pack')
+                    ->markdown('emails.office_forgot_password');
     }
 }

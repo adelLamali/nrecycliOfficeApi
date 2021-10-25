@@ -13,12 +13,14 @@ use LaravelDaily\Invoices\Invoice;
 use LaravelDaily\Invoices\Classes\Party;
 use LaravelDaily\Invoices\Classes\InvoiceItem;
 
+use Str;
+
 
 class ProfileController extends Controller
 {
     public function order(Request $request)
     {
-        // return $request;
+        
         $user = auth()->user();
 
         $profile = $user->profile;
@@ -50,12 +52,6 @@ class ProfileController extends Controller
             (new InvoiceItem())->title("Nrecycli eco-tracker")->pricePerUnit(0)->quantity($request->order['ecotracker']),
         ];
 
-        // $notes = [
-        //     'your multiline',
-        //     'additional notes',
-        //     'in regards of delivery or something else',
-        // ];
-        // $notes = implode("<br>", $notes);
         $notes = [
             'Devis de Nrecycli Office Pack',
         ];
@@ -142,19 +138,37 @@ class ProfileController extends Controller
         Mail::to($user->email)
             ->send(new Quotation( $quotation ));
 
-        // Mail::to("lamali.adel1@gmail.com")
-        //     ->send(new Quotation( $request->order ));
-
-        // return  ["success" => __('office.placeorder')];
-
         return [ 'success' => $profile ];
+
     }
 
     public function history()
     {
+
         $user = auth()->user();
 
         return Transaction::where('user_id',$user->id)->latest()->paginate(6);
+
+    }
+
+    public function setemail()
+    {
+
+        $validated = $request->validate([
+            'email' => 'required|exists:users',
+        ]);
+
+        $user = User::where('email',$request->email)->get()->first();
+
+        $token = Str::random(30);
+        $user->token = $token;
+
+        $user->save();
+
+        Mail::to($user->email)
+            ->send(new OfficeForgotPassword($user));
+
+        return ['success' => __('office.forgot_password_email')];
 
     }
 }
