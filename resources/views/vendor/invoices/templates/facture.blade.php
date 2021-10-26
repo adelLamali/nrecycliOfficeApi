@@ -114,7 +114,7 @@
 
         .table-middle th,
         .table-middle td {
-            padding: 0.75rem;
+            padding: 0.25rem;
             vertical-align: top;
             border-top: 1px solid #dee2e6;
         }
@@ -160,13 +160,13 @@
         }
 
         .mx {
-            margin-left: 6rem !important;
-            margin-right: 6rem !important;
+            margin-left: 3rem !important;
+            margin-right: 3rem !important;
         }
 
         .px {
-            padding-left: 6rem !important;
-            padding-right: 6rem !important;
+            padding-left: 3rem !important;
+            padding-right: 3rem !important;
         }
 
         .pr-0,
@@ -191,6 +191,10 @@
             color: #69bf37 !important;
         }
 
+        .text-white {
+            color: #ffffff !important;
+        }
+
         .text-uppercase {
             text-transform: uppercase !important;
         }
@@ -204,7 +208,7 @@
         }
 
         .tabletop-header {
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 400;
         }
 
@@ -222,14 +226,14 @@
             border: none !important;
         }
 
-        .border-l{
+        .border-l {
             border : 2px solid #e7e7e7;
             border-radius : 16px;
             border-top:0px;
             border-right:0px;
             border-bottom:0px;
         }
-        .hidden{
+        .hidden {
             visibility:hidden !important;
         }
         .margin {
@@ -237,9 +241,15 @@
         }
         .header {
 
-            background-image : url("{{ $invoice->logo('https://office.nrecycli.com/pics/office.jpg')->getLogo() }}");
+            background-image : url("{{ $invoice->logo('https://office.nrecycli.com/invoice_header.png')->getLogo() }}");
+            /* width:100%; */
+            height:180px;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center; 
+            background-size: cover;
+        }
 
-        }     
         .header2 {
             width : 100%;
             height : 20px;
@@ -248,76 +258,39 @@
             border-bottom-right-radius:  250px 50px;
             border-bottom-left-radius: 250px 50px; 
         }  
-    </style>
+
+</style>
     </head>
 
     <body>
 
-        <table class="header" width="100%">
+        <table class="header px" width="100%" >
             <tbody>
-                <tr>
+                <tr class="">
 
-                    <td width="10%"></td>
-
-                    <td class="" width="20%">
-                        <p class="text-primary text-left tabletop-header"> SARL ENRECYCLI </p>
+                    <td class="" width="15%">
+                        <p class="text-white text-left tabletop-header"> SARL ENRECYCLI </p>
                         <p class="text-left"> Address: </p>
                         <p class="text-left"> Registre: </p>
                         <p class="text-left"> NIF: </p>
                         <p class="text-left"> NIS: </p>
                         <p class="text-left"> RIB: </p>
-                        <p class="text-left"> Telephone: </p>
+                        <p class="text-left"> Téléphone: </p>
                         <p class="text-left"> Site </p>
                     </td>
 
                     <td class="" width="25%">
-                        <p class="text-primary text-left tabletop-header hidden"> SARL NRECYCLI </p>
-                        <p class="text-right"> 116 boulevard krim belkacem Alger </p>
-                        <p class="text-right"> 5123 15 651 231 351</p>
-                        <p class="text-right"> 62 2 625 32 32 62 32 6 </p>
-                        <p class="text-right"> 23 233 2 321 21 0 21 0 </p>
-                        <p class="text-right"> BEA - 2312353412321 </p>
-                        <p class="text-right"> +213 770 739 740 </p>
-                        <p class="text-right"> office.nrecycli.com </p>
+                        <p class="text-white text-left tabletop-header hidden"> SARL ENRECYCLI </p>
+                        <p class="text-right text-white"> 116 bd krim belkacem Alger </p>
+                        <p class="text-right text-white"> 5123 15 651 231 351</p>
+                        <p class="text-right text-white"> 62 2 625 32 32 62 32 6 </p>
+                        <p class="text-right text-white"> 23 233 2 321 21 0 21 0 </p>
+                        <p class="text-right text-white"> BEA - 2312353412321 </p>
+                        <p class="text-right text-white"> +213 770 739 740 </p>
+                        <p class="text-right text-white"> office.nrecycli.com </p>
                     </td>
 
-                    <td width="25%"></td>
-
-                    <td class="" width="20%">
-                        @if($invoice->buyer->date_now)
-                            <p class="text-center">
-                                Date: {{ $invoice->buyer->date_now }}
-                            </p>
-                        @endif
-                        @if($invoice->logo)
-                            <img src="{{ $invoice->getLogo() }}" alt="logo" height="128">
-                        @endif
-                    </td>
-
-                    <!-- <td class="border-0 pl-0">
-                       
-                        <img 
-                            src="{{ $invoice->logo('https://via.placeholder.com/150')->getLogo() }}"
-                            alt="dd"
-                            height="128" 
-                        />
-                        
-                    </td> -->
-                    
-                    <!-- <td class="text-right">
-                        @if($invoice->buyer->date_now)
-                            <p class="text-right">
-                                Date: {{ $invoice->buyer->date_now }}
-                            </p>
-                        @endif
-                    </td>
-                    <td class="text-right">
-                        @if($invoice->buyer->number)
-                            <p>
-                                N: {!! $invoice->buyer->number !!}
-                            </p>
-                        @endif
-                    </td> -->
+                    <td width="55%"></td>
                     
                 </tr>
             </tbody>
@@ -328,14 +301,9 @@
                 <tr>
                     <td class="" width="30%"></td>
                     <td class="mt-1" width="40%">
-                        <p class="text-center button">Facture</p>
-                        
-                        @if($invoice->buyer->number)
-                            <p class="text-left">
-                                Facture N: {!! $invoice->buyer->number !!}
-                            </p>
-                        @endif
-                        
+
+                        <p class="text-center text-primary tabletop-header">Facture</p>
+                                                
                     </td>
                     <td class="" width="30%"></td>
                 </tr>
@@ -345,15 +313,24 @@
         <table class="mx" width="100%">
             <tbody>
                 <tr>
-                    <!-- <td class="border-0 pl-0" width="50%">
-                    @if($invoice->logo)
-                        <img src="{{ $invoice->getLogo() }}" alt="logo" height="128">
-                    @endif
-                    </td> -->
-
 
                     <td class="" width="50%">
                         
+                        @if($invoice->buyer->number)
+                            <p class="text-left">
+                                Devis N: {!! $invoice->buyer->number !!}
+                            </p>
+                        @endif
+
+                        @if($invoice->buyer->date_now)
+                            <p class="text-left">
+                                Date: {{ $invoice->buyer->date_now }}
+                            </p>
+                        @endif
+                        <p class="hidden">date</p>
+                        <p class="hidden">date</p>
+                        <p class="hidden">date</p>
+
                     </td>
 
                     <td class="border-0 pl-0" width="20%">
@@ -526,21 +503,21 @@
                 @if($invoice->tax_rate)
                     <tr>
                         <td colspan="{{ $invoice->table_columns - 2 }}" class="border-0"></td>
-                        <td class="text-left pl-0">TVA</td>
-                        <td class="text-right pr-0">
-                            {{ $invoice->tax_rate }}%
-                        </td>
-                    </tr>
-                @endif
-                @if($invoice->hasItemOrInvoiceTax())
-                    <tr>
-                        <td colspan="{{ $invoice->table_columns - 2 }}" class="border-0"></td>
-                        <td class="text-left pl-0">{{ __('invoices::invoice.total_taxes') }}</td>
+                        <td class="text-left pl-0">TVA {{ $invoice->tax_rate }}%</td>
                         <td class="text-right pr-0">
                             {{ $invoice->formatCurrency($invoice->total_taxes) }}
                         </td>
                     </tr>
                 @endif
+                <!--@if($invoice->hasItemOrInvoiceTax())
+                    <tr>
+                        <td colspan="{{ $invoice->table_columns - 2 }}" class="border-0"></td>
+                        <td class="text-left pl-0">{{ __('invoices::invoice.total_taxes') }}</td>
+                        <td class="text-right pr-0">
+                            
+                        </td>
+                    </tr>
+                @endif-->
                 
                     <tr>
                         <td colspan="{{ $invoice->table_columns - 2 }}" class="border-0"></td>

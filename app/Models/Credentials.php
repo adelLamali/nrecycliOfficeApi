@@ -18,6 +18,7 @@ class Credentials extends Model
         'nis',
         'rip',
         'invoice_number',
+        'quotation_number',
         'to_be_delivered_at',
     ];
 

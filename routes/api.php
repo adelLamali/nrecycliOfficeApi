@@ -33,7 +33,7 @@ Route::middleware('auth:sanctum')->get('/userwith', function (Request $request) 
 });
 
 Route::middleware('auth:sanctum')->get('/users', function (Request $request) {
-    return User::with('profile')
+    return  User::with('profile')
                 ->with('recyclables')
                 ->with('transactions')
                 ->with('credentials')
@@ -94,7 +94,7 @@ Route::post('forgotpassword/setemail',[SettingsController::class,'setemail']);
 Route::get('office/getCalledNow',[ServiceScheduleController::class,'getCalledNow']);
 Route::post('office/scheduleCall',[ServiceScheduleController::class,'scheduleCall']);
 
-// Route::post('forgotpassword/setpassword',[ProfileController::class, 'setemail'])->middleware('auth:sanctum');
+Route::post('forgotpassword/setpassword',[ProfileController::class, 'setpassword']);
 
 
 

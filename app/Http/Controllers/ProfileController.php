@@ -7,6 +7,8 @@ use App\Mail\Quotation;
 use Illuminate\Support\Facades\Mail;
 
 use App\Models\Transaction;
+use App\Models\Credentials;
+use App\Models\Counter;
 use PDF;
 
 use LaravelDaily\Invoices\Invoice;
@@ -25,12 +27,36 @@ class ProfileController extends Controller
 
         $profile = $user->profile;
 
+        $prefix = 'op-';
+
+        $counter = Counter::where('id',1)->first();
+
+        $counter->quotation_number = $counter->quotation_number + 1;
+
+        $counter->save();
+
+        if($user->credentials == null){
+
+            $credential = Credentials::create([
+                'user_id' => $user->id,
+                'quotation_number' => $prefix.$counter->quotation_number,
+            ]);
+
+        }else{
+            
+            $user->credentials->quotation_number = $prefix.$counter->quotation_number;
+            $user->credentials->save();
+
+        };
+
+        // return ['success' => $user->credentials->quotation_number,];
+
         $customer = new Party([
             'office_name'   => $profile->office_name,
             'address'       => $profile->address,
             'phone_number'  => $user->phone_number,
             'date_now' => date("Y-m-d"), 
-            'number' => $profile->id,
+            'number' => $prefix.$counter->quotation_number,
         ]);
 
         $items = [ 

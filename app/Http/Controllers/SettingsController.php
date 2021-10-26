@@ -21,7 +21,6 @@ class SettingsController extends Controller
     {
         
         $request->validate([
-            // 'phone' => 'required|unique:offices|'regex:/^(0)(5|6|7)[0-9]{8}$/'',
             'phone_number' => ['required','unique:users','regex:/^(0)(5|6|7)[0-9]{8}$/'], 
         ]);
         
@@ -136,23 +135,46 @@ class SettingsController extends Controller
     }
 
     public function setemail(Request $request)
-        {
-            $validated = $request->validate([
-                'email' => 'required|exists:users',
-            ]);
+    {
+        $validated = $request->validate([
+            'email' => 'required|exists:users',
+        ]);
 
-            $user = User::where('email',$request->email)->get()->first();
+        $user = User::where('email',$request->email)->get()->first();
 
-            $token = Str::random(30);
-            $user->token = $token;
+        $token = Str::random(30);
+        $user->token = $token;
 
-            $user->save();
+        $user->save();
 
-            Mail::to($user->email)
-                ->send(new OfficeForgotPassword($user));
+        Mail::to($user->email)
+            ->send(new OfficeForgotPassword($user));
 
-            return ['success' => __('office.forgot_password_email')];
-        }
+        return ['success' => __('office.forgot_password_email')];
+        
+    }
+    
+    public function setpassword(Request $request)
+    {
+
+        $validated = $request->validate([
+            'token' => 'required',
+            'password' => 'required|confirmed',
+        ]);
+
+        $user = User::where('token',$request->token)->get()->first();
+
+        // $user->fill([
+        //     'password' => Hash::make(request('password'))
+        // ])->save();
+        
+        $user->password = Hash::make(request('password')); 
+
+        $user->save();
+
+        return ['success' => __('office.reset_password_feedback')];
+
+    }
 
 
 }

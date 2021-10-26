@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Recyclables;
 use App\Models\Transaction;
 use App\Models\Credentials;
+use App\Models\Counter;
 use App\Mail\Invoices;
 
 use LaravelDaily\Invoices\Invoice;
@@ -65,13 +66,22 @@ class TransactionController extends Controller
 
         };
 
-        return ['success' => 'Transaction has been made Successfully!'];
+        $users = User::with('profile')
+                        ->with('recyclables')
+                        ->with('transactions')
+                        ->with('credentials')
+                        ->get();
+
+        return [
+                'success' => 'Transaction has been made Successfully!',
+                'users' => $users,
+            ];
 
     }
 
     public function credentials(Request $request)
     {
-        // return $request;
+        
         $data = $this->validate($request,[
             'registre' => 'required',
             'nif' => 'required',
@@ -80,9 +90,7 @@ class TransactionController extends Controller
             'to_be_delivered_at' => 'required',
         ]);
 
-        // $user = User::where('id',$request->office_id)->get()->first();
-
-        $credentials = Credentials::create([
+        $credentials = Credentials::updateOrCreate(['user_id' => $request->office_id ],[
             'user_id' => $request->office_id,
             'registre' => $request->registre ,
             'nif' => $request->nif ,
@@ -91,7 +99,16 @@ class TransactionController extends Controller
             'to_be_delivered_at' => $request->to_be_delivered_at ,
         ]);
 
-        return ['success' => 'Transaction has been made Successfully!'];
+        $users = User::with('profile')
+                        ->with('recyclables')
+                        ->with('transactions')
+                        ->with('credentials')
+                        ->get();
+
+        return [
+                    'success' => 'Transaction has been made Successfully!',
+                    'users' => $users,
+                ];
 
     }
 
@@ -106,6 +123,14 @@ class TransactionController extends Controller
         $profile->delivered_at = NOW();
         $profile->save();
 
+        $users = User::with('profile')
+                        ->with('recyclables')
+                        ->with('transactions')
+                        ->with('credentials')
+                        ->get();
+
+        return ['users' => $users];
+
     }
 
     public function facture(Request $request)
@@ -117,6 +142,14 @@ class TransactionController extends Controller
 
         $credentials = $user->credentials;
 
+        $prefix = 'op-';
+
+        $counter = Counter::where('id',1)->first();
+
+        $counter->invoice_number = $counter->invoice_number + 1;
+
+        $counter->save();
+
         $customer = new Party([
             'office_name'   => $profile->office_name,
             'address'       => $profile->address,
@@ -126,7 +159,7 @@ class TransactionController extends Controller
             'nis' => $credentials->nis,
             'rip' => $credentials->rip,
             'date_now' => date("Y-m-d"),
-            'number' => $profile->id,
+            'number' => $prefix.$counter->invoice_number,
         ]);
 
 
@@ -257,13 +290,13 @@ class TransactionController extends Controller
         $invoice=[
             'total' => $total,
             'to_be_delivered_at' => $user->credentials->to_be_delivered_at->format('Y-m-d'),
-            'number' => $profile->id,
+            'number' => $prefix.$counter->invoice_number,
         ];
 
         Mail::to($user->email)
             ->send(new Invoices( $invoice ));
 
-        return [ 'success' => $profile ];
+        return [ 'success' => 'success' ]; 
 
     }
 }

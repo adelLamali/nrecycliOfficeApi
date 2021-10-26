@@ -25,7 +25,7 @@
 </div>
 
 
-@component('mail::button', ['url' => 'http://localhost:3000/forgotpassword?q=' . $user->token ])
+@component('mail::button', ['url' => 'https://office.nrecycli.com/forgotpassword?q=' . $user->token ])
 {{__('office.login')}}
 @endcomponent
 
