@@ -37,6 +37,7 @@ Route::middleware('auth:sanctum')->get('/users', function (Request $request) {
                 ->with('recyclables')
                 ->with('transactions')
                 ->with('credentials')
+                ->with('schedule')
                 ->get();
 });
 

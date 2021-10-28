@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use App\models\ServiceSchedule;
 use Carbon\Carbon;
 
+use Illuminate\Support\Facades\Mail;
+
+use App\Mail\scheduledCall;
+
 class ServiceScheduleController extends Controller
 {
     public function getCalledNow(Request $request)
@@ -39,6 +43,16 @@ class ServiceScheduleController extends Controller
                 'call_scheduled_at' => $data['call_scheduled_at'],
             ],
         );
+
+        $account =
+            [
+                'user' => $user,
+                'profile' => $user->profile,
+                'call_scheduled_at' => $data['call_scheduled_at'],
+            ];
+
+        Mail::to('office@nrecycli.com') 
+            ->send(new scheduledCall( $account ));
 
         return ['schedule' => $user->schedule];
     }

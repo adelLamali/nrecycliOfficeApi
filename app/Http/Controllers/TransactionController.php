@@ -70,6 +70,7 @@ class TransactionController extends Controller
                         ->with('recyclables')
                         ->with('transactions')
                         ->with('credentials')
+                        ->with('schedule')
                         ->get();
 
         return [
@@ -103,6 +104,7 @@ class TransactionController extends Controller
                         ->with('recyclables')
                         ->with('transactions')
                         ->with('credentials')
+                        ->with('schedule')
                         ->get();
 
         return [
@@ -127,6 +129,7 @@ class TransactionController extends Controller
                         ->with('recyclables')
                         ->with('transactions')
                         ->with('credentials')
+                        ->with('schedule')
                         ->get();
 
         return ['users' => $users];
