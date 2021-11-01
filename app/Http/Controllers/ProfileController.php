@@ -16,7 +16,7 @@ use LaravelDaily\Invoices\Classes\Party;
 use LaravelDaily\Invoices\Classes\InvoiceItem;
 
 use Str;
-
+use Carbon\Carbon;
 
 class ProfileController extends Controller
 {
@@ -173,6 +173,8 @@ class ProfileController extends Controller
         $total = $totalht + $tva;
 
         $quotation = [
+            'date' => Carbon::now()->add(7,'day')->format('d-m-Y'),
+            'discount' => $discount,
             'totalht' => $totalht,
             'tva' => $tva,
             'total' => $total,

@@ -17,6 +17,7 @@
 		'count' => 'Count',
 		'total' => 'Total',
 		'tva' => 'Tax 19 %',
+		'discount' => 'Discount',
 		'totalht' => 'Sub Total',
 		'send_confirmation' => 'Send Confirmation',
 		'da' => 'DZD',
@@ -61,7 +62,7 @@
 		'sixth_msg' => "This proposal takes into account the elements of your order:",
 		'seventh_msg' => "Vous avez changé d'avis ?",
 		'eigth_msg' => "Personnalisez à nouveau votre commande",
-		'ninth_msg' => "This quote is valid until (one week delay from the sending day).",
+		'ninth_msg' => "This quote is valid until ",
 		'tenth_msg' => "To finalize your order, please return this quote with the words « BON DE COMMANDE » followed by your signature and the date to ",
 		'eleventh_msg' => "For any further information or modification of your order, our team remains at your disposal.",
 

@@ -17,6 +17,7 @@
 		'count' => 'Nombre',
 		'total' => 'Total',
 		'tva' => 'TVA 19 %',
+		'discount' => 'Remise',
 		'totalht' => 'Total HT',
 		'send_confirmation' => 'Cliquez ici pour confirmer votre commande',
 		'da' => 'DA',
@@ -59,7 +60,7 @@
 		'sixth_msg' => "Cette proposition tient compte des éléments de votre commande:",
 		'seventh_msg' => "Vous avez changé d'avis ?",
 		'eigth_msg' => "Personnalisez à nouveau votre commande",
-		'ninth_msg' => "Ce devis est valable jusqu’au (délais d’une semaine à compter de l’envois du devis).",
+		'ninth_msg' => "Ce devis est valable jusqu’au ",
 		'tenth_msg' => "Pour finaliser votre commande veuillez retourner ce devis avec la mention « BON DE COMMANDE » suivie de votre signature et la date à l’adresse",
 		'eleventh_msg' => "Pour tout complément d’information notre équipe reste à votre disposition.",
 
