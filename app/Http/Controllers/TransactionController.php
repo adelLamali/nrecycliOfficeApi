@@ -191,19 +191,33 @@ class TransactionController extends Controller
             case 4:
                 $collect_contribution_price = 35000;
                 break;
-        }
-// return ['wp' => $workshop_price,'cc'=>$collect_contribution_price];
+        };
+
+        $amount = $profile->order['indoorLooperPet'] + $profile->order['indoorLooperRp'] +
+                  $profile->order['indoorLooperPaper'] + $profile->order['indoorLooperAluminium'];
+
+        switch ( $amount ) {
+            case $amount === 1 :
+                $discount = 0;
+                break;
+            case $amount === 2 || $amount === 3 :
+                $discount = 500;
+                break;
+            case $amount === 4 || $amount === 5 :
+                $discount = 1400;
+                break;
+            case $amount >= 6 && $amount <= 9 :
+                $discount = 2000;
+                break;
+            case $amount >= 10 && $amount <= 19 :
+                $discount = 3500;
+                break;
+            case $amount > 20 :
+                $discount = 5000;
+                break;
+        };
+
         $items = [ 
-            // (new InvoiceItem())->title(__('office.workshop'))->pricePerUnit(25000)->quantity($profile->order['workshop']/10),
-            // (new InvoiceItem())->title(__('office.twostreams'))->pricePerUnit(23800)->quantity($profile->order['twoFlowBins']),
-            // (new InvoiceItem())->title(__('office.threestreams'))->pricePerUnit(29700)->quantity($profile->order['threeFlowBins']),
-            // (new InvoiceItem())->title(__('office.cardboardbinpet'))->pricePerUnit(1850)->quantity($profile->order['cardboardBinPet']),
-            // (new InvoiceItem())->title(__('office.cardboardbinrp'))->pricePerUnit(1850)->quantity($profile->order['cardboardBinRp']),
-            // (new InvoiceItem())->title(__('office.cardboardbinpaper'))->pricePerUnit(1850)->quantity($profile->order['cardboardBinPaper']),
-            // (new InvoiceItem())->title(__('office.cardboardbinaluminium'))->pricePerUnit(1850)->quantity($profile->order['cardboardBinAluminium']),
-            // (new InvoiceItem())->title(__('office.nrecyclibags'))->pricePerUnit(960)->quantity($profile->order['bags']),
-            // (new InvoiceItem())->title(__('office.collectcontribution'))->pricePerUnit(56400)->quantity($profile->order['collectContribution']),
-            // (new InvoiceItem())->title(__('office.nrecycliecotracker'))->pricePerUnit(0)->quantity($profile->order['ecotracker']),
             (new InvoiceItem())->title("Atelier: “L'Art du Recyclage”")->pricePerUnit($workshop_price)->quantity($profile->order['workshop']?1:0),
             (new InvoiceItem())->title("Nrecycli looper interieur - P.E.T")->pricePerUnit(1850)->quantity($profile->order['indoorLooperPet']),
             (new InvoiceItem())->title("Nrecycli looper interieur - P.E.H.D et P.P")->pricePerUnit(1850)->quantity($profile->order['indoorLooperRp']),
@@ -218,9 +232,14 @@ class TransactionController extends Controller
             (new InvoiceItem())->title("Nrecycli station extérieur - P.E.T")->pricePerUnit(25000)->quantity($profile->order['outdoorLooperPetBig']),
             (new InvoiceItem())->title("Nrecycli station extérieur - P.E.H.D et P.P")->pricePerUnit(25000)->quantity($profile->order['outdoorLooperPaperBig']),
             (new InvoiceItem())->title("Sacs Nrecycli")->pricePerUnit(960)->quantity($profile->order['bags']),
+            (new InvoiceItem())->title("Gourde Nrecycli")->pricePerUnit(1200)->quantity($profile->order['aluminiumSportBottle']),
+            (new InvoiceItem())->title("Mug Nrecycli")->pricePerUnit(800)->quantity($profile->order['glassMug']),
+            (new InvoiceItem())->title("Thermos Nrecycli")->pricePerUnit(1500)->quantity($profile->order['thermos']),
+            (new InvoiceItem())->title("T-shirt Nrecycli")->pricePerUnit(2000)->quantity($profile->order['tShirt']),
+            (new InvoiceItem())->title("Polo-shirt Nrecycli")->pricePerUnit(2000)->quantity($profile->order['poloShirt']),
+            (new InvoiceItem())->title("Sweat-shirt Nrecycli")->pricePerUnit(3000)->quantity($profile->order['sweatShirt']),
             (new InvoiceItem())->title("Contribution à la collecte")->pricePerUnit($collect_contribution_price)->quantity(1),
             (new InvoiceItem())->title("Nrecycli eco-tracker")->pricePerUnit(0)->quantity($profile->order['ecotracker']),
-
         ];
 
         $notes = [
@@ -230,6 +249,7 @@ class TransactionController extends Controller
 
         $invoice = Invoice::make('SARL Enrecycli')
             ->template('facture')
+            ->totalDiscount($discount)
             ->taxRate(19)
             ->series('BIG')
             // ability to include translated invoice status
@@ -253,12 +273,6 @@ class TransactionController extends Controller
             ->logo(public_path('images/icon.png'))
             // You can additionally save generated invoice to configured disk
             ->filename('devis')->save('storage');
-            // return $request->order; 
-
-            // return $request->id;
-
-        // $profile->order = request('order');
-        // $profile->save();
 
         $totalht =  $workshop_price + 
                     $profile->order['twoFlowBins'] * 23800 + 
@@ -274,21 +288,19 @@ class TransactionController extends Controller
                     $profile->order['outdoorLooperPetBig'] * 25000 + 
                     $profile->order['outdoorLooperPaperBig'] * 25000 + 
                     $profile->order['bags'] * 960 + 
+                    $profile->order['aluminiumSportBottle'] * 1200 +
+                    $profile->order['glassMug'] * 800 +
+                    $profile->order['thermos'] * 1500 +
+                    $profile->order['tShirt'] * 2000 +
+                    $profile->order['poloShirt'] * 2000 +
+                    $profile->order['sweatShirt'] * 3000 +
                     $collect_contribution_price;
+
+        $totalht = $totalht - $discount;
         
         $tva =  ( $totalht * 19 ) / 100;
 
         $total = $totalht + $tva;
-
-        // $quotation = [
-        //     'totalht' => $totalht,
-        //     'tva' => $tva,
-        //     'total' => $total,
-        //     'office_name' => $profile->office_name,
-        //     'address' => $profile->address,
-        //     'phone_number' => $user->phone_number,
-        //     'order' => $request->order,
-        // ];
 
         $invoice=[
             'total' => $total,
