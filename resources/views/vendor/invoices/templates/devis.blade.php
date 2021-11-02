@@ -34,232 +34,231 @@
             }
         </style> -->
         <style type="text/css" media="screen">
-        html {
-            font-family: sans-serif;
-            line-height: 1.15;
-            margin: 0;
-        }
+                html {
+                    font-family: sans-serif;
+                    line-height: 1.15;
+                    margin: 0;
+                }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-            font-weight: 400;
-            line-height: 1.5;
-            color: #212529;
-            text-align: left;
-            background-color: #fff;
-            font-size: 10px;
-            /* margin: 36pt; */
-        }
+                body {
+                    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+                    font-weight: 400;
+                    line-height: 1.5;
+                    color: #212529;
+                    text-align: left;
+                    background-color: #fff;
+                    font-size: 10px;
+                    /* margin: 36pt; */
+                }
 
-        h4 {
-            margin-top: 0;
-            margin-bottom: 0.5rem;
-        }
+                h4 {
+                    margin-top: 0;
+                    margin-bottom: 0.5rem;
+                }
 
-        p {
-            margin-top: 0;
-            margin-bottom: 0;
-        }
+                p {
+                    margin-top: 0;
+                    margin-bottom: 0;
+                }
 
-        strong {
-            font-weight: bolder;
-        }
+                strong {
+                    font-weight: bolder;
+                }
 
-        img {
-            vertical-align: middle;
-            border-style: none;
-        }
+                img {
+                    vertical-align: middle;
+                    border-style: none;
+                }
 
-        table {
-            border-collapse: separate;
-            border-spacing:0;
-        }
+                table {
+                    border-collapse: separate;
+                    border-spacing:0;
+                }
 
-        th {
-            text-align: inherit;
-        }
+                th {
+                    text-align: inherit;
+                }
 
-        h4, .h4 {
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            line-height: 1.2;
-        }
+                h4, .h4 {
+                    margin-bottom: 0.5rem;
+                    font-weight: 500;
+                    line-height: 1.2;
+                }
 
-        h4, .h4 {
-            font-size: 1.5rem;
-        }
+                h4, .h4 {
+                    font-size: 1.5rem;
+                }
 
-        .button {
-            width:100%;
-            background-color:#69bf37;
-            border: 1px solid #69bf37;
-            border-radius: 12px 12px 12px 12px !important;
-            padding: 10px !important;
-            color:white;
-            font-size:12px;
-        }
+                .button {
+                    width:100%;
+                    background-color:#69bf37;
+                    border: 1px solid #69bf37;
+                    border-radius: 12px 12px 12px 12px !important;
+                    padding: 10px !important;
+                    color:white;
+                    font-size:12px;
+                }
 
-        .table {
-            width: 100%;
-            margin-bottom: 1rem;
-        }
+                .table {
+                    width: 100%;
+                    margin-bottom: 1rem;
+                }
 
-        .table-middle {
-            width: 100%;
-            /* margin-bottom: 1rem; */
-            border: 1px solid #a7a7a7;
-            border-radius:16px 16px 0px 0px !important;
-            padding:16px !important;
-        }
+                .table-middle {
+                    width: 100%;
+                    /* margin-bottom: 1rem; */
+                    border: 1px solid #a7a7a7;
+                    border-radius:16px 16px 0px 0px !important;
+                    padding:16px !important;
+                }
 
-        .table-middle th,
-        .table-middle td {
-            padding: 0.25rem;
-            vertical-align: top;
-            border-top: 1px solid #dee2e6;
-        }
+                .table-middle td {
+                    padding: 0.25rem;
+                    vertical-align: top;
+                    border-top: 1px solid #dee2e6;
+                }
 
-        .table-bottom {
-            width: 100%;
-            margin-bottom: 1rem;
-            border: 1px solid #a7a7a7;
-            border-top:0px;
-            border-radius: 0px 0px 16px 16px !important;
-            /* border-bottom-right-radius: 12610px 451px !important;
-            border-bottom-left-radius: 12610px 451px !important; */
-            padding:16px !important;
-        }
+                .table-bottom {
+                    width: 100%;
+                    margin-bottom: 1rem;
+                    border: 1px solid #a7a7a7;
+                    border-top:0px;
+                    border-radius: 0px 0px 16px 16px !important;
+                    /* border-bottom-right-radius: 12610px 451px !important;
+                    border-bottom-left-radius: 12610px 451px !important; */
+                    padding:16px !important;
+                }
 
-        .table thead th {
-            vertical-align: bottom;
-            border-bottom: 2px solid #dee2e6;
-        }
+                /* .table thead th {
+                    vertical-align: bottom;
+                    border-bottom: 2px solid #dee2e6;
+                } */
 
-        .table tbody + tbody {
-            border-top: 2px solid #dee2e6;
-        }
+                .table tbody + tbody {
+                    border-top: 2px solid #dee2e6;
+                }
 
-        .mt-1 {
-            margin-top: 1rem !important;
-        }
+                .mt-1 {
+                    margin-top: 1rem !important;
+                }
 
-        .mt-5 {
-            margin-top: 3rem !important;
-        }
+                .mt-5 {
+                    margin-top: 3rem !important;
+                }
 
-        .mb-5 {
-            margin-bottom: 3rem !important;
-        }
+                .mb-5 {
+                    margin-bottom: 3rem !important;
+                }
 
-        .mb-10 {
-            margin-bottom: 6rem !important;
-        }
+                .mb-10 {
+                    margin-bottom: 6rem !important;
+                }
 
-        .mb-15 {
-            margin-bottom: 9rem !important;
-        }
+                .mb-15 {
+                    margin-bottom: 9rem !important;
+                }
 
-        .mx {
-            margin-left: 3rem !important;
-            margin-right: 3rem !important;
-        }
+                .mx {
+                    margin-left: 3rem !important;
+                    margin-right: 3rem !important;
+                }
 
-        .px {
-            padding-left: 3rem !important;
-            padding-right: 3rem !important;
-        }
+                .px {
+                    padding-left: 3rem !important;
+                    padding-right: 3rem !important;
+                }
 
-        .pr-0,
-        .px-0 {
-            padding-right: 0 !important;
-        }
+                .pr-0,
+                .px-0 {
+                    padding-right: 0 !important;
+                }
 
-        .pl-0,
-        .px-0 {
-            padding-left: 0 !important;
-        }
+                .pl-0,
+                .px-0 {
+                    padding-left: 0 !important;
+                }
 
-        .text-right {
-            text-align: right !important;
-        }
+                .text-right {
+                    text-align: right !important;
+                }
 
-        .text-center {
-            text-align: center !important;
-        }
+                .text-center {
+                    text-align: center !important;
+                }
 
-        .text-primary {
-            color: #69bf37 !important;
-        }
+                .text-primary {
+                    color: #69bf37 !important;
+                }
 
-        .text-white {
-            color: #ffffff !important;
-        }
+                .text-white {
+                    color: #ffffff !important;
+                }
 
-        .text-uppercase {
-            text-transform: uppercase !important;
-        }
+                .text-uppercase {
+                    text-transform: uppercase !important;
+                }
 
-        * {
-            font-family: "DejaVu Sans";
-        }
+                * {
+                    font-family: "DejaVu Sans";
+                }
 
-        body, h1, h2, h3, h4, h5, h6, table, th, tr, td, p, div {
-            line-height: 1.1;
-        }
+                body, h1, h2, h3, h4, h5, h6, table, th, tr, td, p, div {
+                    line-height: 1.1;
+                }
 
-        .tabletop-header {
-            font-size: 14px;
-            font-weight: 400;
-        }
+                .tabletop-header {
+                    font-size: 14px;
+                    font-weight: 400;
+                }
 
-        .party-header {
-            font-size: 1.5rem;
-            font-weight: 400;
-        }
+                .party-header {
+                    font-size: 1.5rem;
+                    font-weight: 400;
+                }
 
-        .total-amount {
-            font-size: 12px;
-            font-weight: 700;
-        }
+                .total-amount {
+                    font-size: 12px;
+                    font-weight: 700;
+                }
 
-        .border-0 {
-            border: none !important;
-        }
+                .border-0 {
+                    border: none !important;
+                }
 
-        .border-l {
-            border : 2px solid #e7e7e7;
-            border-radius : 16px;
-            border-top:0px;
-            border-right:0px;
-            border-bottom:0px;
-        }
-        .hidden {
-            visibility:hidden !important;
-        }
-        .margin {
-            margin:36pt;
-        }
-        .header {
+                .border-l {
+                    border : 2px solid #e7e7e7;
+                    border-radius : 16px;
+                    border-top:0px;
+                    border-right:0px;
+                    border-bottom:0px;
+                }
+                .hidden {
+                    visibility:hidden !important;
+                }
+                .margin {
+                    margin:36pt;
+                }
+                .header {
 
-            background-image : url("{{ $invoice->logo('https://office.nrecycli.com/invoice_header.png')->getLogo() }}");
-            /* width:100%; */
-            height:180px;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-position: center; 
-            background-size: cover;
-        }
+                    background-image : url("{{ $invoice->logo('https://office.nrecycli.com/invoice_header.png')->getLogo() }}");
+                    /* width:100%; */
+                    height:180px;
+                    background-repeat: no-repeat;
+                    background-attachment: fixed;
+                    background-position: center; 
+                    background-size: cover;
+                }
 
-        .header2 {
-            width : 100%;
-            height : 20px;
-            background : red;
-            border : 1px red;
-            border-bottom-right-radius:  250px 50px;
-            border-bottom-left-radius: 250px 50px; 
-        }  
+                .header2 {
+                    width : 100%;
+                    height : 20px;
+                    background : red;
+                    border : 1px red;
+                    border-bottom-right-radius:  250px 50px;
+                    border-bottom-left-radius: 250px 50px; 
+                }  
 
-</style>
+        </style>
     </head>
 
     <body>
@@ -267,13 +266,12 @@
         <table class="header px" width="100%" >
             <tbody>
                 <tr class="">
-
                     <td class="" width="15%">
                         <p class="text-white text-left tabletop-header"> SARL ENRECYCLI </p>
                         <p class="text-left"> Address: </p>
                         <p class="text-left"> Registre: </p>
                         <p class="text-left"> NIF: </p>
-                        <p class="text-left"> NIS: </p>
+                        <p class="text-left"> AI: </p>
                         <p class="text-left"> RIB: </p>
                         <p class="text-left"> Téléphone: </p>
                         <p class="text-left"> Site </p>
@@ -281,10 +279,10 @@
 
                     <td class="" width="25%">
                         <p class="text-white text-left tabletop-header hidden"> SARL ENRECYCLI </p>
-                        <p class="text-right text-white"> 116 bd krim belkacem Alger </p>
-                        <p class="text-right text-white"> 5123 15 651 231 351</p>
-                        <p class="text-right text-white"> 62 2 625 32 32 62 32 6 </p>
-                        <p class="text-right text-white"> 23 233 2 321 21 0 21 0 </p>
+                        <p class="text-right text-white"> 116 bd krim Belkacem Alger </p>
+                        <p class="text-right text-white"> 19B1000871-16/00 </p>
+                        <p class="text-right text-white"> 001916100087170 </p>
+                        <p class="text-right text-white"> 16020938138 </p>
                         <p class="text-right text-white"> BEA - 2312353412321 </p>
                         <p class="text-right text-white"> +213 770 739 740 </p>
                         <p class="text-right text-white"> office.nrecycli.com </p>
@@ -302,7 +300,7 @@
                     <td class="" width="30%"></td>
                     <td class="mt-1" width="40%">
 
-                        <p class="text-center text-primary tabletop-header">Devis</p>
+                        <p class="text-center text-primary tabletop-header">Devis</p> 
                                                 
                     </td>
                     <td class="" width="30%"></td>
