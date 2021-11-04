@@ -153,6 +153,9 @@ class TransactionController extends Controller
 
         $counter->save();
 
+        $credentials->invoice_number = $prefix.$counter->invoice_number;
+        $credentials->save();
+
         $customer = new Party([
             'office_name'   => $profile->office_name,
             'address'       => $profile->address,
@@ -305,7 +308,7 @@ class TransactionController extends Controller
         $invoice=[
             'total' => $total,
             'to_be_delivered_at' => $user->credentials->to_be_delivered_at->format('Y-m-d'),
-            'number' => $prefix.$counter->invoice_number,
+            'number' => $user->credentials->quotation_number,
         ];
 
         Mail::to($user->email)

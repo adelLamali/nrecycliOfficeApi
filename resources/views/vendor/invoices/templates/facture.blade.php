@@ -290,7 +290,7 @@
                         <p class="text-right text-white"> office.nrecycli.com </p>
                     </td>
 
-                    <td width="55%"></td>
+                    <td width="60%"></td>
                     
                 </tr>
             </tbody>
@@ -318,7 +318,7 @@
                         
                         @if($invoice->buyer->number)
                             <p class="text-left">
-                                Devis N: {!! $invoice->buyer->number !!}
+                                Facture N: {!! $invoice->buyer->number !!}
                             </p>
                         @endif
 
@@ -333,7 +333,9 @@
 
                     </td>
 
-                    <td class="border-0 pl-0" width="20%">
+                    <td width="10"></td>
+
+                    <td class="border-0 pl-0" width="15%">
 
                         @if($invoice->buyer->office_name)
                             <p class="text-primary text-left tabletop-header">
@@ -351,34 +353,34 @@
                                 Registre:
                             </p>
                         @else
-                        <p class="text-left hidden"> 23 233 2 321 21 0 21 0 </p>
+                        <p class="text-left hidden"> 23 233 2</p>
                         @endif
                         @if($invoice->buyer->nif)
                             <p class="text-left">
                                 NIF:
                             </p>
                         @else
-                        <p class="text-left hidden"> 23 233 2 321 21 0 21 0 </p>
+                        <p class="text-left hidden"> 23 233 2</p>
                         @endif
                         @if($invoice->buyer->nis)
                             <p class="text-left">
-                                NIS:
+                                AI:
                             </p>
                         @else
-                        <p class="text-left hidden"> 23 233 2 321 21 0 21 0 </p>
+                        <p class="text-left hidden"> 23 233 2</p>
                         @endif
                         @if($invoice->buyer->rip)
                             <p class="text-left">
                                 RIB:
                             </p>
                         @else
-                        <p class="text-left hidden"> 23 233 2 321 21 0 21 0 </p>
+                        <p class="text-left hidden"> 23 233 2</p>
                         @endif
                         <p class="text-left hidden"> Telephone: </p>
                         
                     </td>
 
-                    <td class="border-0 pl-0" width="30%">
+                    <td class="border-0 pl-0" width="25%">
                         <p class="text-primary text-left tabletop-header hidden"> Office name </p>
                         @if($invoice->buyer->address)
                             <p class="text-right">
@@ -398,7 +400,7 @@
                                 {{ $invoice->buyer->registre }}
                             </p>
                         @else
-                        <p class="text-right hidden"> 23 233 2 321 21 0 21 0 </p>
+                        <p class="text-right hidden"> 23 233 2</p>
                         @endif
 
                         @if($invoice->buyer->nif)
@@ -406,23 +408,23 @@
                                 {{ $invoice->buyer->nif }}
                             </p>
                         @else
-                        <p class="text-right hidden"> 23 233 2 321 21 0 21 0 </p>
+                        <p class="text-right hidden"> 23 233 2</p>
                         @endif
                         @if($invoice->buyer->nis)
                             <p class="text-right">
                                 {{ $invoice->buyer->nis }}
                             </p>
                         @else
-                        <p class="text-right hidden"> 23 233 2 321 21 0 21 0 </p>
+                        <p class="text-right hidden"> 23 233 2</p>
                         @endif
                         @if($invoice->buyer->rip)
                             <p class="text-right">
                                 {{ $invoice->buyer->rip }}
                             </p>
                         @else
-                        <p class="text-right hidden"> 23 233 2 321 21 0 21 0 </p>
+                        <p class="text-right hidden"> 23 233 2</p>
                         @endif
-                        <p class="text-right hidden"> 23 233 2 321 21 0 21 0 </p>
+                        <p class="text-right hidden"> 23 233 2</p>
                     </td>
 
                 </tr>

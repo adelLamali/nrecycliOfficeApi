@@ -51,6 +51,18 @@
 
 		'outdoorstationpaper'=>"Station extérieur - Paper",
 
+		'gourde' => "Gourde Nrecycli",
+
+		'mug' => "Mug Nrecycli",
+
+		'isotherme' => "Isotherme Nrecycli",
+
+		'tshirt' => "T-shirt Nrecycli",
+
+		'polo_shirt' => "Polo-shirt Nrecycli",
+
+		'sweat_shirt' => "Sweat-shirt Nrecycli",
+
 		'welcome' => "Bienvenue",
 		'first_msg' => "Nous saluons votre initiative de rejoindre la communauté de bureaux écoresponsables Nrecycli !",
 		'second_msg' => "Ensembles, nous sommes le changement. ",

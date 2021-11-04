@@ -52,6 +52,17 @@
 
 		'outdoorstationpaper'=>"Outdoor station - Paper",
 
+		'gourde' => "Aluminium sport bottle Nrecycli",
+
+		'mug' => "Mug Nrecycli",
+
+		'isotherme' => "Isothermal bottle Nrecycli",
+
+		'tshirt' => "T-shirt Nrecycli",
+
+		'polo_shirt' => "Polo-shirt Nrecycli",
+
+		'sweat_shirt' => "Sweat-shirt Nrecycli",
 
 		'welcome' => "We wlecome you", 
 		'first_msg' => "for your initiative to join the Nrecycli eco-responsible office community!",

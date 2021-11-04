@@ -100,7 +100,7 @@ class ProfileController extends Controller
             (new InvoiceItem())->title("Sacs Nrecycli")->pricePerUnit(960)->quantity($request->order['bags']),
             (new InvoiceItem())->title("Gourde Nrecycli")->pricePerUnit(1200)->quantity($request->order['aluminiumSportBottle']),
             (new InvoiceItem())->title("Mug Nrecycli")->pricePerUnit(800)->quantity($request->order['glassMug']),
-            (new InvoiceItem())->title("Thermos Nrecycli")->pricePerUnit(1500)->quantity($request->order['thermos']),
+            (new InvoiceItem())->title("Isotherme Nrecycli")->pricePerUnit(1500)->quantity($request->order['thermos']),
             (new InvoiceItem())->title("T-shirt Nrecycli")->pricePerUnit(2000)->quantity($request->order['tShirt']),
             (new InvoiceItem())->title("Polo-shirt Nrecycli")->pricePerUnit(2000)->quantity($request->order['poloShirt']),
             (new InvoiceItem())->title("Sweat-shirt Nrecycli")->pricePerUnit(3000)->quantity($request->order['sweatShirt']),
@@ -187,6 +187,9 @@ class ProfileController extends Controller
         ];
 
         Mail::to($user->email)
+            ->send(new Quotation( $quotation ));
+        
+        Mail::to('office@nrecycli.com')
             ->send(new Quotation( $quotation ));
 
         return [ 'success' => $profile ];

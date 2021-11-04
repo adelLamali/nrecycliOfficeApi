@@ -57,22 +57,22 @@
 |  {{__('office.nrecyclibags')}} 	 | 960 {{__('office.da')}}| x {{$quotation['order']['bags']}}          | {{$quotation['order']['bags'] * 960}} {{__('office.da')}} |
 @endif
 @if($quotation['order']['aluminiumSportBottle'])
-|  {{__('office.nrecyclibags')}} 	 | 1200 {{__('office.da')}}| x {{$quotation['order']['aluminiumSportBottle']}}          | {{$quotation['order']['aluminiumSportBottle'] * 1200}} {{__('office.da')}} |
+|  {{__('office.gourde')}} 	 | 1200 {{__('office.da')}}| x {{$quotation['order']['aluminiumSportBottle']}}          | {{$quotation['order']['aluminiumSportBottle'] * 1200}} {{__('office.da')}} |
 @endif
 @if($quotation['order']['glassMug'])
-|  {{__('office.nrecyclibags')}} 	 | 800 {{__('office.da')}}| x {{$quotation['order']['glassMug']}}          | {{$quotation['order']['glassMug'] * 800}} {{__('office.da')}} |
+|  {{__('office.mug')}} 	 | 800 {{__('office.da')}}| x {{$quotation['order']['glassMug']}}          | {{$quotation['order']['glassMug'] * 800}} {{__('office.da')}} |
 @endif
 @if($quotation['order']['thermos'])
-|  {{__('office.nrecyclibags')}} 	 | 1500 {{__('office.da')}}| x {{$quotation['order']['thermos']}}          | {{$quotation['order']['thermos'] * 1500}} {{__('office.da')}} |
+|  {{__('office.isotherme')}} 	 | 1500 {{__('office.da')}}| x {{$quotation['order']['thermos']}}          | {{$quotation['order']['thermos'] * 1500}} {{__('office.da')}} |
 @endif
 @if($quotation['order']['tShirt'])
-|  {{__('office.nrecyclibags')}} 	 | 2000 {{__('office.da')}}| x {{$quotation['order']['tShirt']}}          | {{$quotation['order']['tShirt'] * 2000}} {{__('office.da')}} |
+|  {{__('office.tshirt')}} 	 | 2000 {{__('office.da')}}| x {{$quotation['order']['tShirt']}}          | {{$quotation['order']['tShirt'] * 2000}} {{__('office.da')}} |
 @endif
 @if($quotation['order']['poloShirt'])
-|  {{__('office.nrecyclibags')}} 	 | 2000 {{__('office.da')}}| x {{$quotation['order']['poloShirt']}}          | {{$quotation['order']['poloShirt'] * 2000}} {{__('office.da')}} |
+|  {{__('office.polo_shirt')}} 	 | 2000 {{__('office.da')}}| x {{$quotation['order']['poloShirt']}}          | {{$quotation['order']['poloShirt'] * 2000}} {{__('office.da')}} |
 @endif
 @if($quotation['order']['sweatShirt'])
-|  {{__('office.nrecyclibags')}} 	 | 3000 {{__('office.da')}}| x {{$quotation['order']['sweatShirt']}}          | {{$quotation['order']['sweatShirt'] * 3000}} {{__('office.da')}} |
+|  {{__('office.sweat_shirt')}} 	 | 3000 {{__('office.da')}}| x {{$quotation['order']['sweatShirt']}}          | {{$quotation['order']['sweatShirt'] * 3000}} {{__('office.da')}} |
 @endif
 @if(true)
 |  {{__('office.collectcontribution')}} |{{ $quotation['collect_contribution_price'] }} {{__('office.da')}} | x 1   | {{$quotation['collect_contribution_price'] }} {{__('office.da')}} |
