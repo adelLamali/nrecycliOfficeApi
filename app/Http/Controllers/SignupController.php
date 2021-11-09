@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\models\User;
-use App\models\Profile;
+use App\Models\User;
+use App\Models\Profile;
 use Illuminate\Support\Facades\Hash;
 
 class SignupController extends Controller

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\models\ServiceSchedule;
+use App\Models\ServiceSchedule;
 use Carbon\Carbon;
 
 use Illuminate\Support\Facades\Mail;
