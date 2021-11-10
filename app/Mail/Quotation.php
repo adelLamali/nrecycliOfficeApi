@@ -32,7 +32,7 @@ class Quotation extends Mailable
     {
         return $this->from('office@nrecycli.com','Nrecycli Office Pack')
                     ->subject('Devis - Nrecycli Office Pack')
-                    ->attach(storage_path().'/devis.pdf')
+                    ->attach(storage_path().'/Devis Office.pdf')
                     ->markdown('emails.quotation');
     }
 }

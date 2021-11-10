@@ -138,7 +138,7 @@ class ProfileController extends Controller
             ->notes($notes)
             ->logo(public_path('images/icon.png'))
             // You can additionally save generated invoice to configured disk
-            ->filename('devis')->save('storage');
+            ->filename('Devis Office')->save('storage');
             // return $request->order; 
 
         $profile->order = request('order');

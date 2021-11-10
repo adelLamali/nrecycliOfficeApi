@@ -275,7 +275,7 @@ class TransactionController extends Controller
             ->notes($notes)
             ->logo(public_path('images/icon.png'))
             // You can additionally save generated invoice to configured disk
-            ->filename('devis')->save('storage');
+            ->filename('Facture Office')->save('storage');
 
         $totalht =  $workshop_price + 
                     $profile->order['twoFlowBins'] * 23800 + 

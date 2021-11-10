@@ -18,7 +18,7 @@ class SignupController extends Controller
             'password' => 'required|confirmed',
             'address' => 'required',
             'office_name' => 'required',
-            'phone_number' => ['required','regex:/^(0)(5|6|7)[0-9]{8}$/'],
+            'phone_number' => ['required','unique:users','regex:/^(0)(5|6|7)[0-9]{8}$/'],
         ]);
 
         $user = User::create([

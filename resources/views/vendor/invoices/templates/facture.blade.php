@@ -273,7 +273,7 @@
                         <p class="text-left"> Address: </p>
                         <p class="text-left"> Registre: </p>
                         <p class="text-left"> NIF: </p>
-                        <p class="text-left"> NIS: </p>
+                        <p class="text-left"> AI: </p>
                         <p class="text-left"> RIB: </p>
                         <p class="text-left"> Téléphone: </p>
                         <p class="text-left"> Site </p>
@@ -281,10 +281,10 @@
 
                     <td class="" width="25%">
                         <p class="text-white text-left tabletop-header hidden"> SARL ENRECYCLI </p>
-                        <p class="text-right text-white"> 116 bd krim belkacem Alger </p>
-                        <p class="text-right text-white"> 5123 15 651 231 351</p>
-                        <p class="text-right text-white"> 62 2 625 32 32 62 32 6 </p>
-                        <p class="text-right text-white"> 23 233 2 321 21 0 21 0 </p>
+                        <p class="text-right text-white"> 116 bd krim Belkacem Alger </p>
+                        <p class="text-right text-white"> 19B1000871-16/00</p>
+                        <p class="text-right text-white"> 001916100087170 </p>
+                        <p class="text-right text-white"> 16020938138 </p>
                         <p class="text-right text-white"> BEA - 2312353412321 </p>
                         <p class="text-right text-white"> +213 770 739 740 </p>
                         <p class="text-right text-white"> office.nrecycli.com </p>
@@ -310,7 +310,7 @@
             </tbody>
         </table>    
 
-        <table class="mx" width="100%">
+        <table class="mx" width="100%"> 
             <tbody>
                 <tr>
 

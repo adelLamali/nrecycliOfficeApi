@@ -18,10 +18,10 @@
 |  {{__('office.workshop')}}      |{{$quotation['workshop_price'] }} {{__('office.da')}}| x 1     | {{ $quotation['workshop_price'] }} {{__('office.da')}} |
 @endif
 @if($quotation['order']['twoFlowBins'])
-|  {{__('office.twostreams')}}    |23.800 {{__('office.da')}}| x {{$quotation['order']['twoFlowBins']}}   | {{ $quotation['order']['threeFlowBins'] * 23800 }} {{__('office.da')}} |
+|  {{__('office.twostreams')}}    |23.800 {{__('office.da')}}| x {{$quotation['order']['twoFlowBins']}}   | {{ $quotation['order']['twoFlowBins'] * 23800 }} {{__('office.da')}} |
 @endif
 @if($quotation['order']['threeFlowBins'])
-|  {{__('office.threestreams')}}   |29.700 {{__('office.da')}}| x {{$quotation['order']['threeFlowBins']}} | {{ $quotation['order']['twoFlowBins'] * 29700 }} {{__('office.da')}} |
+|  {{__('office.threestreams')}}   |29.700 {{__('office.da')}}| x {{$quotation['order']['threeFlowBins']}} | {{ $quotation['order']['threeFlowBins'] * 29700 }} {{__('office.da')}} |
 @endif
 @if($quotation['order']['indoorLooperPet'])
 |  {{__('office.indoorlooperpet')}}   |1.850 {{__('office.da')}}| x {{$quotation['order']['indoorLooperPet']}} | {{ $quotation['order']['indoorLooperPet'] * 1850 }} {{__('office.da')}} |

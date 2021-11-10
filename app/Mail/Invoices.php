@@ -31,7 +31,7 @@ class Invoices extends Mailable
     {
         return $this->from('office@nrecycli.com','Nrecycli Office Pack')
                     ->subject('Facture - Nrecycli Office Pack')
-                    ->attach(storage_path().'/devis.pdf')
+                    ->attach(storage_path().'/Facture Office.pdf')
                     ->markdown('emails.invoice');
     }
 }
