@@ -447,7 +447,7 @@
                     @if($invoice->hasItemUnits)
                         <td scope="col" class="text-left border-0">{{ __('invoices::invoice.units') }}</td>
                     @endif
-                    <td scope="col" class="text-center border-0">Quantity</td>
+                    <td scope="col" class="text-center border-0">Quantité</td>
                     <td scope="col" class="text-center border-0">Prix unitaire</td>
                     @if($invoice->hasItemDiscount)
                         <td scope="col" class="text-right border-0">{{ __('invoices::invoice.discount') }}</td>

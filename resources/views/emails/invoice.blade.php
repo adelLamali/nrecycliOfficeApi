@@ -1,10 +1,8 @@
 @component('mail::message')
 
-Suite a l'installation du " Nrecycli Office Pack " éffectué le {{ $invoice['to_be_delivered_at'] }} et
- correspendant au devis numéro " {{ $invoice['number'] }} " 
- nous vous adressons ci-joint une facture d'un montant de {{ $invoice['total'] }} DA.<br>
- Il est possible de régler ce montant par chèque ou virement bancaire.<br>
- En vous remerciant par avance,<br>
- cordialement.
+{{__('office.facture_msg_one')}} {{ $invoice['to_be_delivered_at'] }} {{__('office.facture_msg_two')}} " {{ $invoice['number'] }} " 
+{{__('office.facture_msg_three')}}  {{ $invoice['total'] }} DA.<br>
+{{__('office.facture_msg_four')}}<br>
+{{__('office.facture_msg_five')}}{{__('office.facture_msg_six')}}
 
 @endcomponent

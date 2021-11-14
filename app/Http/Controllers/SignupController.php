@@ -11,7 +11,6 @@ class SignupController extends Controller
 {
     public function index(Request $request)
     {
-        // return  $request ;
 
         $data = $this->validate($request,[
             'email' => 'required|email|unique:users',
