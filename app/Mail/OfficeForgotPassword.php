@@ -31,7 +31,7 @@ class OfficeForgotPassword extends Mailable
     public function build()
     {
         return $this->from('office@nrecycli.com','Nrecycli Office Pack')
-                    ->subject('Forgot password - Nrecycli Office Pack')
+                    ->subject('Nrecycli Office Pack')
                     ->markdown('emails.office_forgot_password');
     }
 }

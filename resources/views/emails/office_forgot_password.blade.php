@@ -29,6 +29,4 @@
 {{__('office.login')}}
 @endcomponent
 
-Thanks,<br>
-{{ config('app.name') }}
 @endcomponent

@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Mail;
 use App\Models\Transaction;
 use App\Models\Credentials;
 use App\Models\Counter;
+use App\Models\User;
+
+use Illuminate\Support\Facades\Hash;
 use PDF;
 
 use LaravelDaily\Invoices\Invoice;
@@ -225,4 +228,27 @@ class ProfileController extends Controller
         return ['success' => __('office.forgot_password_email')];
 
     }
+
+    public function setpassword(Request $request)
+    {
+
+        $validated = $request->validate([
+            'token' => 'required',
+            'password' => 'required|confirmed',
+        ]);
+
+        $user = User::where('token',$request->token)->get()->first();
+
+        // $user->fill([
+        //     'password' => Hash::make(request('password'))
+        // ])->save();
+        
+        $user->password = Hash::make(request('password')); 
+
+        $user->save();
+
+        return ['success' => __('office.reset_password_feedback')];
+
+    }
+
 }

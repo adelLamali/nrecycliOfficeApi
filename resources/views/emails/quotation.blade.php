@@ -94,7 +94,7 @@
     <p style="text-align:left;">
       <!-- {{__('office.seventh_msg')}}<strong style="color:#41E2F8">{{__('office.eigth_msg')}}</strong><br> -->
       {{__('office.ninth_msg')}}<strong>{{ $quotation['date'] }}.</strong><br>
-      {{__('office.tenth_msg')}}<strong style="color:#41E2F8"> office.nrecycli.com</strong><br>
+      {{__('office.tenth_msg')}}<strong style="color:#41E2F8"> office@nrecycli.com</strong><br>
       {{__('office.eleventh_msg')}}
     </p>
   </div>
