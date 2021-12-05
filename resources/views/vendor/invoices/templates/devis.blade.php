@@ -283,7 +283,7 @@
                         <p class="text-right text-white"> 19B1000871-16/00 </p>
                         <p class="text-right text-white"> 001916100087170 </p>
                         <p class="text-right text-white"> 16020938138 </p>
-                        <p class="text-right text-white"> BEA - 2312353412321 </p>
+                        <p class="text-right text-white"> BEA - 0020001201222085105 </p>
                         <p class="text-right text-white"> +213 770 739 740 </p>
                         <p class="text-right text-white"> office.nrecycli.com </p>
                     </td>
@@ -433,7 +433,7 @@
             <thead>
                 <tr>
                     <td>
-                        <p class="text-center tabletop-header ">Devis “ Nrecycli Office Pack ”</p>
+                        <p class="text-center tabletop-header ">Devis “ Nrecycli Office ”</p>
                     </td>
                 </tr>
             </thead>

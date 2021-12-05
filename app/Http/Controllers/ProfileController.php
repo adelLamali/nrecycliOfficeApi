@@ -79,7 +79,7 @@ class ProfileController extends Controller
             case $amount >= 10 && $amount <= 19 :
                 $discount = 3500;
                 break;
-            case $amount > 20 :
+            case $amount >= 20 :
                 $discount = 5000;
                 break;
         };
@@ -98,8 +98,8 @@ class ProfileController extends Controller
             (new InvoiceItem())->title("Nrecycli looper extérieur - P.E.H.D et P.P")->pricePerUnit(3650)->quantity($request->order['outdoorLooperRp']),
             (new InvoiceItem())->title("Nrecycli looper extérieur - Papier")->pricePerUnit(3650)->quantity($request->order['outdoorLooperPaper']),
             (new InvoiceItem())->title("Nrecycli looper extérieur - Aluminium")->pricePerUnit(3650)->quantity($request->order['outdoorLooperAluminium']),
-            (new InvoiceItem())->title("Nrecycli station extérieur - P.E.T")->pricePerUnit(25000)->quantity($request->order['outdoorLooperPetBig']),
-            (new InvoiceItem())->title("Nrecycli station extérieur - P.E.H.D et P.P")->pricePerUnit(25000)->quantity($request->order['outdoorLooperPaperBig']),
+            (new InvoiceItem())->title("Nrecycli Beeg looper - P.E.T et P.E.H.D")->pricePerUnit(25000)->quantity($request->order['outdoorLooperPetBig']),
+            (new InvoiceItem())->title("Nrecycli Beeg looper - Papier")->pricePerUnit(25000)->quantity($request->order['outdoorLooperPaperBig']),
             (new InvoiceItem())->title("Sacs Nrecycli")->pricePerUnit(960)->quantity($request->order['bags']),
             (new InvoiceItem())->title("Gourde Nrecycli")->pricePerUnit(1200)->quantity($request->order['aluminiumSportBottle']),
             (new InvoiceItem())->title("Mug Nrecycli")->pricePerUnit(800)->quantity($request->order['glassMug']),
@@ -107,8 +107,8 @@ class ProfileController extends Controller
             (new InvoiceItem())->title("T-shirt Nrecycli")->pricePerUnit(2000)->quantity($request->order['tShirt']),
             (new InvoiceItem())->title("Polo-shirt Nrecycli")->pricePerUnit(2000)->quantity($request->order['poloShirt']),
             (new InvoiceItem())->title("Sweat-shirt Nrecycli")->pricePerUnit(3000)->quantity($request->order['sweatShirt']),
-            (new InvoiceItem())->title("Contribution à la collecte")->pricePerUnit($request->collect_contribution_price)->quantity(1),
-            (new InvoiceItem())->title("Nrecycli eco-tracker")->pricePerUnit(0)->quantity($request->order['ecotracker']),
+            (new InvoiceItem())->title("Collecte(s)")->pricePerUnit($request->collect_contribution_price)->quantity(1),
+            (new InvoiceItem())->title("Nrecycli eco-tracker - Bilan environnemental")->pricePerUnit(0)->quantity($request->order['ecotracker']),
         ];
 
         $notes = [

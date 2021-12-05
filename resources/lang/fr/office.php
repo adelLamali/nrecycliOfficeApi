@@ -47,9 +47,9 @@
 
 		'outdoorlooperaluminium'=>" Looper extérieur - Aluminium ",
 
-		'outdoorstationpet'=>"Station extérieur - P.E.T.",
+		'outdoorstationpet'=>"Nrecycli Beeg looper - P.E.T et P.E.H.D",
 
-		'outdoorstationpaper'=>"Station extérieur - Paper",
+		'outdoorstationpaper'=>"Nrecycli Beeg looper - Papier",
 
 		'gourde' => "Gourde Nrecycli",
 

@@ -48,9 +48,9 @@
 
 		'outdoorlooperaluminium'=>"Outdoor looper - Aluminium ",
 
-		'outdoorstationpet'=>"Outdoor station - P.E.T.",
+		'outdoorstationpet'=>"Nrecycli Beeg looper - P.E.T & P.E.H.D",
 
-		'outdoorstationpaper'=>"Outdoor station - Paper",
+		'outdoorstationpaper'=>"Nrecycli Beeg looper - Paper",
 
 		'gourde' => "Aluminium sport bottle Nrecycli",
 
