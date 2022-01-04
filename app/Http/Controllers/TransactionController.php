@@ -232,8 +232,8 @@ class TransactionController extends Controller
             (new InvoiceItem())->title("Nrecycli looper extérieur - P.E.H.D et P.P")->pricePerUnit(3650)->quantity($profile->order['outdoorLooperRp']),
             (new InvoiceItem())->title("Nrecycli looper extérieur - Papier")->pricePerUnit(3650)->quantity($profile->order['outdoorLooperPaper']),
             (new InvoiceItem())->title("Nrecycli looper extérieur - Aluminium")->pricePerUnit(3650)->quantity($profile->order['outdoorLooperAluminium']),
-            (new InvoiceItem())->title("Nrecycli Beeg looper - P.E.T et P.E.H.D")->pricePerUnit(25000)->quantity($profile->order['outdoorLooperPetBig']),
-            (new InvoiceItem())->title("Nrecycli Beeg looper - Papier")->pricePerUnit(25000)->quantity($profile->order['outdoorLooperPaperBig']),
+            (new InvoiceItem())->title("Nrecycli Beeg looper - P.E.T et P.E.H.D")->pricePerUnit(32000)->quantity($profile->order['outdoorLooperPetBig']),
+            (new InvoiceItem())->title("Nrecycli Beeg looper - Papier")->pricePerUnit(32000)->quantity($profile->order['outdoorLooperPaperBig']),
             (new InvoiceItem())->title("Sacs Nrecycli")->pricePerUnit(960)->quantity($profile->order['bags']),
             (new InvoiceItem())->title("Gourde Nrecycli")->pricePerUnit(1200)->quantity($profile->order['aluminiumSportBottle']),
             (new InvoiceItem())->title("Mug Nrecycli")->pricePerUnit(800)->quantity($profile->order['glassMug']),
@@ -288,8 +288,8 @@ class TransactionController extends Controller
                     $profile->order['outdoorLooperRp'] * 3650 + 
                     $profile->order['outdoorLooperPaper'] * 3650 + 
                     $profile->order['outdoorLooperAluminium'] * 3650 + 
-                    $profile->order['outdoorLooperPetBig'] * 25000 + 
-                    $profile->order['outdoorLooperPaperBig'] * 25000 + 
+                    $profile->order['outdoorLooperPetBig'] * 32000 + 
+                    $profile->order['outdoorLooperPaperBig'] * 32000 + 
                     $profile->order['bags'] * 960 + 
                     $profile->order['aluminiumSportBottle'] * 1200 +
                     $profile->order['glassMug'] * 800 +
