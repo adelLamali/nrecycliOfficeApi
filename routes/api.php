@@ -89,11 +89,14 @@ Route::post('office/transaction',[TransactionController::class,'transaction']);
 Route::post('office/credentials',[TransactionController::class,'credentials']);
 Route::post('office/activate',[TransactionController::class,'activate']);
 Route::post('office/facture',[TransactionController::class,'facture']);
+Route::post('office/client',[ProfileController::class,'create']);
 
 Route::post('forgotpassword/setemail',[SettingsController::class,'setemail']);
 
 Route::get('office/getCalledNow',[ServiceScheduleController::class,'getCalledNow']);
 Route::post('office/scheduleCall',[ServiceScheduleController::class,'scheduleCall']);
+
+Route::post('office/setPickupDate',[ProfileController::class,'setPickupDate']);
 
 Route::post('forgotpassword/setpassword',[ProfileController::class, 'setpassword']);
 

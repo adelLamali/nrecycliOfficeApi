@@ -10,6 +10,7 @@ use App\Models\Transaction;
 use App\Models\Credentials;
 use App\Models\Counter;
 use App\Models\User;
+use App\Models\Profile;
 
 use Illuminate\Support\Facades\Hash;
 use PDF;
@@ -23,6 +24,61 @@ use Carbon\Carbon;
 
 class ProfileController extends Controller
 {
+    public function create(Request $request)
+    {
+        // return 'hoho';
+        
+        $data = $request->validate([
+            'phone_number' => ['required','unique:users','regex:/^(0)(5|6|7)[0-9]{8}$/'],
+            'email' => 'required|email|unique:users',
+            'password' => 'required',
+            'office_name' => 'required',
+            'address' => 'required',
+            'registre' => 'required',
+            'nif' => 'required',
+            'nis' => 'required',
+            'rip' => 'required',
+            'invoice_number' => 'required',
+            'to_be_delivered_at' => 'required',
+        ]);
+
+        $user = User::create([
+            'email' => $data['email'],
+			'password' => Hash::make($data['password']),
+            'phone_number' => $data['phone_number'],
+        ]);
+
+        $profile = Profile::create([
+            'user_id' => $user->id,
+            'address' => $data['address'],
+            'office_name' => $data['office_name'],
+        ]);
+
+        $profile->activated = true;
+        $profile->confirmed = true;
+        $profile->delivered_at = NOW();
+        $profile->save();
+
+        $credentials = Credentials::updateOrCreate(['user_id' => $user->id ],[
+            'user_id' => $user->id,
+            'registre' => $request->registre ,
+            'nif' => $request->nif ,
+            'nis' => $request->nis ,
+            'rip' => $request->rip ,
+            'invoice_number' => $request->invoice_number ,
+            'to_be_delivered_at' => $request->to_be_delivered_at ,
+        ]);
+
+        $users = User::with('profile')
+                        ->with('recyclables')
+                        ->with('transactions')
+                        ->with('credentials')
+                        ->with('schedule')
+                        ->get();
+
+        return ['users' => $users];
+
+    }
     public function order(Request $request)
     {
         
@@ -248,6 +304,22 @@ class ProfileController extends Controller
         $user->save();
 
         return ['success' => __('office.reset_password_feedback')];
+
+    }
+
+    public function setPickupDate(Request $request)
+    {
+        
+        // return $request->calendar;
+
+        $profile = auth()->user()->profile;
+
+        $profile->pickup_date = $request->calendar;
+        $profile->save();
+
+        return [
+            'pickup_date' => $profile->pickup_date,
+        ];
 
     }
 
