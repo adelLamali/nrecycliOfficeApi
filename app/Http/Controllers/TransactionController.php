@@ -317,4 +317,21 @@ class TransactionController extends Controller
         return [ 'success' => 'success' ]; 
 
     }
+
+    public function history(Request $request)
+    {
+        $history = Transaction::where('user_id',$request->user_id)->latest()->paginate(12);
+
+        return $history;
+    }
+
+    public function historyDelete(Request $request)
+    {
+
+        $delete = Transaction::where('id',$request->id)->delete();
+
+        $history = Transaction::where('user_id',$request->user_id)->latest()->paginate(12);
+
+        return $history;
+    }
 }

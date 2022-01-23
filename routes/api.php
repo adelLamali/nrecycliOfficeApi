@@ -86,6 +86,8 @@ Route::post('office/settings/edit/address',[SettingsController::class,'editaddre
 Route::post('office/settings/edit/image',[SettingsController::class,'editimage']);
 
 Route::post('office/transaction',[TransactionController::class,'transaction']);
+Route::post('office/transaction/history',[TransactionController::class,'history']);
+Route::post('office/transaction/history/delete',[TransactionController::class,'historyDelete']);
 Route::post('office/credentials',[TransactionController::class,'credentials']);
 Route::post('office/activate',[TransactionController::class,'activate']);
 Route::post('office/facture',[TransactionController::class,'facture']);
