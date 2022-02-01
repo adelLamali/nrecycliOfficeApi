@@ -93,10 +93,15 @@ Route::post('office/activate',[TransactionController::class,'activate']);
 Route::post('office/facture',[TransactionController::class,'facture']);
 Route::post('office/client',[ProfileController::class,'create']);
 
+Route::post('office/quotaion/eco',[ProfileController::class,'eco']);
+
+
 Route::post('forgotpassword/setemail',[SettingsController::class,'setemail']);
 
 Route::get('office/getCalledNow',[ServiceScheduleController::class,'getCalledNow']);
 Route::post('office/scheduleCall',[ServiceScheduleController::class,'scheduleCall']);
+Route::post('office/scheduleCall/recieveEmail',[ServiceScheduleController::class,'recieveEmail']);
+
 
 Route::post('office/setPickupDate',[ProfileController::class,'setPickupDate']);
 

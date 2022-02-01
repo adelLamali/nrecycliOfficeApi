@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Mail\Quotation;
+use App\Mail\Forfais;
 use Illuminate\Support\Facades\Mail;
 
 use App\Models\Transaction;
@@ -320,6 +321,132 @@ class ProfileController extends Controller
         return [
             'pickup_date' => $profile->pickup_date,
         ];
+
+    }
+
+    public function eco(Request $request)
+    {
+        $validated = $request->validate([
+            'company_name' => 'required',
+            'email' => 'required|email',
+            'phone_number' => ['required','regex:/^(0)(5|6|7)[0-9]{8}$/'],
+            'address' => 'required',
+            'offer' => 'required',
+        ]);
+
+        $offer = $request['offer'];
+
+        $counter = Counter::where('id',1)->first();
+
+        switch ( $offer ) {
+            case $offer === 1 :
+
+                    $offerTitle = "Forfait Eco";
+
+                    $totalAmount=48000;
+
+                    $items = [ 
+                        (new InvoiceItem())->title("Nrecycli looper interieur au choix avec un remplacement")->pricePerUnit(3000)->quantity(4),
+                        (new InvoiceItem())->title("Une collecte par mois pendant 12 mois")->pricePerUnit(3000)->quantity(12),
+                        (new InvoiceItem())->title("Nrecycli eco-tracker - Bilan environnemental")->pricePerUnit(3000)->quantity(4),
+                    ];
+
+                break;
+            case $offer === 2 :
+
+                $offerTitle = "Forfait Eco-spot";
+                
+                $totalAmount=140000;
+
+                $items = [ 
+                    (new InvoiceItem())->title("Atelier: “L'Art du Recyclage”")->pricePerUnit(3000)->quantity(1),
+                    (new InvoiceItem())->title("Nrecycli looper interieur au choix avec un remplacement")->pricePerUnit(3000)->quantity(10),
+                    (new InvoiceItem())->title("Nrecycli station de tri sélectif a trois flux")->pricePerUnit(3000)->quantity(1),
+                    (new InvoiceItem())->title("Une collecte par mois pendant 12 mois")->pricePerUnit(3000)->quantity(12),
+                    (new InvoiceItem())->title("Nrecycli eco-tracker - Bilan environnemental")->pricePerUnit(3000)->quantity(4),
+                ];
+                break;
+            case $offer === 3 :
+
+                $offerTitle = "Forfait Eco-zone";
+                
+                $totalAmount=360000;
+
+                $items = [ 
+                    (new InvoiceItem())->title("Atelier: “L'Art du Recyclage”")->pricePerUnit(3000)->quantity(1),
+                    (new InvoiceItem())->title("Nrecycli looper interieur au choix avec un remplacement")->pricePerUnit(3000)->quantity(20),
+                    (new InvoiceItem())->title("Nrecycli station de tri sélectif a trois flux")->pricePerUnit(3000)->quantity(2),
+                    (new InvoiceItem())->title("Nrecycli Beeg looper au choix")->pricePerUnit(3000)->quantity(2),
+                    (new InvoiceItem())->title("Une collecte par mois pendant 12 mois")->pricePerUnit(3000)->quantity(12),
+                    (new InvoiceItem())->title("Nrecycli eco-tracker - Bilan environnemental")->pricePerUnit(3000)->quantity(4),
+                ];
+                break;
+            case $offer === 4 :
+
+                $offerTitle = "Forfait Eco-system";
+                
+                $totalAmount=440000;
+
+                $items = [ 
+                    (new InvoiceItem())->title("Atelier: “L'Art du Recyclage”")->pricePerUnit(3000)->quantity(1),
+                    (new InvoiceItem())->title("Nrecycli looper interieur au choix avec un remplacement")->pricePerUnit(3000)->quantity(30),
+                    (new InvoiceItem())->title("Nrecycli station de tri sélectif a trois flux")->pricePerUnit(3000)->quantity(3),
+                    (new InvoiceItem())->title("Nrecycli Beeg looper au choix")->pricePerUnit(3000)->quantity(3),
+                    (new InvoiceItem())->title("Une collecte par mois pendant 12 mois")->pricePerUnit(3000)->quantity(24),
+                    (new InvoiceItem())->title("Nrecycli eco-tracker - Bilan environnemental")->pricePerUnit(3000)->quantity(4),
+                ];
+                break;
+        };
+        
+        $customer = new Party([
+            'office_name'   => $request['company_name'],
+            'address'       => $request['address'],
+            'phone_number'  => $request['phone_number'],
+            'date_now' => date("Y-m-d"), 
+            'number' => 'op-'.$counter->quotation_number,
+            'offre' => $offerTitle,
+        ]);
+
+        $devis = Invoice::make('SARL Enrecycli')
+            ->template('forfait-devis')
+            ->totalAmount($totalAmount)
+            ->taxRate(19)
+            ->series('BIG')
+            // ability to include translated invoice status
+            // in case it was paid
+            // ->status(__('invoices::invoice.paid'))
+            ->sequence(667)
+            ->serialNumberFormat('{SEQUENCE}/{SERIES}')
+            // ->seller($client)
+            ->buyer($customer)
+            // ->date(now()->subWeeks(3))
+            // ->dateFormat('m/d/Y')
+            // ->payUntilDays(14)
+            ->currencySymbol('DZD')
+            ->currencyCode('DZD')
+            ->currencyFormat('{VALUE} {SYMBOL}')
+            ->currencyThousandsSeparator('.')
+            ->currencyDecimalPoint(',')
+            // ->filename($client->name . ' ' . $customer->name)
+            ->addItems($items)
+            // ->notes($notes)
+            ->logo(public_path('images/icon.png'))
+            // You can additionally save generated invoice to configured disk
+            ->filename('Forfais Office')->save('storage');
+            // return $request->order; 
+
+        $forfais=
+        [
+            'date' => Carbon::now()->add(7,'day')->format('d-m-Y'),
+        ];
+
+            Mail::to($request['email'])
+                ->send(new Forfais( $forfais ));
+        
+            Mail::to('office@nrecycli.com')
+                ->send(new Forfais( $forfais ));
+
+        return ['feedback' => 'success'];
 
     }
 

@@ -30,8 +30,8 @@ class Quotation extends Mailable
      */
     public function build()
     {
-        return $this->from('office@nrecycli.com','Nrecycli Office Pack')
-                    ->subject('Devis - Nrecycli Office Pack')
+        return $this->from('office@nrecycli.com','Nrecycli Office')
+                    ->subject('Devis - Nrecycli Office ')
                     ->attach(storage_path().'/Devis Office.pdf')
                     ->markdown('emails.quotation');
     }

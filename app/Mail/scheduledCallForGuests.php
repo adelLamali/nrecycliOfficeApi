@@ -7,19 +7,19 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class scheduledCall extends Mailable
+class scheduledCallForGuests extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $account;
+    public $guest;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($account)
+    public function __construct($guest)
     {
-        $this->account = $account;
+        $this->guest = $guest;
     }
 
     /**
@@ -29,8 +29,8 @@ class scheduledCall extends Mailable
      */
     public function build()
     {
-        return $this->from('office@nrecycli.com','Nrecycli Office')
-                    ->subject('Scheduled call - Nrecycli Office')
-                    ->markdown('emails.scheduled_call');
+        return $this->from('office@nrecycli.com','Nrecycli Office Guests')
+                    ->subject('Scheduled call from guests- Nrecycli Office')
+                    ->markdown('emails.scheduled_call_from_guests');
     }
 }

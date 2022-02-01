@@ -7,19 +7,19 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class scheduledCall extends Mailable
+class Forfais extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $account;
+    public $invoice;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($account)
+    public function __construct($forfais)
     {
-        $this->account = $account;
+        $this->forfais = $forfais;
     }
 
     /**
@@ -30,7 +30,8 @@ class scheduledCall extends Mailable
     public function build()
     {
         return $this->from('office@nrecycli.com','Nrecycli Office')
-                    ->subject('Scheduled call - Nrecycli Office')
-                    ->markdown('emails.scheduled_call');
+                    ->subject('Devis - Nrecycli Office ')
+                    ->attach(storage_path().'/Forfais Office.pdf')
+                    ->markdown('emails.forfais');       
     }
 }
