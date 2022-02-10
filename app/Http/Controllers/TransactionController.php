@@ -328,8 +328,21 @@ class TransactionController extends Controller
     public function historyDelete(Request $request)
     {
 
-        $delete = Transaction::where('id',$request->id)->delete();
+        $transaction = Transaction::where('id',$request->id)->first();
 
+        $recyclables = Recyclables::where('user_id',$request->user_id)->first();
+
+        $recyclables->pet = $recyclables->pet - $transaction->pet;
+        $recyclables->rigid_plastic = $recyclables->rigid_plastic - $transaction->rigid_plastic;
+        $recyclables->glass = $recyclables->glass - $transaction->glass;
+        $recyclables->paper = $recyclables->paper - $transaction->paper;
+        $recyclables->aluminium = $recyclables->aluminium - $transaction->aluminium;
+        $recyclables->oil = $recyclables->oil - $transaction->oil;
+
+        $recyclables->save();
+
+        $transaction->delete();
+        
         $history = Transaction::where('user_id',$request->user_id)->latest()->paginate(12);
 
         return $history;

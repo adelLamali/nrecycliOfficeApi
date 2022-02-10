@@ -11,6 +11,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\ServiceScheduleController;
+use App\Http\Controllers\RecyclablesController;
 use App\Models\User;
 
 /*
@@ -92,6 +93,8 @@ Route::post('office/credentials',[TransactionController::class,'credentials']);
 Route::post('office/activate',[TransactionController::class,'activate']);
 Route::post('office/facture',[TransactionController::class,'facture']);
 Route::post('office/client',[ProfileController::class,'create']);
+
+Route::post('office/edit/recyclables',[RecyclablesController::class,'edit']);
 
 Route::post('office/quotaion/eco',[ProfileController::class,'eco']);
 
