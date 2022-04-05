@@ -346,6 +346,7 @@
                         <!-- <p class="text-left"> NIF: </p>
                         <p class="text-left"> NIS: </p> -->
                         <p class="text-left"> Telephone: </p>
+                        <p class="text-left"> Email: </p>
                         @if($invoice->buyer->registre)
                             <p class="text-left">
                                 Registre:
@@ -391,6 +392,11 @@
                         @if($invoice->buyer->phone_number)
                             <p class="text-right">
                                 {{ $invoice->buyer->phone_number }}
+                            </p>
+                        @endif
+                        @if($invoice->buyer->email)
+                            <p class="text-right">
+                                {{ $invoice->buyer->email }}
                             </p>
                         @endif
                         @if($invoice->buyer->registre)

@@ -18,40 +18,40 @@
 |  {{__('office.workshop')}}      |{{$quotation['workshop_price'] }} {{__('office.da')}}| x 1     | {{ $quotation['workshop_price'] }} {{__('office.da')}} |
 @endif
 @if($quotation['order']['twoFlowBins'])
-|  {{__('office.twostreams')}}    |23.800 {{__('office.da')}}| x {{$quotation['order']['twoFlowBins']}}   | {{ $quotation['order']['twoFlowBins'] * 23800 }} {{__('office.da')}} |
+|  {{__('office.twostreams')}}    |29.800 {{__('office.da')}}| x {{$quotation['order']['twoFlowBins']}}   | {{ $quotation['order']['twoFlowBins'] * 29800 }} {{__('office.da')}} |
 @endif
 @if($quotation['order']['threeFlowBins'])
-|  {{__('office.threestreams')}}   |29.700 {{__('office.da')}}| x {{$quotation['order']['threeFlowBins']}} | {{ $quotation['order']['threeFlowBins'] * 29700 }} {{__('office.da')}} |
+|  {{__('office.threestreams')}}   |45.300 {{__('office.da')}}| x {{$quotation['order']['threeFlowBins']}} | {{ $quotation['order']['threeFlowBins'] * 45300 }} {{__('office.da')}} |
 @endif
 @if($quotation['order']['indoorLooperPet'])
-|  {{__('office.indoorlooperpet')}}   |1.850 {{__('office.da')}}| x {{$quotation['order']['indoorLooperPet']}} | {{ $quotation['order']['indoorLooperPet'] * 1850 }} {{__('office.da')}} |
+|  {{__('office.indoorlooperpet')}}   |1850 {{__('office.da')}}| x {{$quotation['order']['indoorLooperPet']}} | {{ $quotation['order']['indoorLooperPet'] * 1850 }} {{__('office.da')}} |
 @endif
 @if($quotation['order']['indoorLooperRp'])
-|  {{__('office.indoorlooperrp')}}   |1.850 {{__('office.da')}}| x {{$quotation['order']['indoorLooperRp']}} | {{ $quotation['order']['indoorLooperRp'] * 1850 }} {{__('office.da')}} |
+|  {{__('office.indoorlooperrp')}}   |1850 {{__('office.da')}}| x {{$quotation['order']['indoorLooperRp']}} | {{ $quotation['order']['indoorLooperRp'] * 1850 }} {{__('office.da')}} |
 @endif
 @if($quotation['order']['indoorLooperPaper'])
-|  {{__('office.indoorlooperpaper')}}   |1.850 {{__('office.da')}}| x {{$quotation['order']['indoorLooperPaper']}} | {{ $quotation['order']['indoorLooperPaper'] * 1850 }} {{__('office.da')}} |
+|  {{__('office.indoorlooperpaper')}}   |1850 {{__('office.da')}}| x {{$quotation['order']['indoorLooperPaper']}} | {{ $quotation['order']['indoorLooperPaper'] * 1850 }} {{__('office.da')}} |
 @endif
 @if($quotation['order']['indoorLooperAluminium'])
-|  {{__('office.indoorlooperaluminium')}}   |1.850 {{__('office.da')}}| x {{$quotation['order']['indoorLooperAluminium']}} | {{ $quotation['order']['indoorLooperAluminium'] * 1850 }} {{__('office.da')}} |
+|  {{__('office.indoorlooperaluminium')}}   |1850 {{__('office.da')}}| x {{$quotation['order']['indoorLooperAluminium']}} | {{ $quotation['order']['indoorLooperAluminium'] * 1850 }} {{__('office.da')}} |
 @endif
 @if($quotation['order']['outdoorLooperPet'])
-|  {{__('office.outdoorlooperpet')}}   |3.650 {{__('office.da')}}| x {{$quotation['order']['outdoorLooperPet']}} | {{ $quotation['order']['outdoorLooperPet'] * 3650 }} {{__('office.da')}} |
+|  {{__('office.outdoorlooperpet')}}   |4800 {{__('office.da')}}| x {{$quotation['order']['outdoorLooperPet']}} | {{ $quotation['order']['outdoorLooperPet'] * 4800 }} {{__('office.da')}} |
 @endif
 @if($quotation['order']['outdoorLooperRp'])
-|  {{__('office.outdoorlooperrp')}}   |3.650 {{__('office.da')}}| x {{$quotation['order']['outdoorLooperRp']}} | {{ $quotation['order']['outdoorLooperRp'] * 3650 }} {{__('office.da')}} |
+|  {{__('office.outdoorlooperrp')}}   |4800 {{__('office.da')}}| x {{$quotation['order']['outdoorLooperRp']}} | {{ $quotation['order']['outdoorLooperRp'] * 4800 }} {{__('office.da')}} |
 @endif
 @if($quotation['order']['outdoorLooperPaper'])
-|  {{__('office.outdoorlooperpaper')}}   |3.650 {{__('office.da')}}| x {{$quotation['order']['outdoorLooperPaper']}} | {{ $quotation['order']['outdoorLooperPaper'] * 3650 }} {{__('office.da')}} |
+|  {{__('office.outdoorlooperpaper')}}   |4800 {{__('office.da')}}| x {{$quotation['order']['outdoorLooperPaper']}} | {{ $quotation['order']['outdoorLooperPaper'] * 4800 }} {{__('office.da')}} |
 @endif
 @if($quotation['order']['outdoorLooperAluminium'])
-|  {{__('office.outdoorlooperaluminium')}}   |3.650 {{__('office.da')}}| x {{$quotation['order']['outdoorLooperAluminium']}} | {{ $quotation['order']['outdoorLooperAluminium'] * 3650 }} {{__('office.da')}} |
+|  {{__('office.outdoorlooperaluminium')}}   |4800 {{__('office.da')}}| x {{$quotation['order']['outdoorLooperAluminium']}} | {{ $quotation['order']['outdoorLooperAluminium'] * 4800 }} {{__('office.da')}} |
 @endif
 @if($quotation['order']['outdoorLooperPetBig'])
-|  {{__('office.outdoorstationpet')}}   |32.000 {{__('office.da')}}| x {{$quotation['order']['outdoorLooperPetBig']}} | {{ $quotation['order']['outdoorLooperPetBig'] * 32000 }} {{__('office.da')}} |
+|  {{__('office.outdoorstationpet')}}   |32000 {{__('office.da')}}| x {{$quotation['order']['outdoorLooperPetBig']}} | {{ $quotation['order']['outdoorLooperPetBig'] * 32000 }} {{__('office.da')}} |
 @endif
 @if($quotation['order']['outdoorLooperPaperBig'])
-|  {{__('office.outdoorstationpaper')}}   | 32.000 {{__('office.da')}}| x {{$quotation['order']['outdoorLooperPaperBig']}} | {{ $quotation['order']['outdoorLooperPaperBig'] * 32000 }} {{__('office.da')}} |
+|  {{__('office.outdoorstationpaper')}}   | 32000 {{__('office.da')}}| x {{$quotation['order']['outdoorLooperPaperBig']}} | {{ $quotation['order']['outdoorLooperPaperBig'] * 32000 }} {{__('office.da')}} |
 @endif
 @if($quotation['order']['bags'])
 |  {{__('office.nrecyclibags')}} 	 | 960 {{__('office.da')}}| x {{$quotation['order']['bags']}}          | {{$quotation['order']['bags'] * 960}} {{__('office.da')}} |
@@ -82,7 +82,6 @@
 @component('mail::table')
 |                |                |
 | :------------- |-------------:  |
-| {{__('office.discount')}}    | {{ $quotation['discount'] }} {{__('office.da')}} |
 | {{__('office.totalht')}}    | {{ $quotation['totalht'] }} {{__('office.da')}} |
 | {{__('office.tva') }}   | {{ $quotation['tva'] }} {{__('office.da')}} |
 | {{__('office.total')}}    | {{ $quotation['total'] }} {{__('office.da')}}|
