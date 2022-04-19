@@ -312,15 +312,16 @@ class ProfileController extends Controller
     public function setPickupDate(Request $request)
     {
         
-        // return $request->calendar;
+        // return $request->id;
+        $profile= Profile::where('user_id',$request->id)->get()->first();
 
-        $profile = auth()->user()->profile;
+        // $profile = auth()->user()->profile;
 
-        $profile->pickup_date = $request->calendar;
+        $profile->pickup_date = $request->days;
         $profile->save();
 
         return [
-            'pickup_date' => $profile->pickup_date,
+            'success' => $profile->pickup_date,
         ];
 
     }
@@ -403,6 +404,7 @@ class ProfileController extends Controller
             'office_name'   => $request['company_name'],
             'address'       => $request['address'],
             'phone_number'  => $request['phone_number'],
+            'email'  => $request['email'],
             'date_now' => date("Y-m-d"), 
             'number' => 'op-'.$counter->quotation_number,
             'offre' => $offerTitle,
