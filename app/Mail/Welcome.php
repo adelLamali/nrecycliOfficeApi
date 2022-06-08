@@ -7,19 +7,19 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class Forfais extends Mailable
+class Welcome extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $forfais;
+    public $user;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($forfais)
+    public function __construct($user)
     {
-        $this->forfais = $forfais;
+        $this->user = $user;
     }
 
     /**
@@ -30,8 +30,7 @@ class Forfais extends Mailable
     public function build()
     {
         return $this->from('office@nrecycli.com','Nrecycli Office')
-                    ->subject('Devis - Nrecycli Office ')
-                    ->attach(storage_path().'/Forfais Office.pdf')
-                    ->markdown('emails.forfais');       
+                    ->subject('Welcome - Nrecycli Office')
+                    ->markdown('emails.welcome');
     }
 }

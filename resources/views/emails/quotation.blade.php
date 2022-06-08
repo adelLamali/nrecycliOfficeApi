@@ -74,7 +74,7 @@
 @if($quotation['order']['sweatShirt'])
 |  {{__('office.sweat_shirt')}} 	 | 3000 {{__('office.da')}}| x {{$quotation['order']['sweatShirt']}}          | {{$quotation['order']['sweatShirt'] * 3000}} {{__('office.da')}} |
 @endif
-@if(true)
+@if($quotation['collect_contribution_price'])
 |  {{__('office.collectcontribution')}} |{{ $quotation['collect_contribution_price'] }} {{__('office.da')}} | x 1   | {{$quotation['collect_contribution_price'] }} {{__('office.da')}} |
 @endif
 |  {{__('office.nrecycliecotracker')}} 		| 0 {{__('office.da')}}| x {{$quotation['order']['ecotracker']}}    | 0 {{__('office.da')}}|

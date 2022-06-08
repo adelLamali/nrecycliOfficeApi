@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Mail\Quotation;
 use App\Mail\Forfais;
+use App\Mail\Welcome;
 use Illuminate\Support\Facades\Mail;
 
 use App\Models\Transaction;
@@ -30,7 +31,7 @@ class ProfileController extends Controller
         // return 'hoho';
         
         $data = $request->validate([
-            'phone_number' => ['required','unique:users','regex:/^(0)(5|6|7)[0-9]{8}$/'],
+            'phone_number' => ['required','unique:users','regex:/^(0)(5|6|7)[0-9]{8}$/'], 
             'email' => 'required|email|unique:users',
             'password' => 'required',
             'office_name' => 'required',
@@ -80,6 +81,7 @@ class ProfileController extends Controller
         return ['users' => $users];
 
     }
+    
     public function order(Request $request)
     {
         
@@ -165,7 +167,7 @@ class ProfileController extends Controller
             (new InvoiceItem())->title("T-shirt Nrecycli")->pricePerUnit(2000)->quantity($request->order['tShirt']),
             (new InvoiceItem())->title("Polo-shirt Nrecycli")->pricePerUnit(2000)->quantity($request->order['poloShirt']),
             (new InvoiceItem())->title("Sweat-shirt Nrecycli")->pricePerUnit(3000)->quantity($request->order['sweatShirt']),
-            (new InvoiceItem())->title("Collecte(s)")->pricePerUnit($request->collect_contribution_price)->quantity(1),
+            (new InvoiceItem())->title("Collecte(s)")->pricePerUnit($request->collect_contribution_price)->quantity($request->collect_contribution_price/2000?1:0),
             (new InvoiceItem())->title("Nrecycli eco-tracker - Bilan environnemental")->pricePerUnit(0)->quantity($request->order['ecotracker']),
         ];
 
@@ -451,6 +453,23 @@ class ProfileController extends Controller
 
         return ['feedback' => 'success'];
 
+    }
+
+    public function welcome(Request $request)
+    {
+        $email = $request->email;
+
+        $user = User::where('email',$email)->get()->first();
+
+        $token = Str::random(30);
+        
+        $user->token = $token;
+        $user->save();
+        
+        Mail::to($request['email'])
+                ->send(new Welcome( $user ));
+
+        return 'success';
     }
 
 }
