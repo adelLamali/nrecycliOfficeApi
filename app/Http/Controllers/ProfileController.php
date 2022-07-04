@@ -84,6 +84,8 @@ class ProfileController extends Controller
     
     public function order(Request $request)
     {
+
+        // return $request->ecotracker_price;
         
         $user = auth()->user();
 
@@ -154,21 +156,21 @@ class ProfileController extends Controller
             (new InvoiceItem())->title("Nrecycli looper interieur - Aluminium")->pricePerUnit(1850)->quantity($request->order['indoorLooperAluminium']),
             (new InvoiceItem())->title("Nrecycli station a deux flux")->pricePerUnit(29800)->quantity($request->order['twoFlowBins']),
             (new InvoiceItem())->title("Nrecycli station a trois flux")->pricePerUnit(45300)->quantity($request->order['threeFlowBins']),
-            (new InvoiceItem())->title("Nrecycli looper extérieur - P.E.T")->pricePerUnit(4800)->quantity($request->order['outdoorLooperPet']),
-            (new InvoiceItem())->title("Nrecycli looper extérieur - P.E.H.D et P.P")->pricePerUnit(4800)->quantity($request->order['outdoorLooperRp']),
-            (new InvoiceItem())->title("Nrecycli looper extérieur - Papier")->pricePerUnit(4800)->quantity($request->order['outdoorLooperPaper']),
-            (new InvoiceItem())->title("Nrecycli looper extérieur - Aluminium")->pricePerUnit(4800)->quantity($request->order['outdoorLooperAluminium']),
-            (new InvoiceItem())->title("Nrecycli Beeg looper - P.E.T et P.E.H.D")->pricePerUnit(32000)->quantity($request->order['outdoorLooperPetBig']),
-            (new InvoiceItem())->title("Nrecycli Beeg looper - Papier")->pricePerUnit(32000)->quantity($request->order['outdoorLooperPaperBig']),
-            (new InvoiceItem())->title("Sacs Nrecycli")->pricePerUnit(960)->quantity($request->order['bags']),
-            (new InvoiceItem())->title("Gourde Nrecycli")->pricePerUnit(1200)->quantity($request->order['aluminiumSportBottle']),
-            (new InvoiceItem())->title("Mug Nrecycli")->pricePerUnit(800)->quantity($request->order['glassMug']),
-            (new InvoiceItem())->title("Isotherme Nrecycli")->pricePerUnit(1500)->quantity($request->order['thermos']),
-            (new InvoiceItem())->title("T-shirt Nrecycli")->pricePerUnit(2000)->quantity($request->order['tShirt']),
-            (new InvoiceItem())->title("Polo-shirt Nrecycli")->pricePerUnit(2000)->quantity($request->order['poloShirt']),
-            (new InvoiceItem())->title("Sweat-shirt Nrecycli")->pricePerUnit(3000)->quantity($request->order['sweatShirt']),
-            (new InvoiceItem())->title("Collecte(s)")->pricePerUnit($request->collect_contribution_price)->quantity($request->collect_contribution_price/2000?1:0),
-            (new InvoiceItem())->title("Nrecycli eco-tracker - Bilan environnemental")->pricePerUnit(0)->quantity($request->order['ecotracker']),
+            (new InvoiceItem())->title("Nrecycli looper extérieur - P.E.T")->pricePerUnit(5000)->quantity($request->order['outdoorLooperPet']),
+            (new InvoiceItem())->title("Nrecycli looper extérieur - P.E.H.D et P.P")->pricePerUnit(5000)->quantity($request->order['outdoorLooperRp']),
+            (new InvoiceItem())->title("Nrecycli looper extérieur - Papier")->pricePerUnit(5000)->quantity($request->order['outdoorLooperPaper']),
+            (new InvoiceItem())->title("Nrecycli looper extérieur - Aluminium")->pricePerUnit(5000)->quantity($request->order['outdoorLooperAluminium']),
+            (new InvoiceItem())->title("Nrecycli Beeg looper - P.E.T et P.E.H.D")->pricePerUnit(48000)->quantity($request->order['outdoorLooperPetBig']),
+            (new InvoiceItem())->title("Nrecycli Beeg looper - Papier")->pricePerUnit(48000)->quantity($request->order['outdoorLooperPaperBig']),
+            // (new InvoiceItem())->title("Sacs Nrecycli")->pricePerUnit(960)->quantity($request->order['bags']),
+            // (new InvoiceItem())->title("Gourde Nrecycli")->pricePerUnit(1200)->quantity($request->order['aluminiumSportBottle']),
+            // (new InvoiceItem())->title("Mug Nrecycli")->pricePerUnit(800)->quantity($request->order['glassMug']),
+            // (new InvoiceItem())->title("Isotherme Nrecycli")->pricePerUnit(1500)->quantity($request->order['thermos']),
+            // (new InvoiceItem())->title("T-shirt Nrecycli")->pricePerUnit(2000)->quantity($request->order['tShirt']),
+            // (new InvoiceItem())->title("Polo-shirt Nrecycli")->pricePerUnit(2000)->quantity($request->order['poloShirt']),
+            // (new InvoiceItem())->title("Sweat-shirt Nrecycli")->pricePerUnit(3000)->quantity($request->order['sweatShirt']),
+            (new InvoiceItem())->title("Collecte(s)")->pricePerUnit($request->collect_contribution_price)->quantity($request->collect_contribution_price/36000?1:0),
+            (new InvoiceItem())->title("Nrecycli eco-tracker - Bilan environnemental")->pricePerUnit($request->ecotracker_price)->quantity($request->ecotracker_price?1:0),
         ];
 
         $notes = [
@@ -214,20 +216,21 @@ class ProfileController extends Controller
                     $request->order['indoorLooperRp'] * 1850 + 
                     $request->order['indoorLooperPaper'] * 1850 + 
                     $request->order['indoorLooperAluminium'] * 1850 +
-                    $request->order['outdoorLooperPet'] * 4800 + 
-                    $request->order['outdoorLooperRp'] * 4800 + 
-                    $request->order['outdoorLooperPaper'] * 4800 + 
-                    $request->order['outdoorLooperAluminium'] * 4800 + 
-                    $request->order['outdoorLooperPetBig'] * 32000 + 
-                    $request->order['outdoorLooperPaperBig'] * 32000 + 
-                    $request->order['bags'] * 960 + 
-                    $request->order['aluminiumSportBottle'] * 1200 +
-                    $request->order['glassMug'] * 800 +
-                    $request->order['thermos'] * 1500 +
-                    $request->order['tShirt'] * 2000 +
-                    $request->order['poloShirt'] * 2000 +
-                    $request->order['sweatShirt'] * 3000 +
-                    $request->collect_contribution_price;
+                    $request->order['outdoorLooperPet'] * 5000 + 
+                    $request->order['outdoorLooperRp'] * 5000 + 
+                    $request->order['outdoorLooperPaper'] * 5000 + 
+                    $request->order['outdoorLooperAluminium'] * 5000 + 
+                    $request->order['outdoorLooperPetBig'] * 48000 + 
+                    $request->order['outdoorLooperPaperBig'] * 48000 + 
+                    // $request->order['bags'] * 960 + 
+                    // $request->order['aluminiumSportBottle'] * 1200 +
+                    // $request->order['glassMug'] * 800 +
+                    // $request->order['thermos'] * 1500 +
+                    // $request->order['tShirt'] * 2000 +
+                    // $request->order['poloShirt'] * 2000 +
+                    // $request->order['sweatShirt'] * 3000 +
+                    $request->collect_contribution_price +
+                    $request->ecotracker_price;
 
         // $totalht = $totalht - $discount;
         
@@ -247,6 +250,7 @@ class ProfileController extends Controller
             'order' => $request->order,
             'collect_contribution_price' => $request->collect_contribution_price,
             'workshop_price' => $request->workshop_price,
+            'ecotracker_price' => $request->ecotracker_price,
         ];
 
         Mail::to($user->email)
