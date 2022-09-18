@@ -81,5 +81,8 @@
 		'facture_msg_three' => "nous vous adressons ci-joint une facture d'un montant de ",
 		'facture_msg_four' => "Il est possible de régler ce montant par chèque ou virement bancaire.",
 		'facture_msg_five' => "En vous remerciant par avance,",
-		'facture_msg_six' => "cordialement."
+		'facture_msg_six' => "cordialement.",
+
+		'livraison' => 'Livraison',
+
 	];	

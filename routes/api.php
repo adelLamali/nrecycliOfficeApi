@@ -13,6 +13,7 @@ use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\ServiceScheduleController;
 use App\Http\Controllers\RecyclablesController;
 use App\Models\User;
+use Illuminate\Support\Carbon;
 
 /*
 |--------------------------------------------------------------------------
@@ -110,6 +111,18 @@ Route::post('office/setPickupDate',[ProfileController::class,'setPickupDate']);
 
 Route::post('forgotpassword/setpassword',[ProfileController::class, 'setpassword']);
 Route::post('welcomeEmail',[ProfileController::class, 'welcome']);
+
+// Route::get('countdown',[ProfileController::class, 'count']);
+
+// Route::get('countdown', function (Request $request)
+// {
+
+//     $sale_end = Carbon::createFromFormat('Y-m-d H:i:s', '2022-13-20 00:00:00');
+
+//     // $sale_end = Carbon::parse('2022-13-20 00:00:00');
+
+//     return $sale_end->diffInMinutes();
+// });
 
 
 

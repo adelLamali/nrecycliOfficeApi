@@ -82,6 +82,7 @@
 		'facture_msg_three' => "we are sending you an invoice for an amount of ",
 		'facture_msg_four' => "It is possible to pay this amount by check or bank transfer.",
 		'facture_msg_five' => "Thanking,",
-		'facture_msg_six' => "cordially."
-	
+		'facture_msg_six' => "cordially.",
+		
+		'livraison' => 'Delivery',
 	];	
