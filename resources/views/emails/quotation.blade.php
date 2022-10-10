@@ -24,16 +24,16 @@
 |  {{__('office.threestreams')}}   |45.300 {{__('office.da')}}| x {{$quotation['order']['threeFlowBins']}} | {{ $quotation['order']['threeFlowBins'] * 45300 }} {{__('office.da')}} |
 @endif
 @if($quotation['order']['indoorLooperPet'])
-|  {{__('office.indoorlooperpet')}}   |1000 {{__('office.da')}}| x {{$quotation['order']['indoorLooperPet']}} | {{ $quotation['order']['indoorLooperPet'] * 1000 }} {{__('office.da')}} |
+|  {{__('office.indoorlooperpet')}}   |1850 {{__('office.da')}}| x {{$quotation['order']['indoorLooperPet']}} | {{ $quotation['order']['indoorLooperPet'] * 1850 }} {{__('office.da')}} |
 @endif
 @if($quotation['order']['indoorLooperRp'])
-|  {{__('office.indoorlooperrp')}}   |1000 {{__('office.da')}}| x {{$quotation['order']['indoorLooperRp']}} | {{ $quotation['order']['indoorLooperRp'] * 1000 }} {{__('office.da')}} |
+|  {{__('office.indoorlooperrp')}}   |1850 {{__('office.da')}}| x {{$quotation['order']['indoorLooperRp']}} | {{ $quotation['order']['indoorLooperRp'] * 1850 }} {{__('office.da')}} |
 @endif
 @if($quotation['order']['indoorLooperPaper'])
-|  {{__('office.indoorlooperpaper')}}   |1000 {{__('office.da')}}| x {{$quotation['order']['indoorLooperPaper']}} | {{ $quotation['order']['indoorLooperPaper'] * 1000 }} {{__('office.da')}} |
+|  {{__('office.indoorlooperpaper')}}   |1850 {{__('office.da')}}| x {{$quotation['order']['indoorLooperPaper']}} | {{ $quotation['order']['indoorLooperPaper'] * 1850 }} {{__('office.da')}} |
 @endif
 @if($quotation['order']['indoorLooperAluminium'])
-|  {{__('office.indoorlooperaluminium')}}   |1000 {{__('office.da')}}| x {{$quotation['order']['indoorLooperAluminium']}} | {{ $quotation['order']['indoorLooperAluminium'] * 1000 }} {{__('office.da')}} |
+|  {{__('office.indoorlooperaluminium')}}   |1850 {{__('office.da')}}| x {{$quotation['order']['indoorLooperAluminium']}} | {{ $quotation['order']['indoorLooperAluminium'] * 1850 }} {{__('office.da')}} |
 @endif
 @if($quotation['order']['outdoorLooperPet'])
 |  {{__('office.outdoorlooperpet')}}   |5000 {{__('office.da')}}| x {{$quotation['order']['outdoorLooperPet']}} | {{ $quotation['order']['outdoorLooperPet'] * 5000 }} {{__('office.da')}} |
@@ -80,7 +80,9 @@
 @if($quotation['ecotracker_price'])
 |  {{__('office.nrecycliecotracker')}} 		| {{$quotation['ecotracker_price']}} {{__('office.da')}} | x 1   | {{$quotation['ecotracker_price']}} {{__('office.da')}}|
 @endif
+@if(false)
 |  {{__('office.livraison')}}   | {{$quotation['livraison']}} {{__('office.da')}}| x 1 | {{ $quotation['livraison'] }} {{__('office.da')}} |
+@endif
 
 @endcomponent
 @component('mail::table')

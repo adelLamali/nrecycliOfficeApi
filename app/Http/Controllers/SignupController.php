@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 
 class SignupController extends Controller
 {
-    public function index(Request $request)
+    public function index(Request $request)  
     {
 
         $data = $this->validate($request,[
@@ -30,8 +30,9 @@ class SignupController extends Controller
             'user_id' => $user->id,
             'address' => $data['address'],
             'office_name' => $data['office_name'],
+            'qrcode' => base64_encode($data['office_name']),
         ]);
 
         return $user;
-    }
+    } 
 }

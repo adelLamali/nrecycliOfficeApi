@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Profile;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +16,21 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('fixDb',function ()
+{
+
+    $profiles = Profile::get()->all();
+    
+    for ($i=0; $i < count($profiles); $i++) {
+
+        $profiles[$i]['qrcode'] = base64_encode($profiles[$i]['office_name']);
+
+        $profiles[$i]->save();
+
+    };
+
+    return 'success';
+
 });

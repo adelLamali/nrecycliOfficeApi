@@ -111,6 +111,7 @@ Route::post('office/setPickupDate',[ProfileController::class,'setPickupDate']);
 
 Route::post('forgotpassword/setpassword',[ProfileController::class, 'setpassword']);
 Route::post('welcomeEmail',[ProfileController::class, 'welcome']);
+Route::post('getProfileUsingQrcode',[ProfileController::class, 'getProfileUsingQrcode']);
 
 // Route::get('countdown',[ProfileController::class, 'count']);
 

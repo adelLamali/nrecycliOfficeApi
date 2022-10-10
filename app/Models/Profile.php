@@ -21,6 +21,7 @@ class Profile extends Model
         'image',
         'contract',
         'delivered_at',
+        'qrcode',
     ];
 
     protected $casts = [
