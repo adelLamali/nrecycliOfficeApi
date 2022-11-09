@@ -358,63 +358,88 @@ class ProfileController extends Controller
         $counter = Counter::where('id',1)->first();
 
         switch ( $offer ) {
-            case $offer === 1 :
+            case $offer == 1 :
 
-                    $offerTitle = "Forfait Eco";
+                $offerTitle = "Forfait Eco";
 
-                    $totalAmount=48000;
+                $totalAmount=24000;
 
+                $items = [ 
+                    (new InvoiceItem())->title("Nrecycli looper interieur au choix avec un remplacement")->pricePerUnit(3000)->quantity(4),
+                    (new InvoiceItem())->title("Une collecte par mois pendant 6 mois")->pricePerUnit(10)->quantity(6),
+                    (new InvoiceItem())->title("Tracabilité")->pricePerUnit(10)->quantity(6),
+                    (new InvoiceItem())->title("Fiche de collects certifié")->pricePerUnit(10)->quantity(2),
+                    // (new InvoiceItem())->title("Nrecycli eco-tracker - Bilan environnemental")->pricePerUnit(3000)->quantity(4),
+                ];
+
+                break;
+            case $offer == 2 :
+
+                $offerTitle = "Forfait Eco";
+                
+                $totalAmount=48000;
+
+                $items = [
+                    (new InvoiceItem())->title("Nrecycli looper interieur au choix avec un remplacement")->pricePerUnit(3000)->quantity(4),
+                    (new InvoiceItem())->title("Une collecte par mois pendant 12 mois")->pricePerUnit(0)->quantity(12),
+                    (new InvoiceItem())->title("Tracabilité")->pricePerUnit(10)->quantity(12),
+                    (new InvoiceItem())->title("Fiche de collects certifié")->pricePerUnit(10)->quantity(4),
+                    // (new InvoiceItem())->title("Nrecycli eco-tracker - Bilan environnemental")->pricePerUnit(3000)->quantity(4),
+                ];
+
+                break;
+            case $offer == 3 :
+
+                $offerTitle = "Forfait Green Tech";
+                
+                $totalAmount=30000;
+
+                $items = [ 
+                    // (new InvoiceItem())->title("Atelier: “L'Art du Recyclage”")->pricePerUnit(3000)->quantity(1),
+                    (new InvoiceItem())->title("Nrecycli looper interieur au choix avec un remplacement + QR d'instructions")->pricePerUnit(3000)->quantity(4),
+                    // (new InvoiceItem())->title("Nrecycli station de tri sélectif a trois flux")->pricePerUnit(3000)->quantity(2),
+                    // (new InvoiceItem())->title("Nrecycli Beeg looper au choix")->pricePerUnit(3000)->quantity(2),
+                    (new InvoiceItem())->title("Une collecte par mois pendant 6 mois")->pricePerUnit(3000)->quantity(6),
+                    (new InvoiceItem())->title("Nrecycli eco-tracker QR code")->pricePerUnit(3000)->quantity(6),
+                    (new InvoiceItem())->title("Bilan environnemental")->pricePerUnit(3000)->quantity(2),
+                    (new InvoiceItem())->title("Tracabilité")->pricePerUnit(10)->quantity(6),
+                    (new InvoiceItem())->title("Fiche de collects certifié")->pricePerUnit(10)->quantity(2),
+                ];
+                break;
+            case $offer == 4 :
+
+                $offerTitle = "Forfait Green Tech";
+                
+                $totalAmount=60000;
+
+                $items = [ 
+                    (new InvoiceItem())->title("Nrecycli looper interieur au choix avec un remplacement + QR d'instructions")->pricePerUnit(3000)->quantity(4),
+                    (new InvoiceItem())->title("Une collecte par mois pendant 12 mois")->pricePerUnit(3000)->quantity(12),
+                    (new InvoiceItem())->title("Nrecycli eco-tracker QR code")->pricePerUnit(3000)->quantity(12),
+                    (new InvoiceItem())->title("Bilan environnemental")->pricePerUnit(3000)->quantity(4),
+                    (new InvoiceItem())->title("Tracabilité")->pricePerUnit(10)->quantity(12),
+                    (new InvoiceItem())->title("Fiche de collects certifié")->pricePerUnit(10)->quantity(4),
+                ];
+                break;
+                case $offer == 5 :
+
+                    $offerTitle = "Forfait Eco-system";
+                    
+                    $totalAmount=356200;
+    
                     $items = [ 
-                        (new InvoiceItem())->title("Nrecycli looper interieur au choix avec un remplacement")->pricePerUnit(3000)->quantity(4),
-                        (new InvoiceItem())->title("Une collecte par mois pendant 12 mois")->pricePerUnit(3000)->quantity(12),
-                        (new InvoiceItem())->title("Nrecycli eco-tracker - Bilan environnemental")->pricePerUnit(3000)->quantity(4),
+                        (new InvoiceItem())->title("Atelier: “L'Art du Recyclage”")->pricePerUnit(3000)->quantity(1),
+                        (new InvoiceItem())->title("Nrecycli looper interieur au choix avec un remplacement + QR d'instructions")->pricePerUnit(3000)->quantity(20),
+                        (new InvoiceItem())->title("Nrecycli looper exterieur au choix")->pricePerUnit(3000)->quantity(4),
+                        (new InvoiceItem())->title("Nrecycli station de tri sélectif a trois flux")->pricePerUnit(3000)->quantity(2),
+                        (new InvoiceItem())->title("Nrecycli Beeg looper au choix")->pricePerUnit(3000)->quantity(2),
+                        (new InvoiceItem())->title("Deux collectes par mois pendant 12 mois")->pricePerUnit(3000)->quantity(24),
+                        (new InvoiceItem())->title("Nrecycli eco-tracker QR code")->pricePerUnit(3000)->quantity(12),
+                        (new InvoiceItem())->title("Bilan environnemental")->pricePerUnit(3000)->quantity(4),
+                        (new InvoiceItem())->title("Tracabilité")->pricePerUnit(10)->quantity(12),
+                        (new InvoiceItem())->title("Fiche de collects certifié")->pricePerUnit(10)->quantity(4),    
                     ];
-
-                break;
-            case $offer === 2 :
-
-                $offerTitle = "Forfait Eco-spot";
-                
-                $totalAmount=140000;
-
-                $items = [ 
-                    (new InvoiceItem())->title("Atelier: “L'Art du Recyclage”")->pricePerUnit(3000)->quantity(1),
-                    (new InvoiceItem())->title("Nrecycli looper interieur au choix avec un remplacement")->pricePerUnit(3000)->quantity(10),
-                    (new InvoiceItem())->title("Nrecycli station de tri sélectif a trois flux")->pricePerUnit(3000)->quantity(1),
-                    (new InvoiceItem())->title("Une collecte par mois pendant 12 mois")->pricePerUnit(3000)->quantity(12),
-                    (new InvoiceItem())->title("Nrecycli eco-tracker - Bilan environnemental")->pricePerUnit(3000)->quantity(4),
-                ];
-                break;
-            case $offer === 3 :
-
-                $offerTitle = "Forfait Eco-zone";
-                
-                $totalAmount=360000;
-
-                $items = [ 
-                    (new InvoiceItem())->title("Atelier: “L'Art du Recyclage”")->pricePerUnit(3000)->quantity(1),
-                    (new InvoiceItem())->title("Nrecycli looper interieur au choix avec un remplacement")->pricePerUnit(3000)->quantity(20),
-                    (new InvoiceItem())->title("Nrecycli station de tri sélectif a trois flux")->pricePerUnit(3000)->quantity(2),
-                    (new InvoiceItem())->title("Nrecycli Beeg looper au choix")->pricePerUnit(3000)->quantity(2),
-                    (new InvoiceItem())->title("Une collecte par mois pendant 12 mois")->pricePerUnit(3000)->quantity(12),
-                    (new InvoiceItem())->title("Nrecycli eco-tracker - Bilan environnemental")->pricePerUnit(3000)->quantity(4),
-                ];
-                break;
-            case $offer === 4 :
-
-                $offerTitle = "Forfait Eco-system";
-                
-                $totalAmount=440000;
-
-                $items = [ 
-                    (new InvoiceItem())->title("Atelier: “L'Art du Recyclage”")->pricePerUnit(3000)->quantity(1),
-                    (new InvoiceItem())->title("Nrecycli looper interieur au choix avec un remplacement")->pricePerUnit(3000)->quantity(30),
-                    (new InvoiceItem())->title("Nrecycli station de tri sélectif a trois flux")->pricePerUnit(3000)->quantity(3),
-                    (new InvoiceItem())->title("Nrecycli Beeg looper au choix")->pricePerUnit(3000)->quantity(3),
-                    (new InvoiceItem())->title("Une collecte par mois pendant 12 mois")->pricePerUnit(3000)->quantity(24),
-                    (new InvoiceItem())->title("Nrecycli eco-tracker - Bilan environnemental")->pricePerUnit(3000)->quantity(4),
-                ];
-                break;
+                    break;
         };
         
         $customer = new Party([

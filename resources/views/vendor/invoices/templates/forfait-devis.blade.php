@@ -279,7 +279,7 @@
 
                     <td class="" width="25%">
                         <p class="text-white text-left tabletop-header hidden"> SARL ENRECYCLI </p>
-                        <p class="text-right text-white"> 116 bd krim Belkacem Alger </p>
+                        <p class="text-right text-white"> 107 Bis Bd Des Martyrs,Sidi M'Hamed,16000 </p>
                         <p class="text-right text-white"> 19B1000871-16/00 </p>
                         <p class="text-right text-white"> 001916100087170 </p>
                         <p class="text-right text-white"> 16020938138 </p>
@@ -552,11 +552,21 @@
             </tbody>
         </table>
 
-        <table class="mx" width="100%">
+        <table class="mx" width="100%"> 
             <tbody>
                 <tr>
 
                     <td class="text-left"><strong>Mode de paiement:</strong> Chèque ou virement bancaire</td>
+                    
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="mx" width="100%"> 
+            <tbody>
+                <tr>
+
+                    <td class="text-left"><strong>Modalité de paiement:</strong> A la réception de la facture finale</td>
                     
                 </tr>
             </tbody>
